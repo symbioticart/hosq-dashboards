@@ -4,12 +4,14 @@
 <meta name="description" content="Культурные проекты фонда HOSQ: лаборатории, концерты, события, лекции.">
 <meta property="og:title" content="HOSQ — Витрина проектов"><meta property="og:type" content="website">
 <link rel="stylesheet" href="/styles/app.css">
+<script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
 </head><body>
 <div id="hdr"></div>
 <main class="wrap" id="app"><div class="empty">Загрузка…</div></main>
 <div id="ftr"></div>
 <script type="module">
-import {C,loadJSON,fmt,header,footer} from '/src/common.js';
+import {theme,C,CAT,loadJSON,fmt,chart,header,footer,gcard} from '/src/common.js';
+echarts.registerTheme('hosq',theme);
 document.getElementById('hdr').innerHTML=header('showcase');
 const [projects,nl,meta]=await Promise.all([
   loadJSON('/data/projects.json'),loadJSON('/data/notations_lab.json'),loadJSON('/data/manifest.json')]);
@@ -18,25 +20,38 @@ document.getElementById('ftr').innerHTML=footer(meta);
 document.getElementById('app').innerHTML=`
 <section class="hero">
   <h1>Витрина HOSQ</h1>
-  <p class="lead">${projects.length} культурных проектов: лаборатории, концерты, события, лекции и гибриды — в Армении и за её пределами.</p>
+  <p class="lead">${projects.length} проектов 2024–2026 в Армении: концерты, лекции, мастер-классы, community-события и лаборатории. Здесь — живые примеры за цифрами портфеля.</p>
 </section>
 <section class="block">
   <div class="filters" id="filters"></div>
   <div class="pgrid" id="pgrid"></div>
 </section>
 <section class="block">
-  <h2>Флагман: ${nl.label.split(' —')[0]}</h2>
-  <div class="note">Эти цифры относятся <b>только</b> к программе Notations Lab — это глубокий кейс, а не показатели всего портфеля.</div>
+  <h2>Флагман: Notations Lab</h2>
+  <div class="note">Notations Lab — флагманская программа. Подробные данные по команде, партнёрам и событиям есть только по ней, поэтому показатели ниже относятся к этой программе, а не ко всему портфелю.</div>
   <div class="kpis">
     <div class="kpi accent-coral"><div class="num">${nl.team_size}</div><div class="lbl">участников команды</div></div>
     <div class="kpi accent-violet"><div class="num">${nl.distinct_disciplines.length}</div><div class="lbl">дисциплин</div></div>
     <div class="kpi accent-green"><div class="num">${nl.partner_count}</div><div class="lbl">партнёров</div></div>
     <div class="kpi accent-blue"><div class="num">${nl.event_count}</div><div class="lbl">событий</div></div>
   </div>
-  <div class="card"><h3>Дисциплины программы</h3>
-    <div>${nl.distinct_disciplines.map(d=>`<span class="pill">${d}</span>`).join('')}</div></div>
+  ${gcard({title:'Notations Lab: состав команды по дисциплинам',id:'c_disc',kind:'treemap',
+    read:'размер блока — число людей в команде по каждой дисциплине.',
+    ai:'В команде программы <b>87 человек на 13 событий</b> — единственный проект с детальным составом. Это база для норматива «команда на событие»; чтобы переносить его на портфель, нужно собрать команды и по другим проектам.',
+    src:'team.discipline, Notations Lab'})}
 </section>`;
 
+// disciplines treemap
+(function(){const cnt={};nl.team.forEach(t=>{const d=t.discipline;const parts=d?String(d).split(',').map(s=>s.trim()):['Не указано'];
+    parts.forEach(p=>cnt[p]=(cnt[p]||0)+1);});
+  const data=Object.entries(cnt).sort((a,b)=>b[1]-a[1]).map(([name,value],i)=>({name,value,itemStyle:{color:CAT[i%CAT.length]}}));
+  const c=chart(document.getElementById('c_disc'));
+  c.setOption({tooltip:{formatter:p=>`${p.name}<br><b>${p.value}</b> чел.`},
+    series:[{type:'treemap',data,roam:false,nodeClick:false,breadcrumb:{show:false},
+      label:{show:true,formatter:p=>`${p.name}\n${p.value}`,color:'#fff',fontFamily:'Cera Pro',fontSize:13},
+      itemStyle:{borderColor:C.cream,borderWidth:2,gapWidth:2}}]});})();
+
+// filters + grid
 const facets={stream:new Set(),type:new Set()};
 const uniq=k=>[...new Set(projects.map(p=>p[k]).filter(Boolean))];
 document.getElementById('filters').innerHTML=[['stream','Стрим'],['type','Тип']].map(([k,lbl])=>
@@ -48,7 +63,7 @@ function render(){const list=projects.filter(p=>['stream','type'].every(k=>facet
     <div class="ttl">${p.title||p.slug}</div>
     <div class="meta">${[p.city,p.year].filter(Boolean).join(' · ')}</div>
     ${p.short_description?`<div class="muted" style="font-size:13px">${p.short_description}</div>`:''}
-  </a>`).join(''):`<div class="empty">Нет проектов под эти фильтры.</div>`;}
+  </a>`).join(''):`<div class="empty-state"><b>Нет проектов под эти фильтры</b>Сбросьте часть фильтров.</div>`;}
 document.getElementById('filters').addEventListener('click',e=>{const btn=e.target.closest('.fbtn');if(!btn)return;
   const{k,v}=btn.dataset;const on=btn.getAttribute('aria-pressed')==='true';
   btn.setAttribute('aria-pressed',String(!on));on?facets[k].delete(v):facets[k].add(v);render();});

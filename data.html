@@ -1,0 +1,85 @@
+<!doctype html><html lang="ru"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HOSQ — Данные портфеля</title>
+<meta name="description" content="Исходные данные портфеля HOSQ: все 47 проектов и полнота полей.">
+<link rel="stylesheet" href="/styles/app.css">
+<script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+</head><body>
+<div id="hdr"></div>
+<main class="wrap" id="app"><div class="empty">Загрузка…</div></main>
+<div id="ftr"></div>
+<script type="module">
+import {theme,C,loadJSON,fmt,money,chart,header,footer,gcard} from '/src/common.js';
+echarts.registerTheme('hosq',theme);
+document.getElementById('hdr').innerHTML=header('data');
+const [projects,agg,meta]=await Promise.all([
+  loadJSON('/data/projects.json'),loadJSON('/data/aggregates.json'),loadJSON('/data/manifest.json')]);
+document.getElementById('ftr').innerHTML=footer(meta);
+const asof=meta.export_date.split('-').reverse().join('.');
+const avgCov=p=>{const vs=Object.values(p.vector_coverage).filter(x=>x!=null);return vs.length?vs.reduce((a,b)=>a+b)/vs.length:0;};
+
+document.getElementById('app').innerHTML=`
+<section class="hero">
+  <div class="as-of" style="margin-bottom:14px">Данные на ${asof}</div>
+  <h1>Данные портфеля</h1>
+  <p class="lead">Откуда берутся цифры и где их не хватает. Профили всех 47 проектов — черновики; график и таблица ниже показывают и результаты, и пробелы в сборе.</p>
+</section>
+
+<section class="block"><h2>Полнота данных</h2>
+  ${gcard({title:'Что собрать в первую очередь',id:'c_fill',
+    read:'каждый столбец — ключевое поле; высота показывает, у какой доли из 47 проектов оно заполнено.',
+    ai:'Бюджет есть у <b>27/47</b>, охват у <b>30/47</b>, локальные партнёры у 40/47, а рабочие места, международные партнёры и онлайн-охват пусты целиком. Сначала добивайте бюджет и охват — без них не считаются ни эффективность, ни итоги по гранту.',
+    src:'доля непустых значений по 47 проектам'})}
+</section>
+
+<section class="block">
+  <h2>Все проекты: исходные данные</h2>
+  <p class="muted">47 проектов. Клик по заголовку столбца — сортировка. Пустые значения показаны как «—» (нет данных, не ноль). Клик по строке — профиль проекта.</p>
+  <div class="data-wrap" style="margin-top:16px;max-height:70vh"><table class="data-table" id="tbl"></table></div>
+</section>`;
+
+// field completeness
+(function(){
+  const present=[['budget_usd','Бюджет'],['audience_onsite','Охват'],['partners_local','Партнёры (лок.)'],
+    ['stream','Стрим'],['team_size','Команда'],['participants_onsite','Участники'],
+    ['duration_days','Длит.'],['languages','Языки'],['short_description','Описание']];
+  const rows=present.map(([k,lbl])=>{const n=projects.filter(p=>p[k]!=null&&p[k]!==''&&!(Array.isArray(p[k])&&!p[k].length)).length;
+    return {lbl,pct:Math.round(n/47*100),n};});
+  // fully-empty blocked fields → 0%
+  [['Раб. места',0],['Межд. партнёры',0],['Онлайн-охват',0]].forEach(([lbl,n])=>rows.push({lbl,pct:0,n:0}));
+  rows.sort((a,b)=>b.pct-a.pct);
+  const c=chart(document.getElementById('c_fill'));
+  c.setOption({...theme,tooltip:{trigger:'axis',formatter:p=>`${p[0].name}<br><b>${p[0].value}%</b> (${rows[p[0].dataIndex].n} из 47)`},
+    grid:{left:12,right:36,top:16,bottom:8,containLabel:true},
+    xAxis:{type:'value',max:100,axisLabel:{formatter:v=>v+'%'}},
+    yAxis:{type:'category',inverse:true,data:rows.map(r=>r.lbl)},
+    series:[{type:'bar',data:rows.map(r=>({value:r.pct,itemStyle:{color:r.pct>=60?C.green:(r.pct>0?C.coral:'#D8CCBE'),borderRadius:[0,6,6,0]}})),
+      label:{show:true,position:'right',color:C.dark,formatter:p=>p.value+'%'}}]});})();
+
+// sortable table
+const cols=[
+  {k:'title',lbl:'Проект',get:p=>p.title||p.slug,cell:p=>`<a href="/project.html?slug=${encodeURIComponent(p.slug)}">${p.title||p.slug}</a>`},
+  {k:'stream',lbl:'Стрим',get:p=>p.stream||'',cell:p=>p.stream?`<span class="tag tag--stream">${p.stream}</span>`:'—'},
+  {k:'type',lbl:'Тип',get:p=>p.type||'',cell:p=>p.type?`<span class="tag tag--type">${p.type}</span>`:'—'},
+  {k:'year',lbl:'Год',num:1,get:p=>p.year||0,cell:p=>p.year||'—'},
+  {k:'city',lbl:'Город',get:p=>p.city||'',cell:p=>p.city||'—'},
+  {k:'budget_usd',lbl:'Бюджет',num:1,get:p=>p.budget_usd??-1,cell:p=>p.budget_usd!=null?money(p.budget_usd):'—'},
+  {k:'audience_onsite',lbl:'Охват',num:1,get:p=>p.audience_onsite??-1,cell:p=>p.audience_onsite!=null?fmt(p.audience_onsite):'—'},
+  {k:'partners_local',lbl:'Партнёры',num:1,get:p=>p.partners_local??-1,cell:p=>p.partners_local!=null?p.partners_local:'—'},
+  {k:'languages',lbl:'Языки',get:p=>(p.languages||[]).join(','),cell:p=>(p.languages||[]).join(', ')||'—'},
+  {k:'duration_days',lbl:'Дней',num:1,get:p=>p.duration_days??-1,cell:p=>p.duration_days??'—'},
+  {k:'cov',lbl:'Покрытие A–J',num:1,get:p=>avgCov(p),cell:p=>Math.round(avgCov(p)*100)+'%'},
+];
+let sortK='cov',sortDir=-1;
+function draw(){
+  const data=[...projects].sort((a,b)=>{const ca=cols.find(c=>c.k===sortK).get(a),cb=cols.find(c=>c.k===sortK).get(b);
+    return (ca>cb?1:ca<cb?-1:0)*sortDir;});
+  const head=`<thead><tr>${cols.map(c=>`<th class="${c.num?'num':''}" data-k="${c.k}" style="cursor:pointer">${c.lbl}${sortK===c.k?(sortDir<0?' ▼':' ▲'):''}</th>`).join('')}</tr></thead>`;
+  const body=`<tbody>${data.map(p=>`<tr>${cols.map(c=>{const v=c.cell(p);const isEmpty=v==='—';
+    return `<td class="${c.num?'num':''} ${isEmpty?'nodata':''}">${v}</td>`;}).join('')}</tr>`).join('')}</tbody>`;
+  document.getElementById('tbl').innerHTML=head+body;
+  document.querySelectorAll('#tbl th').forEach(th=>th.onclick=()=>{const k=th.dataset.k;
+    if(sortK===k)sortDir*=-1;else{sortK=k;sortDir=cols.find(c=>c.k===k).num?-1:1;}draw();});
+}
+draw();
+</script></body></html>

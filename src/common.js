@@ -5,16 +5,29 @@ export const CAT = [C.coral,C.violet,C.green,C.blue,C.pink,'#8C6FE0','#E0A23C','
 // Donor focus vectors (locked with principal): Internationality G + Cultural Vitality A + Art Quality D
 export const FOCUS = new Set(['G','A','D']);
 
+const AX={axisLabel:{fontSize:12,color:C.muted,fontFamily:'Cera Pro',margin:10,hideOverlap:true},
+  nameTextStyle:{fontSize:12,color:C.muted},axisLine:{lineStyle:{color:'#D8CCBE'}},axisTick:{show:false},
+  splitLine:{lineStyle:{color:'#E2D7CA'}}};
 export const theme = {
   color: CAT,
   backgroundColor: 'transparent',
-  textStyle:{fontFamily:'Cera Pro, DM Sans, sans-serif', color:C.dark},
+  textStyle:{fontFamily:'Cera Pro, sans-serif', color:C.dark},
   title:{textStyle:{color:C.dark,fontWeight:700}},
-  grid:{left:8,right:16,top:24,bottom:8,containLabel:true},
-  categoryAxis:{axisLine:{lineStyle:{color:C.line}},axisTick:{show:false},axisLabel:{color:C.dark},splitLine:{show:false}},
-  valueAxis:{axisLine:{show:false},axisTick:{show:false},axisLabel:{color:C.muted},splitLine:{lineStyle:{color:'#00000010'}}},
-  tooltip:{backgroundColor:'#fff',borderColor:C.line,textStyle:{color:C.dark}},
+  grid:{left:12,right:16,top:24,bottom:8,containLabel:true},
+  categoryAxis:{...AX,splitLine:{show:false}},
+  valueAxis:{...AX,axisLine:{show:false}},
+  legend:{textStyle:{fontSize:12,color:C.muted},itemGap:16,icon:'roundRect'},
+  tooltip:{backgroundColor:'#FFFFFF',borderColor:'#E2D7CA',borderWidth:1,padding:[10,12],
+    textStyle:{color:C.dark,fontSize:13,fontFamily:'Cera Pro'},extraCssText:'border-radius:12px;box-shadow:none;'},
 };
+// graph-card builder: title -> read-line -> chart -> AI insight -> source
+export function gcard(o){
+  return `<div class="card"><h3>${o.title}</h3>`+
+    (o.read?`<div class="read-line">${o.read}</div>`:'')+
+    `<div id="${o.id}" class="chart ${o.kind||''}"></div>`+
+    (o.ai?`<div class="ai-insight"><div>${o.ai}</div></div>`:'')+
+    (o.src?`<div class="src">${o.src}</div>`:'')+`</div>`;
+}
 
 export async function loadJSON(p){const r=await fetch(p);if(!r.ok)throw new Error(p+' '+r.status);return r.json();}
 export const fmt = n => n==null?'—':n.toLocaleString('en-US');
@@ -27,8 +40,9 @@ export function header(active){
     <a class="brand" href="/index.html"><img src="/public/logos/hosq-logo-black.svg" alt="hosq"/></a>
     <nav class="nav">
       <a href="/index.html" class="${active==='portfolio'?'active':''}">Портфель</a>
-      <a href="/impact.html" class="${active==='impact'?'active':''}">Импакт A–J</a>
+      <a href="/impact.html" class="${active==='impact'?'active':''}">Доказательства A–J</a>
       <a href="/showcase.html" class="${active==='showcase'?'active':''}">Витрина</a>
+      <a href="/data.html" class="${active==='data'?'active':''}">Данные</a>
     </nav></div></div>`;
 }
 export function footer(meta){
