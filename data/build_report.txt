@@ -1,0 +1,24 @@
+HOSQ data build — 2026-06-29
+source: hosq_project_profile_v7_enriched.xlsx
+projects: 47
+
+KPI coverage (n_covered / n_total):
+  budget_total_usd: 27/47  value=375000.0
+  audience_onsite_total: 30/47  value=3189
+  participants_total: 5/47  value=235
+  partners_local_total: 40/47  value=39
+
+Vector evidence coverage (portfolio avg):
+  A Cultural Vitality        0.519  (17 fields)
+  B Creative Economy         0.072  (8 fields)
+  C Social Inclusion         0.147  (10 fields)
+  D Artistic Quality         0.163  (12 fields)
+  E Heritage & Environment   0.295  (7 fields)
+  F Digitality               0.279  (13 fields)
+  G Internationality         0.28  (7 fields)
+  H Capacity Building        0.207  (11 fields)
+  I Participation            0.069  (13 fields)
+  J Resonance                0.289  (12 fields)
+
+BLOCKED metrics (never published as totals): ['jobs_created_count', 'jobs_paid_count', 'partners_international_count', 'audience_reach_online']
+Notations Lab case: team=87 partners=6 events=13 (scoped, PII stripped)

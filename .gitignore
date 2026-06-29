@@ -1,0 +1,6 @@
+# Never publish the raw source — it contains PII (emails, telegram handles).
+source/*.xlsx
+source/*.xls
+node_modules/
+.DS_Store
+*.log

@@ -1,0 +1,109 @@
+{
+  "project_count": 47,
+  "by_type": {
+    "lab_showcase": 14,
+    "lecture_series": 13,
+    "community_event": 8,
+    "workshop_series": 6,
+    "hybrid": 5,
+    "concert": 1
+  },
+  "by_stream": {
+    "network": 24,
+    "—": 13,
+    "foundation": 10
+  },
+  "by_year": {
+    "2025": 39,
+    "2026": 6,
+    "—": 1,
+    "2024": 1
+  },
+  "by_status": {
+    "completed": 45,
+    "planned": 2
+  },
+  "budget_total_usd": {
+    "value": 375000.0,
+    "n_covered": 27,
+    "n_total": 47
+  },
+  "audience_onsite_total": {
+    "value": 3189,
+    "n_covered": 30,
+    "n_total": 47
+  },
+  "participants_total": {
+    "value": 235,
+    "n_covered": 5,
+    "n_total": 47
+  },
+  "partners_local_total": {
+    "value": 39,
+    "n_covered": 40,
+    "n_total": 47
+  },
+  "distinct_languages": [
+    "Armenian",
+    "English"
+  ],
+  "distinct_language_count": 2,
+  "vector_coverage": {
+    "A": {
+      "name": "Cultural Vitality",
+      "coverage": 0.519,
+      "n_fields": 17
+    },
+    "B": {
+      "name": "Creative Economy",
+      "coverage": 0.072,
+      "n_fields": 8
+    },
+    "C": {
+      "name": "Social Inclusion",
+      "coverage": 0.147,
+      "n_fields": 10
+    },
+    "D": {
+      "name": "Artistic Quality",
+      "coverage": 0.163,
+      "n_fields": 12
+    },
+    "E": {
+      "name": "Heritage & Environment",
+      "coverage": 0.295,
+      "n_fields": 7
+    },
+    "F": {
+      "name": "Digitality",
+      "coverage": 0.279,
+      "n_fields": 13
+    },
+    "G": {
+      "name": "Internationality",
+      "coverage": 0.28,
+      "n_fields": 7
+    },
+    "H": {
+      "name": "Capacity Building",
+      "coverage": 0.207,
+      "n_fields": 11
+    },
+    "I": {
+      "name": "Participation",
+      "coverage": 0.069,
+      "n_fields": 13
+    },
+    "J": {
+      "name": "Resonance",
+      "coverage": 0.289,
+      "n_fields": 12
+    }
+  },
+  "blocked_metrics": [
+    "jobs_created_count",
+    "jobs_paid_count",
+    "partners_international_count",
+    "audience_reach_online"
+  ]
+}

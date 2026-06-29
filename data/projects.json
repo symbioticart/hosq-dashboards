@@ -1,0 +1,2308 @@
+[
+  {
+    "project_id": "night_special_lulling_yo",
+    "slug": "night_special_lulling_yo",
+    "title": "Night Special. Lulling Your Anxiety",
+    "type": "community_event",
+    "status": "completed",
+    "year": 2026,
+    "stream": "network",
+    "city": "Yerevan",
+    "country": "Armenia",
+    "venue": "The State Philharmonia of Armenia",
+    "url": null,
+    "duration_days": 2,
+    "tags": [
+      "Jam Session"
+    ],
+    "languages": [
+      "Armenian",
+      "English"
+    ],
+    "short_description": "Lulling Your Anxiety",
+    "budget_usd": null,
+    "audience_onsite": null,
+    "audience_online": null,
+    "participants_onsite": null,
+    "partners_local": 1,
+    "partners_international": null,
+    "team_size": 5,
+    "vector_coverage": {
+      "A": 0.529,
+      "B": 0.0,
+      "C": 0.2,
+      "D": 0.25,
+      "E": 0.286,
+      "F": 0.077,
+      "G": 0.286,
+      "H": 0.273,
+      "I": 0.0,
+      "J": 0.0
+    },
+    "flags": {
+      "budget_missing": true,
+      "intl_partners_unverified": true,
+      "online_quarantined": false
+    }
+  },
+  {
+    "project_id": "music_for_airport_arriva",
+    "slug": "music_for_airport_arriva",
+    "title": "Music for Airport: Arrival",
+    "type": "lab_showcase",
+    "status": "completed",
+    "year": 2026,
+    "stream": "network",
+    "city": "Yerevan",
+    "country": "Armenia",
+    "venue": "Zvartnots International Airport",
+    "url": "https://hosq.co/musicforairportarrival",
+    "duration_days": 1,
+    "tags": [
+      "Concert",
+      "public event",
+      "collaboration",
+      "sound & music",
+      "installation",
+      "media art"
+    ],
+    "languages": [
+      "Armenian",
+      "English"
+    ],
+    "short_description": "Music for Airport",
+    "budget_usd": null,
+    "audience_onsite": null,
+    "audience_online": null,
+    "participants_onsite": null,
+    "partners_local": 0,
+    "partners_international": null,
+    "team_size": null,
+    "vector_coverage": {
+      "A": 0.529,
+      "B": 0.0,
+      "C": 0.1,
+      "D": 0.083,
+      "E": 0.286,
+      "F": 0.385,
+      "G": 0.429,
+      "H": 0.182,
+      "I": 0.0,
+      "J": 0.417
+    },
+    "flags": {
+      "budget_missing": true,
+      "intl_partners_unverified": true,
+      "online_quarantined": false
+    }
+  },
+  {
+    "project_id": "tresor_x_moct",
+    "slug": "tresor_x_moct",
+    "title": "Tresor x MOCT",
+    "type": "lab_showcase",
+    "status": "completed",
+    "year": 2026,
+    "stream": "foundation",
+    "city": "Yerevan",
+    "country": "Armenia",
+    "venue": "National Library of Armenia",
+    "url": "https://www.instagram.com/p/DU0n1g6guNO/?img_index=1",
+    "duration_days": 1,
+    "tags": [
+      "Panel Discussion",
+      "collaboration",
+      "art management",
+      "sound & music"
+    ],
+    "languages": [
+      "Armenian",
+      "English"
+    ],
+    "short_description": "Tresor",
+    "budget_usd": null,
+    "audience_onsite": null,
+    "audience_online": null,
+    "participants_onsite": null,
+    "partners_local": 2,
+    "partners_international": null,
+    "team_size": null,
+    "vector_coverage": {
+      "A": 0.529,
+      "B": 0.0,
+      "C": 0.1,
+      "D": 0.083,
+      "E": 0.286,
+      "F": 0.308,
+      "G": 0.286,
+      "H": 0.182,
+      "I": 0.0,
+      "J": 0.25
+    },
+    "flags": {
+      "budget_missing": true,
+      "intl_partners_unverified": true,
+      "online_quarantined": false
+    }
+  },
+  {
+    "project_id": "tanits_toon",
+    "slug": "tanits_toon",
+    "title": "Tanits Toon",
+    "type": "community_event",
+    "status": "completed",
+    "year": 2025,
+    "stream": "network",
+    "city": "Yerevan",
+    "country": "Armenia",
+    "venue": "State Philharmonia of Armenia",
+    "url": "https://hosq.co/tanitstoon",
+    "duration_days": 1,
+    "tags": [
+      "Community Event",
+      "Festival",
+      "community event",
+      "sound & music",
+      "visual art",
+      "performance",
+      "installation",
+      "animation",
+      "light",
+      "media art",
+      "set design"
+    ],
+    "languages": [
+      "Armenian",
+      "English"
+    ],
+    "short_description": "Tanits Toon",
+    "budget_usd": 30000.0,
+    "audience_onsite": 380,
+    "audience_online": null,
+    "participants_onsite": null,
+    "partners_local": 1,
+    "partners_international": null,
+    "team_size": null,
+    "vector_coverage": {
+      "A": 0.529,
+      "B": 0.125,
+      "C": 0.1,
+      "D": 0.083,
+      "E": 0.286,
+      "F": 0.385,
+      "G": 0.286,
+      "H": 0.182,
+      "I": 0.077,
+      "J": 0.417
+    },
+    "flags": {
+      "budget_missing": false,
+      "intl_partners_unverified": true,
+      "online_quarantined": false
+    }
+  },
+  {
+    "project_id": "liliana_cavani_s_retrosp",
+    "slug": "liliana_cavani_s_retrosp",
+    "title": "Liliana Cavani's Retrospective",
+    "type": "lab_showcase",
+    "status": "completed",
+    "year": 2025,
+    "stream": "network",
+    "city": "Yerevan",
+    "country": "Armenia",
+    "venue": "AGBU Armenia Hall",
+    "url": "https://hosq.co/patriziafregonesedefilippo1",
+    "duration_days": 1,
+    "tags": [
+      "Lecture",
+      "public event",
+      "collaboration",
+      "filming"
+    ],
+    "languages": [
+      "Armenian",
+      "English"
+    ],
+    "short_description": "Women’s Film Festival",
+    "budget_usd": null,
+    "audience_onsite": 15,
+    "audience_online": null,
+    "participants_onsite": null,
+    "partners_local": 1,
+    "partners_international": null,
+    "team_size": 1,
+    "vector_coverage": {
+      "A": 0.529,
+      "B": 0.0,
+      "C": 0.1,
+      "D": 0.25,
+      "E": 0.286,
+      "F": 0.308,
+      "G": 0.286,
+      "H": 0.273,
+      "I": 0.077,
+      "J": 0.333
+    },
+    "flags": {
+      "budget_missing": true,
+      "intl_partners_unverified": true,
+      "online_quarantined": false
+    }
+  },
+  {
+    "project_id": "making_useless_things",
+    "slug": "making_useless_things",
+    "title": "Making Useless Things",
+    "type": "lab_showcase",
+    "status": "completed",
+    "year": 2025,
+    "stream": "network",
+    "city": "Yerevan",
+    "country": "Armenia",
+    "venue": "Komitas Yerevan State Conservatory",
+    "url": "https://www.instagram.com/p/DTiTiZ4guHy/?img_index=1",
+    "duration_days": 3,
+    "tags": [
+      "Workshop",
+      "Open-call",
+      "community event",
+      "collaboration"
+    ],
+    "languages": [
+      "Armenian",
+      "English"
+    ],
+    "short_description": "Making Useless Things",
+    "budget_usd": null,
+    "audience_onsite": null,
+    "audience_online": null,
+    "participants_onsite": null,
+    "partners_local": 1,
+    "partners_international": null,
+    "team_size": null,
+    "vector_coverage": {
+      "A": 0.529,
+      "B": 0.0,
+      "C": 0.1,
+      "D": 0.083,
+      "E": 0.286,
+      "F": 0.308,
+      "G": 0.286,
+      "H": 0.182,
+      "I": 0.0,
+      "J": 0.25
+    },
+    "flags": {
+      "budget_missing": true,
+      "intl_partners_unverified": true,
+      "online_quarantined": false
+    }
+  },
+  {
+    "project_id": "art_dreams_for_the_new_e",
+    "slug": "art_dreams_for_the_new_e",
+    "title": "Art Dreams For The New European Bauhaus",
+    "type": "lecture_series",
+    "status": "completed",
+    "year": 2025,
+    "stream": "network",
+    "city": "Yerevan",
+    "country": "Armenia",
+    "venue": "Library for Architecture",
+    "url": "https://hosq.co/robertopacidalo2",
+    "duration_days": 1,
+    "tags": [
+      "Lecture",
+      "community event"
+    ],
+    "languages": [
+      "Armenian",
+      "English"
+    ],
+    "short_description": "New European Bauhaus",
+    "budget_usd": null,
+    "audience_onsite": 16,
+    "audience_online": null,
+    "participants_onsite": null,
+    "partners_local": 1,
+    "partners_international": null,
+    "team_size": 1,
+    "vector_coverage": {
+      "A": 0.529,
+      "B": 0.0,
+      "C": 0.2,
+      "D": 0.25,
+      "E": 0.286,
+      "F": 0.308,
+      "G": 0.286,
+      "H": 0.273,
+      "I": 0.077,
+      "J": 0.333
+    },
+    "flags": {
+      "budget_missing": true,
+      "intl_partners_unverified": true,
+      "online_quarantined": false
+    }
+  },
+  {
+    "project_id": "jam_discipline_2",
+    "slug": "jam_discipline_2",
+    "title": "Jam Discipline #2",
+    "type": "community_event",
+    "status": "completed",
+    "year": 2025,
+    "stream": "network",
+    "city": "Yerevan",
+    "country": "Armenia",
+    "venue": "State Philharmonia of Armenia",
+    "url": "https://hosq.co/jamdiscipline2",
+    "duration_days": 1,
+    "tags": [
+      "Jam Session",
+      "community event",
+      "sound & music",
+      "light",
+      "media art"
+    ],
+    "languages": [
+      "Armenian",
+      "English"
+    ],
+    "short_description": "Jam Discipline #2",
+    "budget_usd": 2000.0,
+    "audience_onsite": 30,
+    "audience_online": null,
+    "participants_onsite": null,
+    "partners_local": 1,
+    "partners_international": null,
+    "team_size": null,
+    "vector_coverage": {
+      "A": 0.529,
+      "B": 0.125,
+      "C": 0.2,
+      "D": 0.167,
+      "E": 0.286,
+      "F": 0.308,
+      "G": 0.286,
+      "H": 0.182,
+      "I": 0.077,
+      "J": 0.333
+    },
+    "flags": {
+      "budget_missing": false,
+      "intl_partners_unverified": true,
+      "online_quarantined": false
+    }
+  },
+  {
+    "project_id": "1915_the_armenian_files_",
+    "slug": "1915_the_armenian_files_",
+    "title": "1915 The Armenian Files & Conspiratio",
+    "type": "concert",
+    "status": "completed",
+    "year": 2025,
+    "stream": "network",
+    "city": "Yerevan",
+    "country": "Armenia",
+    "venue": "Martiros Sarian House-Museum",
+    "url": "https://hosq.co/robertopacidalo1",
+    "duration_days": 1,
+    "tags": [
+      "Concert",
+      "public event",
+      "sound & music"
+    ],
+    "languages": [
+      "Armenian",
+      "English"
+    ],
+    "short_description": "1915 The Armenian Files",
+    "budget_usd": 10000.0,
+    "audience_onsite": 97,
+    "audience_online": null,
+    "participants_onsite": null,
+    "partners_local": null,
+    "partners_international": null,
+    "team_size": 1,
+    "vector_coverage": {
+      "A": 0.412,
+      "B": 0.125,
+      "C": 0.1,
+      "D": 0.25,
+      "E": 0.286,
+      "F": 0.308,
+      "G": 0.143,
+      "H": 0.091,
+      "I": 0.077,
+      "J": 0.333
+    },
+    "flags": {
+      "budget_missing": false,
+      "intl_partners_unverified": true,
+      "online_quarantined": false
+    }
+  },
+  {
+    "project_id": "asa_forum_art_management",
+    "slug": "asa_forum_art_management",
+    "title": "ASA Forum Art Management Panel",
+    "type": "lecture_series",
+    "status": "completed",
+    "year": 2025,
+    "stream": "network",
+    "city": "Yerevan",
+    "country": "Armenia",
+    "venue": "State Philharmonia of Armenia",
+    "url": "https://hosq.co/artmanagementpaneldiscussion1",
+    "duration_days": 1,
+    "tags": [
+      "Panel Discussion"
+    ],
+    "languages": [
+      "Armenian",
+      "English"
+    ],
+    "short_description": "ASA Forum",
+    "budget_usd": 2000.0,
+    "audience_onsite": 30,
+    "audience_online": null,
+    "participants_onsite": null,
+    "partners_local": 1,
+    "partners_international": null,
+    "team_size": 6,
+    "vector_coverage": {
+      "A": 0.529,
+      "B": 0.125,
+      "C": 0.3,
+      "D": 0.333,
+      "E": 0.286,
+      "F": 0.308,
+      "G": 0.286,
+      "H": 0.273,
+      "I": 0.154,
+      "J": 0.25
+    },
+    "flags": {
+      "budget_missing": false,
+      "intl_partners_unverified": true,
+      "online_quarantined": false
+    }
+  },
+  {
+    "project_id": "soundcrit",
+    "slug": "soundcrit",
+    "title": "SoundCrit",
+    "type": "community_event",
+    "status": "completed",
+    "year": 2025,
+    "stream": "network",
+    "city": "Yerevan",
+    "country": "Armenia",
+    "venue": "State Philharmonia of Armenia",
+    "url": "https://hosq.co/soundcrit1",
+    "duration_days": 1,
+    "tags": [
+      "Community Event"
+    ],
+    "languages": [
+      "Armenian",
+      "English"
+    ],
+    "short_description": "SoundCrit",
+    "budget_usd": 2300.0,
+    "audience_onsite": 20,
+    "audience_online": null,
+    "participants_onsite": null,
+    "partners_local": 2,
+    "partners_international": null,
+    "team_size": null,
+    "vector_coverage": {
+      "A": 0.529,
+      "B": 0.125,
+      "C": 0.1,
+      "D": 0.083,
+      "E": 0.286,
+      "F": 0.154,
+      "G": 0.286,
+      "H": 0.182,
+      "I": 0.077,
+      "J": 0.083
+    },
+    "flags": {
+      "budget_missing": false,
+      "intl_partners_unverified": true,
+      "online_quarantined": false
+    }
+  },
+  {
+    "project_id": "bring_your_own_beamer",
+    "slug": "bring_your_own_beamer",
+    "title": "Bring Your Own Beamer",
+    "type": "community_event",
+    "status": "completed",
+    "year": 2025,
+    "stream": "network",
+    "city": "Yerevan",
+    "country": "Armenia",
+    "venue": "Gabriel Sundukyan National Academic Theatre",
+    "url": "https://hosq.co/byob1",
+    "duration_days": 1,
+    "tags": [
+      "Jam Session",
+      "Open-call",
+      "community event",
+      "media art",
+      "light"
+    ],
+    "languages": [
+      "Armenian",
+      "English"
+    ],
+    "short_description": "BYOB",
+    "budget_usd": 6500.0,
+    "audience_onsite": 425,
+    "audience_online": null,
+    "participants_onsite": null,
+    "partners_local": 1,
+    "partners_international": null,
+    "team_size": null,
+    "vector_coverage": {
+      "A": 0.529,
+      "B": 0.125,
+      "C": 0.2,
+      "D": 0.083,
+      "E": 0.286,
+      "F": 0.385,
+      "G": 0.286,
+      "H": 0.182,
+      "I": 0.077,
+      "J": 0.417
+    },
+    "flags": {
+      "budget_missing": false,
+      "intl_partners_unverified": true,
+      "online_quarantined": false
+    }
+  },
+  {
+    "project_id": "80th_anniversary_of_the_",
+    "slug": "80th_anniversary_of_the_",
+    "title": "80th anniversary of The State Academy of Fine Arts",
+    "type": "lab_showcase",
+    "status": "completed",
+    "year": 2025,
+    "stream": "foundation",
+    "city": "Yerevan",
+    "country": "Armenia",
+    "venue": "Gabriel Sundukyan National Academic Theatre",
+    "url": "https://www.instagram.com/p/DPlNJ2sgmPB/",
+    "duration_days": 1,
+    "tags": [
+      "Concert",
+      "Open-call",
+      "collaboration",
+      "sound & music"
+    ],
+    "languages": [
+      "Armenian",
+      "English"
+    ],
+    "short_description": "Fine Arts Graduation",
+    "budget_usd": 6000.0,
+    "audience_onsite": null,
+    "audience_online": null,
+    "participants_onsite": null,
+    "partners_local": 2,
+    "partners_international": null,
+    "team_size": null,
+    "vector_coverage": {
+      "A": 0.529,
+      "B": 0.125,
+      "C": 0.2,
+      "D": 0.083,
+      "E": 0.286,
+      "F": 0.308,
+      "G": 0.286,
+      "H": 0.182,
+      "I": 0.0,
+      "J": 0.25
+    },
+    "flags": {
+      "budget_missing": false,
+      "intl_partners_unverified": true,
+      "online_quarantined": false
+    }
+  },
+  {
+    "project_id": "antanelee_performance",
+    "slug": "antanelee_performance",
+    "title": "Antanelee Performance",
+    "type": "hybrid",
+    "status": "completed",
+    "year": 2025,
+    "stream": "foundation",
+    "city": "Yerevan",
+    "country": "Armenia",
+    "venue": "Gabriel Sundukyan National Academic Theatre",
+    "url": "https://www.instagram.com/p/DPowM9qAiI3/?img_index=1",
+    "duration_days": 1,
+    "tags": [
+      "Performance"
+    ],
+    "languages": [
+      "Armenian",
+      "English"
+    ],
+    "short_description": "Antanelee Performance",
+    "budget_usd": null,
+    "audience_onsite": null,
+    "audience_online": null,
+    "participants_onsite": null,
+    "partners_local": 1,
+    "partners_international": null,
+    "team_size": null,
+    "vector_coverage": {
+      "A": 0.529,
+      "B": 0.0,
+      "C": 0.1,
+      "D": 0.083,
+      "E": 0.286,
+      "F": 0.308,
+      "G": 0.286,
+      "H": 0.182,
+      "I": 0.0,
+      "J": 0.167
+    },
+    "flags": {
+      "budget_missing": true,
+      "intl_partners_unverified": true,
+      "online_quarantined": false
+    }
+  },
+  {
+    "project_id": "nopa_festival",
+    "slug": "nopa_festival",
+    "title": "NOPA Festival",
+    "type": "workshop_series",
+    "status": "completed",
+    "year": 2025,
+    "stream": "foundation",
+    "city": "Yerevan",
+    "country": "Armenia",
+    "venue": "Library for Architecture",
+    "url": "https://hosq.co/collaboration-nopa",
+    "duration_days": 10,
+    "tags": [
+      "Workshop"
+    ],
+    "languages": [
+      "Armenian",
+      "English"
+    ],
+    "short_description": "NOPA",
+    "budget_usd": 8000.0,
+    "audience_onsite": 20,
+    "audience_online": null,
+    "participants_onsite": null,
+    "partners_local": 1,
+    "partners_international": null,
+    "team_size": null,
+    "vector_coverage": {
+      "A": 0.529,
+      "B": 0.125,
+      "C": 0.1,
+      "D": 0.167,
+      "E": 0.286,
+      "F": 0.231,
+      "G": 0.286,
+      "H": 0.182,
+      "I": 0.077,
+      "J": 0.25
+    },
+    "flags": {
+      "budget_missing": false,
+      "intl_partners_unverified": true,
+      "online_quarantined": false
+    }
+  },
+  {
+    "project_id": "theatrical_music_modern_",
+    "slug": "theatrical_music_modern_",
+    "title": "Theatrical Music — Modern Ballet",
+    "type": "lecture_series",
+    "status": "completed",
+    "year": 2025,
+    "stream": "network",
+    "city": "Yerevan",
+    "country": "Armenia",
+    "venue": "Library for Architecture",
+    "url": "https://www.instagram.com/p/DQtlq4NgnrF/",
+    "duration_days": 1,
+    "tags": [
+      "Lecture",
+      "public event",
+      "performance",
+      "sound & music",
+      "theatre"
+    ],
+    "languages": [
+      "Armenian",
+      "English"
+    ],
+    "short_description": "Theatrical Music",
+    "budget_usd": 2000.0,
+    "audience_onsite": 31,
+    "audience_online": null,
+    "participants_onsite": null,
+    "partners_local": 1,
+    "partners_international": null,
+    "team_size": 1,
+    "vector_coverage": {
+      "A": 0.529,
+      "B": 0.125,
+      "C": 0.2,
+      "D": 0.25,
+      "E": 0.286,
+      "F": 0.308,
+      "G": 0.286,
+      "H": 0.273,
+      "I": 0.077,
+      "J": 0.333
+    },
+    "flags": {
+      "budget_missing": false,
+      "intl_partners_unverified": true,
+      "online_quarantined": false
+    }
+  },
+  {
+    "project_id": "modern_and_contemporary_",
+    "slug": "modern_and_contemporary_",
+    "title": "Modern and Contemporary Art: Armenia in a Global Context",
+    "type": "lecture_series",
+    "status": "completed",
+    "year": 2025,
+    "stream": "network",
+    "city": "Yerevan",
+    "country": "Armenia",
+    "venue": "Cafesjian Center for the Arts",
+    "url": "https://hosq.co/armenyesayants1",
+    "duration_days": 82,
+    "tags": [
+      "Lecture",
+      "Series of Lectures",
+      "public event",
+      "art management",
+      "visual art"
+    ],
+    "languages": [
+      "Armenian",
+      "English"
+    ],
+    "short_description": "Armenia in a Global Context",
+    "budget_usd": 11200.0,
+    "audience_onsite": 123,
+    "audience_online": null,
+    "participants_onsite": null,
+    "partners_local": 2,
+    "partners_international": null,
+    "team_size": 1,
+    "vector_coverage": {
+      "A": 0.588,
+      "B": 0.125,
+      "C": 0.2,
+      "D": 0.25,
+      "E": 0.286,
+      "F": 0.308,
+      "G": 0.286,
+      "H": 0.364,
+      "I": 0.077,
+      "J": 0.417
+    },
+    "flags": {
+      "budget_missing": false,
+      "intl_partners_unverified": true,
+      "online_quarantined": false
+    }
+  },
+  {
+    "project_id": "yerevan_music_week_dark_",
+    "slug": "yerevan_music_week_dark_",
+    "title": "Yerevan Music Week: Dark Jazz Concert",
+    "type": "lab_showcase",
+    "status": "completed",
+    "year": 2025,
+    "stream": "foundation",
+    "city": "Yerevan",
+    "country": "Armenia",
+    "venue": "State Philharmonia of Armenia Ground Floor",
+    "url": "https://www.instagram.com/p/DO6Ov3mgouv/?img_index=1",
+    "duration_days": 1,
+    "tags": [
+      "Concert",
+      "public event",
+      "special project",
+      "lab",
+      "distribution",
+      "sound & music",
+      "performance"
+    ],
+    "languages": [
+      "Armenian",
+      "English"
+    ],
+    "short_description": "Yerevan Music Week",
+    "budget_usd": null,
+    "audience_onsite": null,
+    "audience_online": null,
+    "participants_onsite": null,
+    "partners_local": 1,
+    "partners_international": null,
+    "team_size": null,
+    "vector_coverage": {
+      "A": 0.529,
+      "B": 0.0,
+      "C": 0.1,
+      "D": 0.083,
+      "E": 0.286,
+      "F": 0.308,
+      "G": 0.286,
+      "H": 0.182,
+      "I": 0.0,
+      "J": 0.25
+    },
+    "flags": {
+      "budget_missing": true,
+      "intl_partners_unverified": true,
+      "online_quarantined": false
+    }
+  },
+  {
+    "project_id": "the_other_sounds_transfo",
+    "slug": "the_other_sounds_transfo",
+    "title": "The Other Sounds: Transforming Folk Recordings into Digital Instruments",
+    "type": "workshop_series",
+    "status": "completed",
+    "year": 2025,
+    "stream": "network",
+    "city": "Yerevan",
+    "country": "Armenia",
+    "venue": "State Philharmonia of Armenia Ground Floor",
+    "url": "https://hosq.co/davitsukiasyan1",
+    "duration_days": 1,
+    "tags": [
+      "Workshop",
+      "public event",
+      "sound & music",
+      "technologies"
+    ],
+    "languages": [
+      "Armenian",
+      "English"
+    ],
+    "short_description": "The Other Sounds",
+    "budget_usd": 1500.0,
+    "audience_onsite": 38,
+    "audience_online": null,
+    "participants_onsite": null,
+    "partners_local": 1,
+    "partners_international": null,
+    "team_size": 1,
+    "vector_coverage": {
+      "A": 0.529,
+      "B": 0.125,
+      "C": 0.1,
+      "D": 0.25,
+      "E": 0.286,
+      "F": 0.385,
+      "G": 0.286,
+      "H": 0.273,
+      "I": 0.077,
+      "J": 0.417
+    },
+    "flags": {
+      "budget_missing": false,
+      "intl_partners_unverified": true,
+      "online_quarantined": false
+    }
+  },
+  {
+    "project_id": "audible_spaces",
+    "slug": "audible_spaces",
+    "title": "Audible Spaces",
+    "type": "workshop_series",
+    "status": "completed",
+    "year": 2025,
+    "stream": "network",
+    "city": "Yerevan",
+    "country": "Armenia",
+    "venue": "State Philharmonia of Armenia Ground Floor",
+    "url": "https://hosq.co/sebastianfrisch1",
+    "duration_days": 1,
+    "tags": [
+      "Workshop",
+      "public event",
+      "sound & music"
+    ],
+    "languages": [
+      "Armenian",
+      "English"
+    ],
+    "short_description": "Audible Spaces",
+    "budget_usd": 5000.0,
+    "audience_onsite": 20,
+    "audience_online": null,
+    "participants_onsite": null,
+    "partners_local": 1,
+    "partners_international": null,
+    "team_size": 1,
+    "vector_coverage": {
+      "A": 0.529,
+      "B": 0.125,
+      "C": 0.1,
+      "D": 0.25,
+      "E": 0.286,
+      "F": 0.231,
+      "G": 0.286,
+      "H": 0.273,
+      "I": 0.077,
+      "J": 0.25
+    },
+    "flags": {
+      "budget_missing": false,
+      "intl_partners_unverified": true,
+      "online_quarantined": false
+    }
+  },
+  {
+    "project_id": "notations_laboratory_sho",
+    "slug": "notations_laboratory_sho",
+    "title": "Notations Laboratory & Showcase",
+    "type": "lab_showcase",
+    "status": "completed",
+    "year": 2025,
+    "stream": null,
+    "city": "Yerevan",
+    "country": "Armenia",
+    "venue": "State Philharmonia of Armenia, Yerevan",
+    "url": "https://hosq.co/notations",
+    "duration_days": 13,
+    "tags": [
+      "Lab",
+      "lab",
+      "research",
+      "education",
+      "sound & music",
+      "visual art",
+      "performance",
+      "animation",
+      "installation",
+      "filming",
+      "light",
+      "media art",
+      "set design",
+      "technologies"
+    ],
+    "languages": [
+      "Armenian",
+      "English"
+    ],
+    "short_description": "Notations",
+    "budget_usd": 120000.0,
+    "audience_onsite": 1000,
+    "audience_online": null,
+    "participants_onsite": null,
+    "partners_local": 1,
+    "partners_international": null,
+    "team_size": null,
+    "vector_coverage": {
+      "A": 0.706,
+      "B": 0.125,
+      "C": 0.3,
+      "D": 0.167,
+      "E": 0.429,
+      "F": 0.462,
+      "G": 0.429,
+      "H": 0.273,
+      "I": 0.231,
+      "J": 0.583
+    },
+    "flags": {
+      "budget_missing": false,
+      "intl_partners_unverified": true,
+      "online_quarantined": true
+    }
+  },
+  {
+    "project_id": "artificial_intelligence_",
+    "slug": "artificial_intelligence_",
+    "title": "Artificial Intelligence in Music Composition",
+    "type": "lecture_series",
+    "status": "completed",
+    "year": 2025,
+    "stream": "network",
+    "city": "Yerevan",
+    "country": "Armenia",
+    "venue": "State Philharmonia of Armenia Ground Floor",
+    "url": "https://hosq.co/loismacdonald1",
+    "duration_days": 1,
+    "tags": [
+      "Lecture",
+      "public event",
+      "sound & music",
+      "technologies"
+    ],
+    "languages": [
+      "Armenian",
+      "English"
+    ],
+    "short_description": "AI in Music",
+    "budget_usd": 6300.0,
+    "audience_onsite": 50,
+    "audience_online": null,
+    "participants_onsite": null,
+    "partners_local": 1,
+    "partners_international": null,
+    "team_size": null,
+    "vector_coverage": {
+      "A": 0.529,
+      "B": 0.125,
+      "C": 0.1,
+      "D": 0.167,
+      "E": 0.286,
+      "F": 0.385,
+      "G": 0.286,
+      "H": 0.182,
+      "I": 0.077,
+      "J": 0.417
+    },
+    "flags": {
+      "budget_missing": false,
+      "intl_partners_unverified": true,
+      "online_quarantined": false
+    }
+  },
+  {
+    "project_id": "on_sound_as_material",
+    "slug": "on_sound_as_material",
+    "title": "On Sound as Material",
+    "type": "lecture_series",
+    "status": "completed",
+    "year": 2025,
+    "stream": "network",
+    "city": "Yerevan",
+    "country": "Armenia",
+    "venue": "Woods Center",
+    "url": "https://hosq.co/robertlippok1",
+    "duration_days": 1,
+    "tags": [
+      "Lecture",
+      "public event",
+      "sound & music"
+    ],
+    "languages": [
+      "Armenian",
+      "English"
+    ],
+    "short_description": "On Sound as Material",
+    "budget_usd": 5500.0,
+    "audience_onsite": 80,
+    "audience_online": null,
+    "participants_onsite": null,
+    "partners_local": 2,
+    "partners_international": null,
+    "team_size": 1,
+    "vector_coverage": {
+      "A": 0.529,
+      "B": 0.125,
+      "C": 0.1,
+      "D": 0.25,
+      "E": 0.286,
+      "F": 0.385,
+      "G": 0.286,
+      "H": 0.273,
+      "I": 0.077,
+      "J": 0.417
+    },
+    "flags": {
+      "budget_missing": false,
+      "intl_partners_unverified": true,
+      "online_quarantined": false
+    }
+  },
+  {
+    "project_id": "how_international_festiv",
+    "slug": "how_international_festiv",
+    "title": "How International Festivals Are Transforming Theatre",
+    "type": "hybrid",
+    "status": "completed",
+    "year": 2025,
+    "stream": "foundation",
+    "city": "Yerevan",
+    "country": "Armenia",
+    "venue": "Common Ground Yerevan",
+    "url": "https://hosq.co/davydova2",
+    "duration_days": 1,
+    "tags": [
+      "Public Talk"
+    ],
+    "languages": [
+      "Armenian",
+      "English"
+    ],
+    "short_description": "International Festivals",
+    "budget_usd": null,
+    "audience_onsite": 20,
+    "audience_online": null,
+    "participants_onsite": null,
+    "partners_local": 0,
+    "partners_international": null,
+    "team_size": 2,
+    "vector_coverage": {
+      "A": 0.529,
+      "B": 0.0,
+      "C": 0.2,
+      "D": 0.25,
+      "E": 0.286,
+      "F": 0.231,
+      "G": 0.286,
+      "H": 0.273,
+      "I": 0.077,
+      "J": 0.167
+    },
+    "flags": {
+      "budget_missing": true,
+      "intl_partners_unverified": true,
+      "online_quarantined": false
+    }
+  },
+  {
+    "project_id": "what_s_the_point_of_it_a",
+    "slug": "what_s_the_point_of_it_a",
+    "title": "What's the Point of It All?",
+    "type": "hybrid",
+    "status": "completed",
+    "year": 2025,
+    "stream": "foundation",
+    "city": "Yerevan",
+    "country": "Armenia",
+    "venue": "Rambalkoshe",
+    "url": "https://hosq.co/whatsthepointofitall",
+    "duration_days": 1,
+    "tags": [
+      "Public Talk"
+    ],
+    "languages": [
+      "Armenian",
+      "English"
+    ],
+    "short_description": "What's the Point of It All?",
+    "budget_usd": null,
+    "audience_onsite": 20,
+    "audience_online": null,
+    "participants_onsite": null,
+    "partners_local": 0,
+    "partners_international": null,
+    "team_size": null,
+    "vector_coverage": {
+      "A": 0.529,
+      "B": 0.0,
+      "C": 0.2,
+      "D": 0.083,
+      "E": 0.286,
+      "F": 0.154,
+      "G": 0.286,
+      "H": 0.182,
+      "I": 0.077,
+      "J": 0.083
+    },
+    "flags": {
+      "budget_missing": true,
+      "intl_partners_unverified": true,
+      "online_quarantined": false
+    }
+  },
+  {
+    "project_id": "kap_performance",
+    "slug": "kap_performance",
+    "title": "KAP Performance",
+    "type": "hybrid",
+    "status": "completed",
+    "year": 2025,
+    "stream": "foundation",
+    "city": "Yerevan",
+    "country": "Armenia",
+    "venue": "NPAK",
+    "url": "https://www.instagram.com/p/DLAKu25CYyS/?img_index=1",
+    "duration_days": 1,
+    "tags": [
+      "Performance"
+    ],
+    "languages": [
+      "Armenian",
+      "English"
+    ],
+    "short_description": "KAP Performance",
+    "budget_usd": null,
+    "audience_onsite": 50,
+    "audience_online": null,
+    "participants_onsite": null,
+    "partners_local": 0,
+    "partners_international": null,
+    "team_size": null,
+    "vector_coverage": {
+      "A": 0.529,
+      "B": 0.0,
+      "C": 0.1,
+      "D": 0.083,
+      "E": 0.286,
+      "F": 0.231,
+      "G": 0.286,
+      "H": 0.182,
+      "I": 0.077,
+      "J": 0.167
+    },
+    "flags": {
+      "budget_missing": true,
+      "intl_partners_unverified": true,
+      "online_quarantined": false
+    }
+  },
+  {
+    "project_id": "art_science_exhibitions_",
+    "slug": "art_science_exhibitions_",
+    "title": "Art & Science Exhibitions at Schools",
+    "type": "hybrid",
+    "status": "completed",
+    "year": 2025,
+    "stream": "foundation",
+    "city": "Yerevan",
+    "country": "Armenia",
+    "venue": "Yerevan No. 57 School, Charentsavan School #4",
+    "url": "https://hosq.co/artscienceschools",
+    "duration_days": 3,
+    "tags": [
+      "Edu Program",
+      "Educational Program",
+      "kids & teens",
+      "education",
+      "technologies",
+      "science",
+      "media art",
+      "visual art",
+      "sound & music"
+    ],
+    "languages": [
+      "Armenian",
+      "English"
+    ],
+    "short_description": "Art & Science at Schools",
+    "budget_usd": 20000.0,
+    "audience_onsite": null,
+    "audience_online": null,
+    "participants_onsite": null,
+    "partners_local": 0,
+    "partners_international": null,
+    "team_size": null,
+    "vector_coverage": {
+      "A": 0.647,
+      "B": 0.125,
+      "C": 0.2,
+      "D": 0.25,
+      "E": 0.286,
+      "F": 0.385,
+      "G": 0.286,
+      "H": 0.273,
+      "I": 0.0,
+      "J": 0.417
+    },
+    "flags": {
+      "budget_missing": false,
+      "intl_partners_unverified": true,
+      "online_quarantined": false
+    }
+  },
+  {
+    "project_id": "design_stories",
+    "slug": "design_stories",
+    "title": "Design Stories",
+    "type": "lecture_series",
+    "status": "completed",
+    "year": 2025,
+    "stream": "network",
+    "city": "Yerevan",
+    "country": "Armenia",
+    "venue": "Common Ground Yerevan",
+    "url": "https://hosq.co/mcdidero1",
+    "duration_days": 1,
+    "tags": [
+      "Lecture",
+      "public event",
+      "art management"
+    ],
+    "languages": [
+      "Armenian",
+      "English"
+    ],
+    "short_description": "Design Stories",
+    "budget_usd": 4000.0,
+    "audience_onsite": 130,
+    "audience_online": null,
+    "participants_onsite": null,
+    "partners_local": 1,
+    "partners_international": null,
+    "team_size": 1,
+    "vector_coverage": {
+      "A": 0.529,
+      "B": 0.125,
+      "C": 0.2,
+      "D": 0.25,
+      "E": 0.286,
+      "F": 0.385,
+      "G": 0.286,
+      "H": 0.273,
+      "I": 0.077,
+      "J": 0.417
+    },
+    "flags": {
+      "budget_missing": false,
+      "intl_partners_unverified": true,
+      "online_quarantined": false
+    }
+  },
+  {
+    "project_id": "basic_sound_synthesis_2",
+    "slug": "basic_sound_synthesis_2",
+    "title": "Basic Sound Synthesis #2",
+    "type": "lecture_series",
+    "status": "completed",
+    "year": 2025,
+    "stream": "network",
+    "city": "Yerevan",
+    "country": "Armenia",
+    "venue": "Komitas Yerevan State Conservatory",
+    "url": "https://hosq.co/shahenkhandkaryan1",
+    "duration_days": 1,
+    "tags": [
+      "Lecture"
+    ],
+    "languages": [
+      "Armenian",
+      "English"
+    ],
+    "short_description": "Basic Sound Synthesis #2",
+    "budget_usd": 1500.0,
+    "audience_onsite": 40,
+    "audience_online": null,
+    "participants_onsite": null,
+    "partners_local": 0,
+    "partners_international": null,
+    "team_size": 3,
+    "vector_coverage": {
+      "A": 0.529,
+      "B": 0.125,
+      "C": 0.1,
+      "D": 0.25,
+      "E": 0.286,
+      "F": 0.154,
+      "G": 0.286,
+      "H": 0.273,
+      "I": 0.077,
+      "J": 0.083
+    },
+    "flags": {
+      "budget_missing": false,
+      "intl_partners_unverified": true,
+      "online_quarantined": false
+    }
+  },
+  {
+    "project_id": "the_role_of_project_thin",
+    "slug": "the_role_of_project_thin",
+    "title": "The Role of Project Thinking in the Creative Process",
+    "type": "lecture_series",
+    "status": "completed",
+    "year": 2025,
+    "stream": "network",
+    "city": "Yerevan",
+    "country": "Armenia",
+    "venue": "State Philharmonia of Armenia",
+    "url": "https://hosq.co/aramhovhannisyan1",
+    "duration_days": 1,
+    "tags": [
+      "Lecture"
+    ],
+    "languages": [
+      "Armenian",
+      "English"
+    ],
+    "short_description": "Project Thinking in the Creative Process",
+    "budget_usd": 1500.0,
+    "audience_onsite": 30,
+    "audience_online": null,
+    "participants_onsite": null,
+    "partners_local": 1,
+    "partners_international": null,
+    "team_size": null,
+    "vector_coverage": {
+      "A": 0.529,
+      "B": 0.125,
+      "C": 0.1,
+      "D": 0.167,
+      "E": 0.286,
+      "F": 0.308,
+      "G": 0.286,
+      "H": 0.182,
+      "I": 0.077,
+      "J": 0.25
+    },
+    "flags": {
+      "budget_missing": false,
+      "intl_partners_unverified": true,
+      "online_quarantined": false
+    }
+  },
+  {
+    "project_id": "etudes_lab",
+    "slug": "etudes_lab",
+    "title": "Etudes Lab",
+    "type": "lab_showcase",
+    "status": "completed",
+    "year": 2025,
+    "stream": null,
+    "city": "Yerevan",
+    "country": "Armenia",
+    "venue": "Woods Yerevan Armenia",
+    "url": "https://hosq.co/etudeslab1",
+    "duration_days": 3,
+    "tags": [
+      "Lab"
+    ],
+    "languages": [
+      "Armenian",
+      "English"
+    ],
+    "short_description": "Etudes",
+    "budget_usd": 55000.0,
+    "audience_onsite": 150,
+    "audience_online": null,
+    "participants_onsite": 48,
+    "partners_local": 2,
+    "partners_international": null,
+    "team_size": null,
+    "vector_coverage": {
+      "A": 0.588,
+      "B": 0.125,
+      "C": 0.2,
+      "D": 0.083,
+      "E": 0.286,
+      "F": 0.308,
+      "G": 0.429,
+      "H": 0.364,
+      "I": 0.154,
+      "J": 0.333
+    },
+    "flags": {
+      "budget_missing": false,
+      "intl_partners_unverified": true,
+      "online_quarantined": false
+    }
+  },
+  {
+    "project_id": "jam_discipline_1",
+    "slug": "jam_discipline_1",
+    "title": "Jam Discipline #1",
+    "type": "community_event",
+    "status": "completed",
+    "year": 2025,
+    "stream": "network",
+    "city": "Yerevan",
+    "country": "Armenia",
+    "venue": "State Philharmonia of Armenia",
+    "url": "https://www.instagram.com/p/DIEQJCZi20l/?img_index=1",
+    "duration_days": 1,
+    "tags": [
+      "Jam Session",
+      "community event",
+      "sound & music",
+      "media art",
+      "light"
+    ],
+    "languages": [
+      "Armenian",
+      "English"
+    ],
+    "short_description": "Jam Discipline #1",
+    "budget_usd": 1000.0,
+    "audience_onsite": 16,
+    "audience_online": null,
+    "participants_onsite": 16,
+    "partners_local": 1,
+    "partners_international": null,
+    "team_size": null,
+    "vector_coverage": {
+      "A": 0.588,
+      "B": 0.125,
+      "C": 0.1,
+      "D": 0.083,
+      "E": 0.286,
+      "F": 0.308,
+      "G": 0.286,
+      "H": 0.273,
+      "I": 0.154,
+      "J": 0.417
+    },
+    "flags": {
+      "budget_missing": false,
+      "intl_partners_unverified": true,
+      "online_quarantined": false
+    }
+  },
+  {
+    "project_id": "cosmic_perspective",
+    "slug": "cosmic_perspective",
+    "title": "Cosmic Perspective",
+    "type": "lecture_series",
+    "status": "completed",
+    "year": 2025,
+    "stream": "network",
+    "city": "Yerevan",
+    "country": "Armenia",
+    "venue": "Common Ground Yerevan",
+    "url": "https://hosq.co/janswierkowski1",
+    "duration_days": 1,
+    "tags": [
+      "Lecture",
+      "public event",
+      "science"
+    ],
+    "languages": [
+      "Armenian",
+      "English"
+    ],
+    "short_description": "Cosmic Perspective",
+    "budget_usd": 3500.0,
+    "audience_onsite": 74,
+    "audience_online": null,
+    "participants_onsite": 65,
+    "partners_local": 1,
+    "partners_international": null,
+    "team_size": 1,
+    "vector_coverage": {
+      "A": 0.588,
+      "B": 0.125,
+      "C": 0.1,
+      "D": 0.25,
+      "E": 0.286,
+      "F": 0.385,
+      "G": 0.286,
+      "H": 0.364,
+      "I": 0.154,
+      "J": 0.5
+    },
+    "flags": {
+      "budget_missing": false,
+      "intl_partners_unverified": true,
+      "online_quarantined": false
+    }
+  },
+  {
+    "project_id": "intersection_of_creativi",
+    "slug": "intersection_of_creativi",
+    "title": "Intersection of Creativity and Technology",
+    "type": "lecture_series",
+    "status": "completed",
+    "year": 2025,
+    "stream": "network",
+    "city": "Yerevan",
+    "country": "Armenia",
+    "venue": "Common Ground Yerevan",
+    "url": "https://hosq.co/carladiana1",
+    "duration_days": 1,
+    "tags": [
+      "Lecture",
+      "public event",
+      "technologies",
+      "art management"
+    ],
+    "languages": [
+      "Armenian",
+      "English"
+    ],
+    "short_description": "Creativity and Technology",
+    "budget_usd": 4500.0,
+    "audience_onsite": 64,
+    "audience_online": null,
+    "participants_onsite": 58,
+    "partners_local": 1,
+    "partners_international": null,
+    "team_size": 1,
+    "vector_coverage": {
+      "A": 0.588,
+      "B": 0.125,
+      "C": 0.1,
+      "D": 0.25,
+      "E": 0.286,
+      "F": 0.385,
+      "G": 0.286,
+      "H": 0.364,
+      "I": 0.154,
+      "J": 0.5
+    },
+    "flags": {
+      "budget_missing": false,
+      "intl_partners_unverified": true,
+      "online_quarantined": false
+    }
+  },
+  {
+    "project_id": "creating_live_performanc",
+    "slug": "creating_live_performanc",
+    "title": "Creating live performance setup & concept",
+    "type": "workshop_series",
+    "status": "completed",
+    "year": 2025,
+    "stream": "network",
+    "city": "Yerevan",
+    "country": "Armenia",
+    "venue": "Esthetic Joys Embassy",
+    "url": "https://www.instagram.com/p/DEZivxlsmlw/",
+    "duration_days": 1,
+    "tags": [
+      "Workshop"
+    ],
+    "languages": [
+      "Armenian",
+      "English"
+    ],
+    "short_description": "Live performance setup",
+    "budget_usd": null,
+    "audience_onsite": null,
+    "audience_online": null,
+    "participants_onsite": null,
+    "partners_local": 1,
+    "partners_international": null,
+    "team_size": 1,
+    "vector_coverage": {
+      "A": 0.529,
+      "B": 0.0,
+      "C": 0.1,
+      "D": 0.167,
+      "E": 0.286,
+      "F": 0.077,
+      "G": 0.286,
+      "H": 0.273,
+      "I": 0.0,
+      "J": 0.0
+    },
+    "flags": {
+      "budget_missing": true,
+      "intl_partners_unverified": true,
+      "online_quarantined": false
+    }
+  },
+  {
+    "project_id": "music_lab_with_jimi_teno",
+    "slug": "music_lab_with_jimi_teno",
+    "title": "Music lab with Jimi Tenor",
+    "type": "workshop_series",
+    "status": "completed",
+    "year": 2025,
+    "stream": "foundation",
+    "city": "Yerevan",
+    "country": "Armenia",
+    "venue": "Esthetic Joys Embassy",
+    "url": "https://www.instagram.com/p/DEZivxlsmlw/",
+    "duration_days": 1,
+    "tags": [
+      "Workshop"
+    ],
+    "languages": [
+      "Armenian",
+      "English"
+    ],
+    "short_description": "Music lab",
+    "budget_usd": null,
+    "audience_onsite": null,
+    "audience_online": null,
+    "participants_onsite": null,
+    "partners_local": 1,
+    "partners_international": null,
+    "team_size": null,
+    "vector_coverage": {
+      "A": 0.529,
+      "B": 0.0,
+      "C": 0.1,
+      "D": 0.083,
+      "E": 0.286,
+      "F": 0.077,
+      "G": 0.286,
+      "H": 0.182,
+      "I": 0.0,
+      "J": 0.0
+    },
+    "flags": {
+      "budget_missing": true,
+      "intl_partners_unverified": true,
+      "online_quarantined": false
+    }
+  },
+  {
+    "project_id": "animation_laboratory",
+    "slug": "animation_laboratory",
+    "title": "Animation Laboratory",
+    "type": "lab_showcase",
+    "status": "planned",
+    "year": 2026,
+    "stream": null,
+    "city": "Goris",
+    "country": "Armenia",
+    "venue": "Hin-Khot abondoned village (near Goris)",
+    "url": "https://hosq.co/animation",
+    "duration_days": 1,
+    "tags": [
+      "Lab",
+      "community event",
+      "lab",
+      "collaboration",
+      "animation",
+      "sound & music",
+      "set design"
+    ],
+    "languages": [
+      "Armenian",
+      "English"
+    ],
+    "short_description": "Collective Pixelation Film",
+    "budget_usd": null,
+    "audience_onsite": null,
+    "audience_online": null,
+    "participants_onsite": null,
+    "partners_local": null,
+    "partners_international": null,
+    "team_size": null,
+    "vector_coverage": {
+      "A": 0.412,
+      "B": 0.0,
+      "C": 0.2,
+      "D": 0.167,
+      "E": 0.429,
+      "F": 0.154,
+      "G": 0.286,
+      "H": 0.0,
+      "I": 0.077,
+      "J": 0.167
+    },
+    "flags": {
+      "budget_missing": true,
+      "intl_partners_unverified": true,
+      "online_quarantined": false
+    }
+  },
+  {
+    "project_id": "music_marketing_and_fash",
+    "slug": "music_marketing_and_fash",
+    "title": "Music Marketing and Fashion Brands",
+    "type": "lab_showcase",
+    "status": "completed",
+    "year": 2026,
+    "stream": null,
+    "city": "Yerevan",
+    "country": "Armenia",
+    "venue": "AI9 Openhaus (STUDIO)",
+    "url": "https://hosq.co/michael-leuffen",
+    "duration_days": 1,
+    "tags": [
+      "Lecture",
+      "Concert",
+      "public event",
+      "fashion",
+      "art management",
+      "sound & music",
+      "collaboration"
+    ],
+    "languages": [
+      "Armenian",
+      "English"
+    ],
+    "short_description": "Lecture & special DJ set by Michael Leuffen",
+    "budget_usd": null,
+    "audience_onsite": null,
+    "audience_online": null,
+    "participants_onsite": null,
+    "partners_local": 0,
+    "partners_international": null,
+    "team_size": null,
+    "vector_coverage": {
+      "A": 0.529,
+      "B": 0.0,
+      "C": 0.1,
+      "D": 0.083,
+      "E": 0.286,
+      "F": 0.231,
+      "G": 0.286,
+      "H": 0.182,
+      "I": 0.0,
+      "J": 0.25
+    },
+    "flags": {
+      "budget_missing": true,
+      "intl_partners_unverified": true,
+      "online_quarantined": false
+    }
+  },
+  {
+    "project_id": "night_special",
+    "slug": "night_special",
+    "title": "Night Special",
+    "type": "community_event",
+    "status": "completed",
+    "year": 2026,
+    "stream": null,
+    "city": "Yerevan",
+    "country": "Armenia",
+    "venue": "State Philharmonia of Armenia",
+    "url": null,
+    "duration_days": 1,
+    "tags": [
+      "Jam Session",
+      "community event",
+      "sound & music",
+      "performance",
+      "special project"
+    ],
+    "languages": [
+      "Armenian",
+      "English"
+    ],
+    "short_description": "First Night Special Community Event in Philharmiona led by Dima Ustinov and Andriesh Gandrabur",
+    "budget_usd": null,
+    "audience_onsite": null,
+    "audience_online": null,
+    "participants_onsite": null,
+    "partners_local": null,
+    "partners_international": null,
+    "team_size": null,
+    "vector_coverage": {
+      "A": 0.412,
+      "B": 0.0,
+      "C": 0.1,
+      "D": 0.083,
+      "E": 0.286,
+      "F": 0.0,
+      "G": 0.143,
+      "H": 0.0,
+      "I": 0.0,
+      "J": 0.0
+    },
+    "flags": {
+      "budget_missing": true,
+      "intl_partners_unverified": true,
+      "online_quarantined": false
+    }
+  },
+  {
+    "project_id": "asa_forum",
+    "slug": "asa_forum",
+    "title": "ASA Forum",
+    "type": "lecture_series",
+    "status": "completed",
+    "year": 2025,
+    "stream": null,
+    "city": "Yerevan",
+    "country": "Armenia",
+    "venue": "State Philharmonia of Armenia",
+    "url": "https://hosq.co/artmanagementpaneldiscussion1",
+    "duration_days": 1,
+    "tags": [
+      "Panel Discussion",
+      "public event",
+      "art management"
+    ],
+    "languages": [
+      "Armenian",
+      "English"
+    ],
+    "short_description": null,
+    "budget_usd": null,
+    "audience_onsite": null,
+    "audience_online": null,
+    "participants_onsite": null,
+    "partners_local": null,
+    "partners_international": null,
+    "team_size": null,
+    "vector_coverage": {
+      "A": 0.353,
+      "B": 0.0,
+      "C": 0.2,
+      "D": 0.167,
+      "E": 0.286,
+      "F": 0.231,
+      "G": 0.143,
+      "H": 0.0,
+      "I": 0.077,
+      "J": 0.25
+    },
+    "flags": {
+      "budget_missing": true,
+      "intl_partners_unverified": true,
+      "online_quarantined": false
+    }
+  },
+  {
+    "project_id": "highfest",
+    "slug": "highfest",
+    "title": "HighFest",
+    "type": "lab_showcase",
+    "status": "completed",
+    "year": 2025,
+    "stream": null,
+    "city": "Yerevan",
+    "country": "Armenia",
+    "venue": "Gabriel Sundukyan National Academic Theatre",
+    "url": "https://www.instagram.com/p/DPowM9qAiI3/?img_index=1",
+    "duration_days": 1,
+    "tags": [
+      "Performance",
+      "special project",
+      "distribution",
+      "performance",
+      "sound & music",
+      "lab"
+    ],
+    "languages": [
+      "Armenian",
+      "English"
+    ],
+    "short_description": "Etudes #1 Performance",
+    "budget_usd": null,
+    "audience_onsite": null,
+    "audience_online": null,
+    "participants_onsite": null,
+    "partners_local": null,
+    "partners_international": null,
+    "team_size": null,
+    "vector_coverage": {
+      "A": 0.412,
+      "B": 0.0,
+      "C": 0.1,
+      "D": 0.083,
+      "E": 0.286,
+      "F": 0.308,
+      "G": 0.143,
+      "H": 0.0,
+      "I": 0.0,
+      "J": 0.333
+    },
+    "flags": {
+      "budget_missing": true,
+      "intl_partners_unverified": true,
+      "online_quarantined": false
+    }
+  },
+  {
+    "project_id": "educational_program_for_",
+    "slug": "educational_program_for_",
+    "title": "Educational Program for NOPA Festival",
+    "type": "lab_showcase",
+    "status": "planned",
+    "year": null,
+    "stream": null,
+    "city": "Yerevan",
+    "country": "Armenia",
+    "venue": "Northern Bus Station / Yerevan Children's Railway / Yerevan Botanical Garden / Library for Architecture",
+    "url": "https://hosq.co/collaboration-nopa",
+    "duration_days": null,
+    "tags": [
+      "Workshop",
+      "Lecture",
+      "public event",
+      "special project",
+      "collaboration",
+      "education",
+      "sound & music"
+    ],
+    "languages": [
+      "Armenian",
+      "English"
+    ],
+    "short_description": "Workshops & Lectures",
+    "budget_usd": 8000.0,
+    "audience_onsite": 20,
+    "audience_online": null,
+    "participants_onsite": null,
+    "partners_local": 1,
+    "partners_international": null,
+    "team_size": null,
+    "vector_coverage": {
+      "A": 0.471,
+      "B": 0.125,
+      "C": 0.2,
+      "D": 0.167,
+      "E": 0.286,
+      "F": 0.308,
+      "G": 0.286,
+      "H": 0.182,
+      "I": 0.077,
+      "J": 0.417
+    },
+    "flags": {
+      "budget_missing": false,
+      "intl_partners_unverified": true,
+      "online_quarantined": false
+    }
+  },
+  {
+    "project_id": "chronofest",
+    "slug": "chronofest",
+    "title": "Chronofest",
+    "type": "lab_showcase",
+    "status": "completed",
+    "year": 2025,
+    "stream": null,
+    "city": "Yerevan",
+    "country": "Armenia",
+    "venue": "Common Ground Yerevan",
+    "url": "https://hosq.co/davydova2",
+    "duration_days": 1,
+    "tags": [
+      "Public Talk",
+      "public event",
+      "collaboration",
+      "performance",
+      "theatre"
+    ],
+    "languages": [
+      "Armenian",
+      "English"
+    ],
+    "short_description": "Public Talk with Marina Davydova and Artur Ghukasyan",
+    "budget_usd": null,
+    "audience_onsite": 20,
+    "audience_online": null,
+    "participants_onsite": null,
+    "partners_local": null,
+    "partners_international": null,
+    "team_size": null,
+    "vector_coverage": {
+      "A": 0.471,
+      "B": 0.0,
+      "C": 0.2,
+      "D": 0.083,
+      "E": 0.429,
+      "F": 0.231,
+      "G": 0.143,
+      "H": 0.0,
+      "I": 0.154,
+      "J": 0.333
+    },
+    "flags": {
+      "budget_missing": true,
+      "intl_partners_unverified": true,
+      "online_quarantined": false
+    }
+  },
+  {
+    "project_id": "synthesis_and_electronic",
+    "slug": "synthesis_and_electronic",
+    "title": "Synthesis and Electronic Music",
+    "type": "lecture_series",
+    "status": "completed",
+    "year": 2025,
+    "stream": null,
+    "city": "Yerevan",
+    "country": "Armenia",
+    "venue": "Komitas Yerevan State Conservatory",
+    "url": "https://hosq.co/shahenkhandkaryan1",
+    "duration_days": 1,
+    "tags": [
+      "Lecture",
+      "public event",
+      "sound & music",
+      "performance",
+      "technologies"
+    ],
+    "languages": [
+      "Armenian",
+      "English"
+    ],
+    "short_description": "Lecture of Shahen Khandkaryan (aka Shhau)",
+    "budget_usd": 1500.0,
+    "audience_onsite": 30,
+    "audience_online": null,
+    "participants_onsite": null,
+    "partners_local": 1,
+    "partners_international": null,
+    "team_size": 1,
+    "vector_coverage": {
+      "A": 0.529,
+      "B": 0.125,
+      "C": 0.1,
+      "D": 0.25,
+      "E": 0.286,
+      "F": 0.385,
+      "G": 0.286,
+      "H": 0.273,
+      "I": 0.077,
+      "J": 0.5
+    },
+    "flags": {
+      "budget_missing": false,
+      "intl_partners_unverified": true,
+      "online_quarantined": false
+    }
+  },
+  {
+    "project_id": "etudes_lab_1",
+    "slug": "etudes_lab_1",
+    "title": "Etudes Lab #1",
+    "type": "lab_showcase",
+    "status": "completed",
+    "year": 2025,
+    "stream": null,
+    "city": "Yerevan",
+    "country": "Armenia",
+    "venue": "Woods Yerevan Armenia",
+    "url": "https://hosq.co/etudeslab1",
+    "duration_days": 1,
+    "tags": [
+      "Lab",
+      "lab",
+      "performance",
+      "theatre",
+      "set design",
+      "sound & music",
+      "research",
+      "light"
+    ],
+    "languages": [
+      "Armenian",
+      "English"
+    ],
+    "short_description": "Experimental Performative Laboratory",
+    "budget_usd": 55000.0,
+    "audience_onsite": 150,
+    "audience_online": null,
+    "participants_onsite": 48,
+    "partners_local": 1,
+    "partners_international": null,
+    "team_size": null,
+    "vector_coverage": {
+      "A": 0.529,
+      "B": 0.125,
+      "C": 0.3,
+      "D": 0.167,
+      "E": 0.286,
+      "F": 0.385,
+      "G": 0.429,
+      "H": 0.364,
+      "I": 0.231,
+      "J": 0.583
+    },
+    "flags": {
+      "budget_missing": false,
+      "intl_partners_unverified": true,
+      "online_quarantined": false
+    }
+  },
+  {
+    "project_id": "esthetic_joys_embassy_pe",
+    "slug": "esthetic_joys_embassy_pe",
+    "title": "Esthetic Joys Embassy / ПЭУ x Jimi Tenor",
+    "type": "workshop_series",
+    "status": "completed",
+    "year": 2025,
+    "stream": null,
+    "city": "Yerevan",
+    "country": "Armenia",
+    "venue": "Esthetic Joys Embassy / ПЭУ",
+    "url": "https://www.instagram.com/p/DEZivxlsmlw/",
+    "duration_days": 1,
+    "tags": [
+      "Workshop",
+      "Lecture",
+      "public event",
+      "art management",
+      "sound & music"
+    ],
+    "languages": [
+      "Armenian",
+      "English"
+    ],
+    "short_description": "Creating live performance setup & concept with Andriesh Gandrabur",
+    "budget_usd": null,
+    "audience_onsite": null,
+    "audience_online": null,
+    "participants_onsite": null,
+    "partners_local": 1,
+    "partners_international": null,
+    "team_size": null,
+    "vector_coverage": {
+      "A": 0.471,
+      "B": 0.0,
+      "C": 0.1,
+      "D": 0.083,
+      "E": 0.286,
+      "F": 0.154,
+      "G": 0.286,
+      "H": 0.182,
+      "I": 0.0,
+      "J": 0.083
+    },
+    "flags": {
+      "budget_missing": true,
+      "intl_partners_unverified": true,
+      "online_quarantined": false
+    }
+  },
+  {
+    "project_id": "industry_participants_me",
+    "slug": "industry_participants_me",
+    "title": "Industry Participants Meetup",
+    "type": "community_event",
+    "status": "completed",
+    "year": 2024,
+    "stream": null,
+    "city": "Yerevan",
+    "country": "Armenia",
+    "venue": "Varpet",
+    "url": null,
+    "duration_days": 1,
+    "tags": [
+      "Public Talk",
+      "art management",
+      "community event"
+    ],
+    "languages": [
+      "Armenian",
+      "English"
+    ],
+    "short_description": null,
+    "budget_usd": 1200.0,
+    "audience_onsite": null,
+    "audience_online": null,
+    "participants_onsite": null,
+    "partners_local": null,
+    "partners_international": null,
+    "team_size": null,
+    "vector_coverage": {
+      "A": 0.294,
+      "B": 0.125,
+      "C": 0.1,
+      "D": 0.083,
+      "E": 0.286,
+      "F": 0.154,
+      "G": 0.143,
+      "H": 0.0,
+      "I": 0.0,
+      "J": 0.167
+    },
+    "flags": {
+      "budget_missing": false,
+      "intl_partners_unverified": true,
+      "online_quarantined": false
+    }
+  }
+]

@@ -1,0 +1,67 @@
+<!doctype html><html lang="ru"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HOSQ — Импакт A–J</title>
+<meta name="description" content="Доказательная база импакта HOSQ по 10 векторам A–J. Покрытие данными, не баллы.">
+<link rel="stylesheet" href="/styles/app.css">
+<script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+</head><body>
+<div id="hdr"></div>
+<main class="wrap" id="app"><div class="empty">Загрузка…</div></main>
+<div id="ftr"></div>
+<script type="module">
+import {theme,C,loadJSON,chart,header,footer,FOCUS} from '/src/common.js';
+echarts.registerTheme('hosq',theme);
+document.getElementById('hdr').innerHTML=header('impact');
+const [agg,projects,legend,meta]=await Promise.all([
+  loadJSON('/data/aggregates.json'),loadJSON('/data/projects.json'),
+  loadJSON('/data/metrics_legend.json'),loadJSON('/data/manifest.json')]);
+document.getElementById('ftr').innerHTML=footer(meta);
+const vc=agg.vector_coverage; const V=legend.vectors.map(v=>v.vector);
+
+document.getElementById('app').innerHTML=`
+<section class="hero">
+  <div class="draft-pill">● ДОКАЗАТЕЛЬНАЯ БАЗА · НЕ БАЛЛЫ</div>
+  <h1>Импакт по 10 векторам A–J</h1>
+  <p class="lead">HOSQ оценивает проекты по 10 векторам и 40 субиндексам. В источнике это <b>доказательства</b> (нарративы, списки, цифры), а не числовые баллы. Поэтому мы показываем <b>покрытие доказательствами</b> — насколько задокументирован каждый вектор. Это показатель зрелости оценки, а не качества проекта.</p>
+</section>
+<div class="note">🎯 Приоритет донора (зафиксирован): <b>Интернациональность (G)</b> и <b>Культурная витальность (A) + Художественное качество (D)</b> — выделены коралловым.</div>
+<section class="block">
+  <h2>Карта покрытия: проекты × векторы</h2>
+  <div class="hl">
+    <span><span class="sw" style="background:#14B672"></span>есть доказательства (≥60%)</span>
+    <span><span class="sw" style="background:#FFD2C7"></span>частично (1–59%)</span>
+    <span><span class="sw" style="background:#EDE6DB"></span>нет данных</span>
+  </div>
+  <div class="card"><div id="heat" class="chart" style="height:680px"></div></div>
+</section>
+<section class="block">
+  <h2>Векторы: покрытие и приоритет</h2>
+  <div class="vgrid" id="vcards"></div>
+</section>`;
+
+// vector cards
+document.getElementById('vcards').innerHTML=legend.vectors.map(v=>{
+  const cov=vc[v.vector].coverage, pct=Math.round(cov*100), focus=FOCUS.has(v.vector);
+  return `<div class="vcard">
+    <div class="vh"><b style="color:${focus?C.coral:C.dark}">${v.vector}</b> <span>${v.name}</span></div>
+    ${focus?'<div class="focus-badge">приоритет донора</div>':''}
+    <div class="bar"><span style="width:${pct}%;background:${focus?C.coral:C.violet}"></span></div>
+    <div class="cov">${pct}% покрытие · ${vc[v.vector].n_fields} полей-доказательств</div>
+    <div class="muted" style="font-size:12px;margin-top:6px">${v.subindices.map(s=>s.code).join(' · ')}</div>
+  </div>`;}).join('');
+
+// heatmap projects × vectors
+(function(){
+  const labels=projects.map(p=>(p.title||p.slug).slice(0,28));
+  const data=[];
+  projects.forEach((p,y)=>V.forEach((v,x)=>{const val=p.vector_coverage[v];data.push([x,y,val==null?0:val]);}));
+  const c=chart(document.getElementById('heat'));
+  c.setOption({...theme,
+    tooltip:{position:'top',formatter:p=>`${labels[p.data[1]]}<br>${V[p.data[0]]} ${vc[V[p.data[0]]].name}: <b>${Math.round(p.data[2]*100)}%</b> покрытие`},
+    grid:{left:8,right:16,top:30,bottom:8,containLabel:true},
+    xAxis:{type:'category',data:V,position:'top',axisLine:{show:false},axisTick:{show:false},axisLabel:{fontWeight:700,color:C.dark}},
+    yAxis:{type:'category',data:labels,inverse:true,axisLine:{show:false},axisTick:{show:false},axisLabel:{fontSize:11,color:C.muted}},
+    visualMap:{show:false,min:0,max:1,inRange:{color:['#EDE6DB','#FFD2C7','#FF6F55','#14B672']}},
+    series:[{type:'heatmap',data,itemStyle:{borderColor:C.cream,borderWidth:2,borderRadius:3},
+      emphasis:{itemStyle:{borderColor:C.dark,borderWidth:2}}}]});})();
+</script></body></html>

@@ -1,0 +1,10 @@
+{
+  "name": "hosq-dashboards",
+  "version": "1.0.0",
+  "description": "HOSQ fund stakeholder dashboards — portfolio, A-J impact, public showcase.",
+  "scripts": {
+    "start": "node server.js",
+    "data": "python3 scripts/build_data.py"
+  },
+  "engines": { "node": ">=18" }
+}

@@ -1,0 +1,56 @@
+<!doctype html><html lang="ru"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HOSQ — Витрина проектов</title>
+<meta name="description" content="Культурные проекты фонда HOSQ: лаборатории, концерты, события, лекции.">
+<meta property="og:title" content="HOSQ — Витрина проектов"><meta property="og:type" content="website">
+<link rel="stylesheet" href="/styles/app.css">
+</head><body>
+<div id="hdr"></div>
+<main class="wrap" id="app"><div class="empty">Загрузка…</div></main>
+<div id="ftr"></div>
+<script type="module">
+import {C,loadJSON,fmt,header,footer} from '/src/common.js';
+document.getElementById('hdr').innerHTML=header('showcase');
+const [projects,nl,meta]=await Promise.all([
+  loadJSON('/data/projects.json'),loadJSON('/data/notations_lab.json'),loadJSON('/data/manifest.json')]);
+document.getElementById('ftr').innerHTML=footer(meta);
+
+document.getElementById('app').innerHTML=`
+<section class="hero">
+  <h1>Витрина HOSQ</h1>
+  <p class="lead">${projects.length} культурных проектов: лаборатории, концерты, события, лекции и гибриды — в Армении и за её пределами.</p>
+</section>
+<section class="block">
+  <div class="filters" id="filters"></div>
+  <div class="pgrid" id="pgrid"></div>
+</section>
+<section class="block">
+  <h2>Флагман: ${nl.label.split(' —')[0]}</h2>
+  <div class="note">Эти цифры относятся <b>только</b> к программе Notations Lab — это глубокий кейс, а не показатели всего портфеля.</div>
+  <div class="kpis">
+    <div class="kpi accent-coral"><div class="num">${nl.team_size}</div><div class="lbl">участников команды</div></div>
+    <div class="kpi accent-violet"><div class="num">${nl.distinct_disciplines.length}</div><div class="lbl">дисциплин</div></div>
+    <div class="kpi accent-green"><div class="num">${nl.partner_count}</div><div class="lbl">партнёров</div></div>
+    <div class="kpi accent-blue"><div class="num">${nl.event_count}</div><div class="lbl">событий</div></div>
+  </div>
+  <div class="card"><h3>Дисциплины программы</h3>
+    <div>${nl.distinct_disciplines.map(d=>`<span class="pill">${d}</span>`).join('')}</div></div>
+</section>`;
+
+const facets={stream:new Set(),type:new Set()};
+const uniq=k=>[...new Set(projects.map(p=>p[k]).filter(Boolean))];
+document.getElementById('filters').innerHTML=[['stream','Стрим'],['type','Тип']].map(([k,lbl])=>
+  `<div class="group"><span class="muted" style="font-size:13px;align-self:center">${lbl}:</span>`+
+  uniq(k).map(v=>`<button class="fbtn" data-k="${k}" data-v="${v}" aria-pressed="false">${v}</button>`).join('')+`</div>`).join('');
+function render(){const list=projects.filter(p=>['stream','type'].every(k=>facets[k].size===0||facets[k].has(p[k])));
+  document.getElementById('pgrid').innerHTML=list.length?list.map(p=>`<a class="pcard" href="/project.html?slug=${encodeURIComponent(p.slug)}">
+    <div>${p.stream?`<span class="pill coral">${p.stream}</span>`:''}${p.type?`<span class="pill">${p.type}</span>`:''}</div>
+    <div class="ttl">${p.title||p.slug}</div>
+    <div class="meta">${[p.city,p.year].filter(Boolean).join(' · ')}</div>
+    ${p.short_description?`<div class="muted" style="font-size:13px">${p.short_description}</div>`:''}
+  </a>`).join(''):`<div class="empty">Нет проектов под эти фильтры.</div>`;}
+document.getElementById('filters').addEventListener('click',e=>{const btn=e.target.closest('.fbtn');if(!btn)return;
+  const{k,v}=btn.dataset;const on=btn.getAttribute('aria-pressed')==='true';
+  btn.setAttribute('aria-pressed',String(!on));on?facets[k].delete(v):facets[k].add(v);render();});
+render();
+</script></body></html>

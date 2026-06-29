@@ -1,0 +1,9 @@
+{
+  "schema_version": "v7",
+  "source_file": "hosq_project_profile_v7_enriched.xlsx",
+  "export_date": "2026-06-29",
+  "project_count": 47,
+  "all_draft": true,
+  "honesty_note": "Figures reflect documentation completeness, not external impact assessment. HOSQ's A-J framework is evidence-based, not numerically scored. Empty/zero source fields are shown as 'no data', never as measured zero.",
+  "pii_stripped": true
+}

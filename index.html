@@ -1,0 +1,94 @@
+<!doctype html><html lang="ru"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HOSQ — Портфель фонда</title>
+<meta name="description" content="Дашборд портфеля культурного фонда HOSQ: проекты, охват, партнёры, бюджет.">
+<meta property="og:title" content="HOSQ — Портфель фонда"><meta property="og:type" content="website">
+<link rel="stylesheet" href="/styles/app.css">
+<script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+</head><body>
+<div id="hdr"></div>
+<main class="wrap" id="app"><div class="empty">Загрузка данных…</div></main>
+<div id="ftr"></div>
+<script type="module">
+import {theme,C,CAT,loadJSON,fmt,money,chart,header,footer,FOCUS} from '/src/common.js';
+echarts.registerTheme('hosq',theme);
+document.getElementById('hdr').innerHTML=header('portfolio');
+const [agg,projects,meta]=await Promise.all([
+  loadJSON('/data/aggregates.json'),loadJSON('/data/projects.json'),loadJSON('/data/manifest.json')]);
+document.getElementById('ftr').innerHTML=footer(meta);
+
+const kpi=(num,lbl,den,acc)=>`<div class="kpi accent-${acc}"><div class="num">${num}</div><div class="lbl">${lbl}</div>${den?`<div class="den">${den}</div>`:''}</div>`;
+const card=(title,job,inner,src,insight)=>`<div class="card"><h3>${title}</h3><div class="job">${job}</div>${inner}${insight?`<div class="insight">${insight}</div>`:''}<div class="src">${src}</div></div>`;
+
+const b=agg.budget_total_usd, ao=agg.audience_onsite_total;
+document.getElementById('app').innerHTML=`
+<section class="hero">
+  <div class="draft-pill">● ЧЕРНОВЫЕ ДАННЫЕ · ${meta.export_date}</div>
+  <h1>Портфель HOSQ за ${Object.keys(agg.by_year).filter(y=>y!=='—').join(', ')}</h1>
+  <p class="lead">Что фонд сделал, для кого и с кем. Каждая цифра показана только по тем проектам, где есть данные — пустые поля не превращаются в «ноль».</p>
+</section>
+<section class="kpis">
+  ${kpi(agg.project_count,'проектов','статус: completed/planned','coral')}
+  ${kpi(money(b.value),'суммарный бюджет',`по ${b.n_covered} из ${b.n_total} проектов`,'green')}
+  ${kpi(fmt(ao.value),'офлайн-охват (зрители)',`по ${ao.n_covered} из ${ao.n_total}`,'blue')}
+  ${kpi(agg.partners_local_total.value,'локальных партнёров',`по ${agg.partners_local_total.n_covered} из ${agg.partners_local_total.n_total}`,'violet')}
+  ${kpi(agg.distinct_language_count,'языков работы',agg.distinct_languages.join(' · '),'pink')}
+</section>
+<div class="note">⚠️ Рабочие места, международные партнёры и онлайн-охват в источнике не заполнены — поэтому здесь не показаны (вместо ложного «0»). Командные/партнёрские/событийные данные доступны только по флагманской программе Notations Lab — см. «Витрину».</div>
+<section class="block"><div class="grid2">
+  ${card('Бюджет по стримам','JOB: Когда донор хочет понять, куда идут деньги, это показывает распределение бюджета по стримам.','<div id="c_stream" class="chart"></div>','Поле: budget_total_usd × hosq_stream','Сравнение объёмов финансирования network / foundation.')}
+  ${card('Проекты по типам','JOB: Когда борд планирует следующий спринт, это показывает, какие форматы фонд делает чаще.','<div id="c_type" class="chart"></div>','Поле: project_type')}
+</div></section>
+<section class="block"><div class="grid2">
+  ${card('Проекты по годам','JOB: Когда стейкхолдер смотрит динамику, это показывает распределение проектов по годам издания.','<div id="c_year" class="chart"></div>','Поле: project_edition_year')}
+  ${card('Покрытие доказательствами A–J','JOB: Когда оценщик хочет понять, где у портфеля сильная доказательная база, это показывает заполненность по 10 векторам — это НЕ балл.','<div id="c_vec" class="chart tall"></div>','40 субиндексов A–J · доля заполненных полей','Сильнее всего задокументированы Cultural Vitality и Internationality; слабее — Participation и Creative Economy.')}
+</div></section>
+<section class="block">
+  <h2>Все проекты</h2>
+  <p class="muted">Фильтруйте по стриму, типу и году. Клик по карточке — детальный профиль проекта.</p>
+  <div class="filters" id="filters"></div>
+  <div class="pgrid" id="pgrid"></div>
+</section>`;
+
+// charts
+function barH(id,obj,color){const e=document.getElementById(id);const c=chart(e);
+  const ks=Object.keys(obj).filter(k=>k!=='—');const vs=ks.map(k=>obj[k]);
+  c.setOption({...theme,tooltip:{trigger:'axis'},grid:{left:8,right:30,top:10,bottom:8,containLabel:true},
+    xAxis:{type:'value'},yAxis:{type:'category',data:ks,inverse:true},
+    series:[{type:'bar',data:vs,itemStyle:{color,borderRadius:[0,6,6,0]},label:{show:true,position:'right',color:C.dark}}]});}
+barH('c_stream',agg.by_stream,C.coral);
+barH('c_type',agg.by_type,C.violet);
+barH('c_year',agg.by_year,C.blue);
+
+// vector coverage bar (focus vectors highlighted)
+(function(){const vc=agg.vector_coverage;const ks=Object.keys(vc);
+  const e=document.getElementById('c_vec');const c=chart(e);
+  c.setOption({...theme,tooltip:{trigger:'axis',formatter:p=>`${p[0].name}: <b>${Math.round(p[0].value*100)}%</b> покрытие`},
+    grid:{left:8,right:40,top:10,bottom:8,containLabel:true},
+    xAxis:{type:'value',max:1,axisLabel:{formatter:v=>Math.round(v*100)+'%'}},
+    yAxis:{type:'category',inverse:true,data:ks.map(k=>k+' '+vc[k].name.split(' ')[0])},
+    series:[{type:'bar',data:ks.map(k=>({value:vc[k].coverage,itemStyle:{color:FOCUS.has(k)?C.coral:C.line,borderRadius:[0,6,6,0]}})),
+      label:{show:true,position:'right',color:C.muted,formatter:p=>Math.round(p.value*100)+'%'}}]});})();
+
+// filters + grid
+const facets={stream:new Set(),type:new Set(),year:new Set()};
+const uniq=(k)=>[...new Set(projects.map(p=>p[k]).filter(Boolean))];
+const fdef=[['stream','Стрим'],['type','Тип'],['year','Год']];
+document.getElementById('filters').innerHTML=fdef.map(([k,lbl])=>
+  `<div class="group"><span class="muted" style="font-size:13px;align-self:center">${lbl}:</span>`+
+  uniq(k).map(v=>`<button class="fbtn" data-k="${k}" data-v="${v}" aria-pressed="false">${v}</button>`).join('')+`</div>`).join('');
+function render(){
+  const list=projects.filter(p=>['stream','type','year'].every(k=>facets[k].size===0||facets[k].has(p[k])));
+  const g=document.getElementById('pgrid');
+  g.innerHTML=list.length?list.map(p=>`<a class="pcard" href="/project.html?slug=${encodeURIComponent(p.slug)}">
+    <div>${p.stream?`<span class="pill coral">${p.stream}</span>`:''}${p.type?`<span class="pill">${p.type}</span>`:''}</div>
+    <div class="ttl">${p.title||p.slug}</div>
+    <div class="meta">${[p.city,p.year].filter(Boolean).join(' · ')}</div>
+    <div class="row"><span>👥 <b>${fmt(p.audience_onsite)}</b></span><span>🤝 <b>${fmt(p.partners_local)}</b></span><span>🌐 <b>${(p.languages||[]).length||'—'}</b></span></div>
+  </a>`).join(''):`<div class="empty">Нет проектов под эти фильтры.</div>`;
+}
+document.getElementById('filters').addEventListener('click',e=>{const btn=e.target.closest('.fbtn');if(!btn)return;
+  const{k,v}=btn.dataset;const on=btn.getAttribute('aria-pressed')==='true';
+  btn.setAttribute('aria-pressed',String(!on));on?facets[k].delete(v):facets[k].add(v);render();});
+render();
+</script></body></html>

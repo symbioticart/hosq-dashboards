@@ -1,0 +1,259 @@
+{
+  "vectors": [
+    {
+      "vector": "A",
+      "name": "Cultural Vitality",
+      "subindices": [
+        {
+          "code": "A1",
+          "short": "Thematic relevance",
+          "definition": "Theme quality + linkage to context/problem/audience."
+        },
+        {
+          "code": "A2",
+          "short": "Cultural originality",
+          "definition": "Novelty in proposition/form/method, not generic."
+        },
+        {
+          "code": "A3",
+          "short": "Local cultural fabric",
+          "definition": "Local embedding, partners, co-creation."
+        },
+        {
+          "code": "A4",
+          "short": "Depth of artistic research",
+          "definition": "Research process: method/sources/steps/artifacts."
+        }
+      ]
+    },
+    {
+      "vector": "B",
+      "name": "Creative Economy",
+      "subindices": [
+        {
+          "code": "B1",
+          "short": "Economic sustainability",
+          "definition": "Revenue model, diversified income, cost logic, runway."
+        },
+        {
+          "code": "B2",
+          "short": "Jobs / employment potential",
+          "definition": "Jobs created, paid roles, meaningful work opportunities."
+        },
+        {
+          "code": "B3",
+          "short": "Creative value chain integration",
+          "definition": "Distribution, platforms, market links, sales channels."
+        },
+        {
+          "code": "B4",
+          "short": "Financial innovation",
+          "definition": "Novel funding models, partnerships, financing mechanisms."
+        }
+      ]
+    },
+    {
+      "vector": "C",
+      "name": "Social Inclusion",
+      "subindices": [
+        {
+          "code": "C1",
+          "short": "Marginalized voices representation",
+          "definition": "Target groups, agency, voice — not tokenism."
+        },
+        {
+          "code": "C2",
+          "short": "Accessibility for broad audiences",
+          "definition": "Physical, economic, digital access."
+        },
+        {
+          "code": "C3",
+          "short": "Community engagement mechanisms",
+          "definition": "Co-creation, participation structures."
+        },
+        {
+          "code": "C4",
+          "short": "Multilingualism / multiculturality",
+          "definition": "Languages used, cultural codes, inclusion design."
+        }
+      ]
+    },
+    {
+      "vector": "D",
+      "name": "Artistic Quality",
+      "subindices": [
+        {
+          "code": "D1",
+          "short": "Curatorial / artistic concept",
+          "definition": "Clarity, strength, internal logic."
+        },
+        {
+          "code": "D2",
+          "short": "Team competence",
+          "definition": "Track record, roles, capacity, credibility."
+        },
+        {
+          "code": "D3",
+          "short": "Contemporary art forms",
+          "definition": "Digital/performance/experimental relevance and execution."
+        },
+        {
+          "code": "D4",
+          "short": "Critical potential",
+          "definition": "Reflection, debate, challenge, discourse triggers."
+        }
+      ]
+    },
+    {
+      "vector": "E",
+      "name": "Heritage & Environment",
+      "subindices": [
+        {
+          "code": "E1",
+          "short": "Intangible heritage",
+          "definition": "Traditions, cultural memory, language, practices."
+        },
+        {
+          "code": "E2",
+          "short": "Place meaningfulness",
+          "definition": "Site-specific link to history/identity of location."
+        },
+        {
+          "code": "E3",
+          "short": "Environmental sensitivity",
+          "definition": "Sustainability, resources, materials, footprint."
+        }
+      ]
+    },
+    {
+      "vector": "F",
+      "name": "Digitality",
+      "subindices": [
+        {
+          "code": "F1",
+          "short": "Digital representation format",
+          "definition": "Online presence, digital exhibition, documentation."
+        },
+        {
+          "code": "F2",
+          "short": "Technological innovation",
+          "definition": "Use of new tech, R&D, novel digital formats."
+        },
+        {
+          "code": "F3",
+          "short": "Digital accessibility",
+          "definition": "Usability, distribution, onboarding, availability."
+        },
+        {
+          "code": "F4",
+          "short": "Data / interactivity",
+          "definition": "User interaction, data-driven components, participation loops."
+        }
+      ]
+    },
+    {
+      "vector": "G",
+      "name": "Internationality",
+      "subindices": [
+        {
+          "code": "G1",
+          "short": "International partners",
+          "definition": "Partners from other countries, formal ties."
+        },
+        {
+          "code": "G2",
+          "short": "Cultures represented",
+          "definition": "Multiple cultural identities in content/participants."
+        },
+        {
+          "code": "G3",
+          "short": "Cross-cultural exchange depth",
+          "definition": "Depth of interaction, not just presence."
+        },
+        {
+          "code": "G4",
+          "short": "Transferability",
+          "definition": "Replicable model, translation, modularity."
+        }
+      ]
+    },
+    {
+      "vector": "H",
+      "name": "Capacity Building",
+      "subindices": [
+        {
+          "code": "H1",
+          "short": "Educational component",
+          "definition": "Workshops, trainings, learning formats."
+        },
+        {
+          "code": "H2",
+          "short": "Skills transferred",
+          "definition": "Specific competencies, outputs, assessment."
+        },
+        {
+          "code": "H3",
+          "short": "Institutional relationships",
+          "definition": "Long-term ties between organisations."
+        },
+        {
+          "code": "H4",
+          "short": "Ecosystem sustainability",
+          "definition": "Community, continuity, infrastructure beyond project."
+        }
+      ]
+    },
+    {
+      "vector": "I",
+      "name": "Participation",
+      "subindices": [
+        {
+          "code": "I1",
+          "short": "Audience engagement level",
+          "definition": "Active participation, not just attendance."
+        },
+        {
+          "code": "I2",
+          "short": "Public dialogue depth",
+          "definition": "Meaningful discussion, feedback loops."
+        },
+        {
+          "code": "I3",
+          "short": "Process transparency",
+          "definition": "Stages, choices, logic communicated."
+        },
+        {
+          "code": "I4",
+          "short": "Inclusivity of formats",
+          "definition": "Adaptation for different audiences."
+        }
+      ]
+    },
+    {
+      "vector": "J",
+      "name": "Resonance",
+      "subindices": [
+        {
+          "code": "J1",
+          "short": "Media potential",
+          "definition": "Storyability, visibility, press/social packaging."
+        },
+        {
+          "code": "J2",
+          "short": "Reputational value",
+          "definition": "Status lift for organisers/artists, institutional signaling."
+        },
+        {
+          "code": "J3",
+          "short": "Risk of misunderstanding / scandal",
+          "definition": "Taboo/provocation and preparedness."
+        },
+        {
+          "code": "J4",
+          "short": "Post-effect / continuation",
+          "definition": "Spin-offs, follow-up formats, scalability of impact."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+<!doctype html><html lang="ru"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HOSQ — Проект</title>
+<link rel="stylesheet" href="/styles/app.css">
+<script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+</head><body>
+<div id="hdr"></div>
+<main class="wrap" id="app"><div class="empty">Загрузка…</div></main>
+<div id="ftr"></div>
+<script type="module">
+import {theme,C,loadJSON,fmt,money,chart,header,footer} from '/src/common.js';
+echarts.registerTheme('hosq',theme);
+document.getElementById('hdr').innerHTML=header('');
+const slug=new URLSearchParams(location.search).get('slug');
+const [meta,legend]=await Promise.all([loadJSON('/data/manifest.json'),loadJSON('/data/metrics_legend.json')]);
+document.getElementById('ftr').innerHTML=footer(meta);
+let p;try{p=await loadJSON('/data/projects/'+slug+'.json');}catch(e){
+  document.getElementById('app').innerHTML='<div class="empty">Проект не найден. <a href="/showcase.html">К витрине</a></div>';throw e;}
+
+const NARR_LABELS={full_description:'Описание',curatorial_concept:'Кураторская концепция',outcomes_list:'Результаты',
+  collaborations_formed:'Сложившиеся коллаборации',internationality_narrative:'Интернациональность',
+  engagement_narrative:'Вовлечение',post_effect_continuation_narrative:'Продолжение / пост-эффект',
+  heritage_engagement_narrative:'Наследие',accessibility_economic:'Доступность (экономическая)',
+  team_competence_narrative:'Команда',site_specific_rationale_narrative:'Привязка к месту',skills_transferred_list:'Переданные навыки'};
+
+const kpi=(n,l,a)=>`<div class="kpi accent-${a}"><div class="num">${n}</div><div class="lbl">${l}</div></div>`;
+document.getElementById('app').innerHTML=`
+<section class="hero">
+  <a href="/showcase.html" class="muted">← К витрине</a>
+  <h1>${p.title||p.slug}</h1>
+  <div>${p.stream?`<span class="pill coral">${p.stream}</span>`:''}${p.type?`<span class="pill">${p.type}</span>`:''}${(p.tags||[]).map(t=>`<span class="pill">${t}</span>`).join('')}</div>
+  <p class="lead">${p.short_description||''}</p>
+  <div class="muted">${[p.city,p.venue,p.year].filter(Boolean).join(' · ')}${p.url?` · <a href="${p.url}">сайт проекта ↗</a>`:''}</div>
+</section>
+<section class="kpis">
+  ${kpi(money(p.budget_usd),'бюджет','green')}
+  ${kpi(fmt(p.audience_onsite),'офлайн-охват','blue')}
+  ${kpi(fmt(p.partners_local),'локальных партнёров','violet')}
+  ${kpi((p.languages||[]).join(' · ')||'—','языки','pink')}
+</section>
+<section class="block"><div class="grid2">
+  <div class="card"><h3>Покрытие доказательствами A–J</h3>
+    <div class="job">JOB: Когда оценщик открывает проект, это показывает, по каким векторам есть задокументированные доказательства.</div>
+    <div id="radar" class="chart tall"></div>
+    <div class="src">Доля заполненных полей-доказательств по каждому вектору. Не балл качества.</div></div>
+  <div class="card"><h3>Доказательства (нарративы)</h3>
+    <div id="narr">${Object.entries(p.narratives||{}).filter(([k])=>NARR_LABELS[k]).map(([k,v])=>
+      `<details${['full_description','outcomes_list'].includes(k)?' open':''}><summary><b>${NARR_LABELS[k]}</b></summary>
+       <div class="muted" style="font-size:14px;margin:6px 0 14px">${Array.isArray(v)?v.map(x=>`<span class="pill">${x}</span>`).join(''):v}</div></details>`).join('')
+      ||'<div class="empty">Нарративные доказательства пока не заполнены.</div>'}</div></div>
+</div></section>`;
+
+(function(){const V=legend.vectors;
+  const c=chart(document.getElementById('radar'));
+  c.setOption({...theme,tooltip:{},
+    radar:{indicator:V.map(v=>({name:v.vector,max:1})),radius:'68%',axisName:{color:C.dark,fontWeight:700},
+      splitLine:{lineStyle:{color:'#00000012'}},splitArea:{areaStyle:{color:['#fff','#faf6f0']}}},
+    series:[{type:'radar',data:[{value:V.map(v=>p.vector_coverage[v.vector]||0),name:'Покрытие',
+      areaStyle:{color:'rgba(255,111,85,.25)'},lineStyle:{color:C.coral},itemStyle:{color:C.coral}}]}]});})();
+</script></body></html>
