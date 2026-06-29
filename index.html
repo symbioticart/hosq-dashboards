@@ -19,6 +19,7 @@ document.getElementById('ftr').innerHTML=footer(meta);
 
 const kpi=(num,lbl,den,acc)=>`<div class="kpi accent-${acc}"><div class="num">${num}</div><div class="lbl">${lbl}</div>${den?`<div class="den">${den}</div>`:''}</div>`;
 const card=(title,job,inner,src,insight)=>`<div class="card"><h3>${title}</h3><div class="job">${job}</div>${inner}${insight?`<div class="insight">${insight}</div>`:''}<div class="src">${src}</div></div>`;
+const icard=(title,job,takeaway,inner,src)=>`<div class="card"><h3>${title}</h3><div class="job">${job}</div>${takeaway}${inner}<div class="src">${src}</div></div>`;
 
 const b=agg.budget_total_usd, ao=agg.audience_onsite_total;
 document.getElementById('app').innerHTML=`
@@ -35,14 +36,13 @@ document.getElementById('app').innerHTML=`
   ${kpi(agg.distinct_language_count,'языков работы',agg.distinct_languages.join(' · '),'pink')}
 </section>
 <div class="note">⚠️ Рабочие места, международные партнёры и онлайн-охват в источнике не заполнены — поэтому здесь не показаны (вместо ложного «0»). Командные/партнёрские/событийные данные доступны только по флагманской программе Notations Lab — см. «Витрину».</div>
-<section class="block"><div class="grid2">
-  ${card('Бюджет по стримам','JOB: Когда донор хочет понять, куда идут деньги, это показывает распределение бюджета по стримам.','<div id="c_stream" class="chart"></div>','Поле: budget_total_usd × hosq_stream','Сравнение объёмов финансирования network / foundation.')}
-  ${card('Проекты по типам','JOB: Когда борд планирует следующий спринт, это показывает, какие форматы фонд делает чаще.','<div id="c_type" class="chart"></div>','Поле: project_type')}
+<section class="block"><h2>Деньги и охват</h2><div class="grid2">
+  ${icard('Сколько стоит один зритель — по форматам','JOB: Когда директор решает, какой формат масштабировать ради охвата, это показывает стоимость одного зрителя по типам.','<div id="tk_eff" class="takeaway green"></div>','<div id="c_eff" class="chart"></div>',`budget ÷ офлайн-охват, по проектам где есть оба поля (n=${agg.insights.efficiency.n})`)}
+  ${icard('Концентрация бюджета','JOB: Когда донор оценивает устойчивость, это показывает, на скольких проектах держится бюджет.','<div id="tk_conc" class="takeaway"></div>','<div id="c_conc" class="chart"></div>',`budget_total_usd, накопленная доля (n=${agg.insights.budget_concentration.n})`)}
 </div></section>
-<section class="block"><div class="grid2">
-  ${card('Проекты по годам','JOB: Когда стейкхолдер смотрит динамику, это показывает распределение проектов по годам издания.','<div id="c_year" class="chart"></div>','Поле: project_edition_year')}
-  ${card('Покрытие доказательствами A–J','JOB: Когда оценщик хочет понять, где у портфеля сильная доказательная база, это показывает заполненность по 10 векторам — это НЕ балл.','<div id="c_vec" class="chart tall"></div>','40 субиндексов A–J · доля заполненных полей','Сильнее всего задокументированы Cultural Vitality и Internationality; слабее — Participation и Creative Economy.')}
-</div></section>
+<section class="block"><h2>Стримы: где что сильнее</h2>
+  ${icard('network против foundation — покрытие по 10 векторам','JOB: Когда борд выбирает, какой стрим развивать, это показывает, где каждый стрим документирован сильнее.','<div id="tk_stream" class="takeaway violet"></div>','<div id="c_streamr" class="chart tall"></div>','Доля заполненных доказательств A–J, среднее по стриму')}
+</section>
 <section class="block">
   <h2>Все проекты</h2>
   <p class="muted">Фильтруйте по стриму, типу и году. Клик по карточке — детальный профиль проекта.</p>
@@ -50,25 +50,48 @@ document.getElementById('app').innerHTML=`
   <div class="pgrid" id="pgrid"></div>
 </section>`;
 
-// charts
-function barH(id,obj,color){const e=document.getElementById(id);const c=chart(e);
-  const ks=Object.keys(obj).filter(k=>k!=='—');const vs=ks.map(k=>obj[k]);
-  c.setOption({...theme,tooltip:{trigger:'axis'},grid:{left:8,right:30,top:10,bottom:8,containLabel:true},
-    xAxis:{type:'value'},yAxis:{type:'category',data:ks,inverse:true},
-    series:[{type:'bar',data:vs,itemStyle:{color,borderRadius:[0,6,6,0]},label:{show:true,position:'right',color:C.dark}}]});}
-barH('c_stream',agg.by_stream,C.coral);
-barH('c_type',agg.by_type,C.violet);
-barH('c_year',agg.by_year,C.blue);
+// ---- insight charts ----
+const INS=agg.insights;
+const pp=x=>Math.round(x*100);
 
-// vector coverage bar (focus vectors highlighted)
-(function(){const vc=agg.vector_coverage;const ks=Object.keys(vc);
-  const e=document.getElementById('c_vec');const c=chart(e);
-  c.setOption({...theme,tooltip:{trigger:'axis',formatter:p=>`${p[0].name}: <b>${Math.round(p[0].value*100)}%</b> покрытие`},
-    grid:{left:8,right:40,top:10,bottom:8,containLabel:true},
-    xAxis:{type:'value',max:1,axisLabel:{formatter:v=>Math.round(v*100)+'%'}},
-    yAxis:{type:'category',inverse:true,data:ks.map(k=>k+' '+vc[k].name.split(' ')[0])},
-    series:[{type:'bar',data:ks.map(k=>({value:vc[k].coverage,itemStyle:{color:FOCUS.has(k)?C.coral:C.line,borderRadius:[0,6,6,0]}})),
-      label:{show:true,position:'right',color:C.muted,formatter:p=>Math.round(p.value*100)+'%'}}]});})();
+// 1. cost per attendee by type (cheapest green, priciest coral)
+(function(){const d=INS.efficiency.by_type;const c=chart(document.getElementById('c_eff'));
+  const col=(i,n)=>i===0?C.green:(i===n-1?C.coral:C.violet);
+  c.setOption({...theme,tooltip:{trigger:'axis',formatter:p=>{const r=d[p[0].dataIndex];
+      return `${r.type}<br><b>$${r.cost_per}</b> / зритель<br>${r.n} проектов · ${r.audience.toLocaleString('en-US')} зрителей · $${r.budget.toLocaleString('en-US')}`}},
+    grid:{left:8,right:64,top:10,bottom:8,containLabel:true},
+    xAxis:{type:'value',axisLabel:{formatter:v=>'$'+v}},
+    yAxis:{type:'category',inverse:true,data:d.map(x=>x.type)},
+    series:[{type:'bar',data:d.map((x,i)=>({value:x.cost_per,itemStyle:{color:col(i,d.length),borderRadius:[0,6,6,0]}})),
+      label:{show:true,position:'right',color:C.dark,formatter:p=>'$'+p.value}}]});
+  const lo=d[0],hi=d[d.length-1];
+  document.getElementById('tk_eff').innerHTML=`<span class="ic">💡</span><div>Зритель в формате «<b>${lo.type}</b>» стоит <b>$${lo.cost_per}</b>, в «<b>${hi.type}</b>» — <b>$${hi.cost_per}</b> (разница ${Math.round(hi.cost_per/lo.cost_per)}×). Для массового охвата масштабируй дешёвые форматы; дорогие держи как флагманы.</div>`;})();
+
+// 2. budget concentration (Pareto)
+(function(){const cum=INS.budget_concentration.cumulative_share.map((v,i)=>[i+1,pp(v)]);
+  const c=chart(document.getElementById('c_conc'));
+  c.setOption({...theme,tooltip:{trigger:'axis',formatter:p=>`Топ-${p[0].data[0]} проектов = <b>${p[0].data[1]}%</b> бюджета`},
+    grid:{left:8,right:20,top:10,bottom:24,containLabel:true},
+    xAxis:{type:'value',name:'число проектов',nameLocation:'middle',nameGap:30,min:1,max:cum.length},
+    yAxis:{type:'value',max:100,axisLabel:{formatter:v=>v+'%'}},
+    series:[{type:'line',data:cum,smooth:true,symbol:'none',lineStyle:{color:C.coral,width:3},
+      areaStyle:{color:'rgba(255,111,85,.15)'},
+      markLine:{symbol:'none',label:{color:C.muted},data:[{xAxis:3,lineStyle:{color:C.muted,type:'dashed'},label:{formatter:'топ-3'}}]}}]});
+  const t=INS.budget_concentration.top;
+  document.getElementById('tk_conc').innerHTML=`<span class="ic">⚠️</span><div><b>Топ-3 проекта = ${pp(t['3'])}%</b> всего бюджета, топ-5 = ${pp(t['5'])}%. Портфель сильно сконцентрирован — стоит обсудить зависимость от нескольких крупных проектов.</div>`;})();
+
+// 3. stream radar network vs foundation
+(function(){const cbs=INS.coverage_by_stream;const V=Object.keys(agg.vector_coverage);
+  if(!cbs.network||!cbs.foundation){document.getElementById('tk_stream').innerHTML='';return;}
+  const series=Object.entries(cbs).map(([s,o])=>({value:V.map(v=>pp(o.coverage[v])),name:`${s} (n=${o.n})`}));
+  const c=chart(document.getElementById('c_streamr'));
+  c.setOption({...theme,color:[C.coral,C.blue],legend:{bottom:0},tooltip:{},
+    radar:{indicator:V.map(v=>({name:v,max:60})),radius:'62%',axisName:{color:C.dark,fontWeight:700},splitLine:{lineStyle:{color:'#00000012'}},splitArea:{areaStyle:{color:['#fff','#faf6f0']}}},
+    series:[{type:'radar',data:series,areaStyle:{opacity:.12}}]});
+  const net=cbs.network.coverage,fnd=cbs.foundation.coverage,nm=k=>agg.vector_coverage[k].name;
+  let nb={v:'',d:-9},fb={v:'',d:-9};
+  V.forEach(v=>{const d=net[v]-fnd[v];if(d>nb.d)nb={v,d};if(-d>fb.d)fb={v,d:-d};});
+  document.getElementById('tk_stream').innerHTML=`<span class="ic">🎯</span><div><b>network</b> сильнее документирован по «${nm(nb.v)}» (+${pp(nb.d)} п.п.), <b>foundation</b> — по «${nm(fb.v)}» (+${pp(fb.d)} п.п.). Развивай стримы под их сильные стороны и подтягивай слабые перед отчётом.</div>`;})();
 
 // filters + grid
 const facets={stream:new Set(),type:new Set(),year:new Set()};

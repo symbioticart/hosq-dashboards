@@ -26,6 +26,12 @@ document.getElementById('app').innerHTML=`
 </section>
 <div class="note">🎯 Приоритет донора (зафиксирован): <b>Интернациональность (G)</b> и <b>Культурная витальность (A) + Художественное качество (D)</b> — выделены коралловым.</div>
 <section class="block">
+  <h2>Что закрывать первым: приоритет донора × доказательная база</h2>
+  <div id="tk_quad" class="takeaway"></div>
+  <div class="card"><div id="quad" class="chart tall"></div>
+    <div class="src">Ось X — доля заполненных доказательств по вектору. Ось Y — приоритет донора. Левый-верхний угол (высокий приоритет + мало доказательств) = чинить первым.</div></div>
+</section>
+<section class="block">
   <h2>Карта покрытия: проекты × векторы</h2>
   <div class="hl">
     <span><span class="sw" style="background:#14B672"></span>есть доказательства (≥60%)</span>
@@ -49,6 +55,27 @@ document.getElementById('vcards').innerHTML=legend.vectors.map(v=>{
     <div class="cov">${pct}% покрытие · ${vc[v.vector].n_fields} полей-доказательств</div>
     <div class="muted" style="font-size:12px;margin-top:6px">${v.subindices.map(s=>s.code).join(' · ')}</div>
   </div>`;}).join('');
+
+// priority × evidence quadrant (donor decision chart)
+(function(){const pe=agg.insights.priority_evidence;
+  const pts=pe.map((d,i)=>({name:d.vector,full:d.name,cov:d.coverage,focus:d.focus,
+    value:[d.coverage,(d.focus?1:0)+((i%4)-1.5)*0.05]}));
+  const c=chart(document.getElementById('quad'));
+  c.setOption({...theme,
+    tooltip:{formatter:p=>`${p.data.name} · ${p.data.full}<br><b>${Math.round(p.data.cov*100)}%</b> покрытие · ${p.data.focus?'приоритет донора':'обычный вектор'}`},
+    grid:{left:60,right:24,top:24,bottom:44,containLabel:true},
+    xAxis:{type:'value',min:0,max:1,name:'доказательная база →',nameLocation:'middle',nameGap:30,axisLabel:{formatter:v=>Math.round(v*100)+'%'}},
+    yAxis:{type:'value',min:-0.5,max:1.5,interval:1,name:'приоритет ↑',nameLocation:'middle',nameGap:70,axisLabel:{formatter:v=>v>=1?'приоритет':(v<=0?'прочие':'')}},
+    series:[{type:'scatter',symbolSize:30,data:pts,
+      itemStyle:{color:p=>p.data.focus?C.coral:C.line,borderColor:'#fff',borderWidth:2},
+      label:{show:true,formatter:p=>p.data.name,color:C.dark,fontWeight:700,position:'inside'},
+      markLine:{symbol:'none',silent:true,lineStyle:{color:C.muted,type:'dashed'},label:{formatter:'30%',color:C.muted},data:[{xAxis:0.3}]},
+      markArea:{silent:true,itemStyle:{color:'rgba(255,111,85,.08)'},label:{show:true,position:'top',color:C.coral,fontWeight:700,formatter:'чинить первым'},
+        data:[[{xAxis:0,yAxis:0.5},{xAxis:0.3,yAxis:1.5}]]}}]});
+  const gaps=pe.filter(d=>d.focus&&d.coverage<0.3).sort((a,b)=>a.coverage-b.coverage);
+  document.getElementById('tk_quad').innerHTML=gaps.length
+    ? `<span class="ic">🛠</span><div>${gaps.map(g=>`<b>${g.name} (${Math.round(g.coverage*100)}%)</b>`).join(' и ')} — приоритеты донора, но задокументированы слабо. Это первый список задач: собрать доказательства по ним до подачи на грант.</div>`
+    : `<span class="ic">✅</span><div>Приоритетные векторы донора задокументированы выше 30% — критичных пробелов нет.</div>`;})();
 
 // heatmap projects × vectors
 (function(){

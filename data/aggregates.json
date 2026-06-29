@@ -105,5 +105,191 @@
     "jobs_paid_count",
     "partners_international_count",
     "audience_reach_online"
-  ]
+  ],
+  "insights": {
+    "efficiency": {
+      "n": 24,
+      "blended_cost_per_attendee": 114.1,
+      "by_type": [
+        {
+          "type": "community_event",
+          "cost_per": 48.0,
+          "n": 5,
+          "budget": 41800.0,
+          "audience": 871
+        },
+        {
+          "type": "lecture_series",
+          "cost_per": 63.8,
+          "n": 11,
+          "budget": 43500.0,
+          "audience": 682
+        },
+        {
+          "type": "concert",
+          "cost_per": 103.1,
+          "n": 1,
+          "budget": 10000.0,
+          "audience": 97
+        },
+        {
+          "type": "lab_showcase",
+          "cost_per": 180.3,
+          "n": 4,
+          "budget": 238000.0,
+          "audience": 1320
+        },
+        {
+          "type": "workshop_series",
+          "cost_per": 185.9,
+          "n": 3,
+          "budget": 14500.0,
+          "audience": 78
+        }
+      ]
+    },
+    "budget_concentration": {
+      "n": 27,
+      "total": 375000.0,
+      "cumulative_share": [
+        0.32,
+        0.4667,
+        0.6133,
+        0.6933,
+        0.7467,
+        0.7765,
+        0.8032,
+        0.8245,
+        0.8459,
+        0.8632,
+        0.88,
+        0.896,
+        0.9107,
+        0.924,
+        0.936,
+        0.9467,
+        0.956,
+        0.9621,
+        0.9675,
+        0.9728,
+        0.9781,
+        0.9821,
+        0.9861,
+        0.9901,
+        0.9941,
+        0.9973,
+        1.0
+      ],
+      "top": {
+        "1": 0.32,
+        "3": 0.613,
+        "5": 0.747,
+        "10": 0.863
+      }
+    },
+    "coverage_by_stream": {
+      "network": {
+        "n": 24,
+        "coverage": {
+          "A": 0.534,
+          "B": 0.094,
+          "C": 0.138,
+          "D": 0.198,
+          "E": 0.286,
+          "F": 0.302,
+          "G": 0.286,
+          "H": 0.246,
+          "I": 0.077,
+          "J": 0.316
+        }
+      },
+      "foundation": {
+        "n": 10,
+        "coverage": {
+          "A": 0.541,
+          "B": 0.037,
+          "C": 0.14,
+          "D": 0.125,
+          "E": 0.286,
+          "F": 0.254,
+          "G": 0.286,
+          "H": 0.2,
+          "I": 0.031,
+          "J": 0.2
+        }
+      }
+    },
+    "priority_evidence": [
+      {
+        "vector": "A",
+        "name": "Cultural Vitality",
+        "coverage": 0.519,
+        "focus": true
+      },
+      {
+        "vector": "B",
+        "name": "Creative Economy",
+        "coverage": 0.072,
+        "focus": false
+      },
+      {
+        "vector": "C",
+        "name": "Social Inclusion",
+        "coverage": 0.147,
+        "focus": false
+      },
+      {
+        "vector": "D",
+        "name": "Artistic Quality",
+        "coverage": 0.163,
+        "focus": true
+      },
+      {
+        "vector": "E",
+        "name": "Heritage & Environment",
+        "coverage": 0.295,
+        "focus": false
+      },
+      {
+        "vector": "F",
+        "name": "Digitality",
+        "coverage": 0.279,
+        "focus": false
+      },
+      {
+        "vector": "G",
+        "name": "Internationality",
+        "coverage": 0.28,
+        "focus": true
+      },
+      {
+        "vector": "H",
+        "name": "Capacity Building",
+        "coverage": 0.207,
+        "focus": false
+      },
+      {
+        "vector": "I",
+        "name": "Participation",
+        "coverage": 0.069,
+        "focus": false
+      },
+      {
+        "vector": "J",
+        "name": "Resonance",
+        "coverage": 0.289,
+        "focus": false
+      }
+    ],
+    "duration_reach": {
+      "single": {
+        "n": 25,
+        "avg": 75
+      },
+      "multi": {
+        "n": 4,
+        "avg": 323
+      }
+    }
+  }
 }

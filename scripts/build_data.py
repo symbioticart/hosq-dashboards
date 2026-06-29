@@ -277,6 +277,48 @@ meta = {
     "pii_stripped": True,
 }
 
+# ---- INSIGHTS (precomputed, decision-grade, honesty rules centralized) ----
+def has(p, k): return p.get(k) is not None
+
+# 1. cost-per-onsite-attendee, blended + by type (only where BOTH present & audience>0)
+both = [p for p in projects if has(p,"budget_usd") and has(p,"audience_onsite") and p["audience_onsite"]>0]
+eff_by_type = {}
+for p in both:
+    t = p["type"] or "—"; d = eff_by_type.setdefault(t, {"budget":0,"audience":0,"n":0})
+    d["budget"]+=p["budget_usd"]; d["audience"]+=p["audience_onsite"]; d["n"]+=1
+eff_list = sorted(({"type":t,"cost_per":round(d["budget"]/d["audience"],1),"n":d["n"],
+                    "budget":d["budget"],"audience":d["audience"]} for t,d in eff_by_type.items()),
+                  key=lambda x:x["cost_per"])
+tb=sum(p["budget_usd"] for p in both); ta=sum(p["audience_onsite"] for p in both)
+efficiency = {"n":len(both),"blended_cost_per_attendee":round(tb/ta,1) if ta else None,"by_type":eff_list}
+
+# 2. budget concentration (Pareto)
+bp = sorted([p["budget_usd"] for p in projects if has(p,"budget_usd")], reverse=True)
+tot_b = sum(bp); cum=[]; run=0
+for v in bp: run+=v; cum.append(round(run/tot_b,4))
+concentration = {"n":len(bp),"total":tot_b,"cumulative_share":cum,
+    "top":{k:round(sum(bp[:k])/tot_b,3) for k in (1,3,5,10) if k<=len(bp)}}
+
+# 3. coverage by stream
+cov_by_stream = {}
+for stream in ("network","foundation"):
+    ps=[p for p in projects if p["stream"]==stream]
+    if ps: cov_by_stream[stream]={"n":len(ps),
+        "coverage":{v:round(sum(p["vector_coverage"][v] for p in ps)/len(ps),3) for v in VEC_ORDER}}
+
+# 4. priority vs evidence
+priority_evidence=[{"vector":v,"name":vectors[v]["name"],
+    "coverage":portfolio_vcov[v]["coverage"],"focus":v in {"G","A","D"}} for v in VEC_ORDER]
+
+# 5. duration vs reach
+dr=[p for p in projects if has(p,"duration_days") and has(p,"audience_onsite")]
+single=[p for p in dr if p["duration_days"]<=1]; multi=[p for p in dr if p["duration_days"]>1]
+duration_reach={"single":{"n":len(single),"avg":round(sum(p["audience_onsite"] for p in single)/len(single)) if single else None},
+                "multi":{"n":len(multi),"avg":round(sum(p["audience_onsite"] for p in multi)/len(multi)) if multi else None}}
+
+aggregates["insights"] = {"efficiency":efficiency,"budget_concentration":concentration,
+    "coverage_by_stream":cov_by_stream,"priority_evidence":priority_evidence,"duration_reach":duration_reach}
+
 (OUT / "manifest.json").write_text(json.dumps(meta, ensure_ascii=False, indent=2))
 (OUT / "projects.json").write_text(json.dumps(projects, ensure_ascii=False, indent=2))
 (OUT / "aggregates.json").write_text(json.dumps(aggregates, ensure_ascii=False, indent=2))
