@@ -9,7 +9,11 @@
   "city": "Yerevan",
   "country": "Armenia",
   "venue": "State Philharmonia of Armenia, Yerevan",
+  "venue_type": "concert_hall",
   "url": "https://hosq.co/notations",
+  "start_date": "2025-07-22",
+  "end_date": "2025-08-03",
+  "start_month": "2025-07",
   "duration_days": 13,
   "tags": [
     "Lab",
@@ -27,6 +31,8 @@
     "set design",
     "technologies"
   ],
+  "media_count": 1,
+  "cost_per_attendee": 120.0,
   "languages": [
     "Armenian",
     "English"

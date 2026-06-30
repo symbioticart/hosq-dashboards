@@ -9,11 +9,17 @@
   "city": "Yerevan",
   "country": "Armenia",
   "venue": "The State Philharmonia of Armenia",
+  "venue_type": "concert_hall",
   "url": null,
+  "start_date": "2026-03-12",
+  "end_date": "2026-03-13",
+  "start_month": "2026-03",
   "duration_days": 2,
   "tags": [
     "Jam Session"
   ],
+  "media_count": 0,
+  "cost_per_attendee": null,
   "languages": [
     "Armenian",
     "English"

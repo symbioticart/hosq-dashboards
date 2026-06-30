@@ -9,7 +9,11 @@
   "city": "Yerevan",
   "country": "Armenia",
   "venue": "State Philharmonia of Armenia",
+  "venue_type": "concert_hall",
   "url": "https://www.instagram.com/p/DIEQJCZi20l/?img_index=1",
+  "start_date": "2025-03-22",
+  "end_date": "2025-03-22",
+  "start_month": "2025-03",
   "duration_days": 1,
   "tags": [
     "Jam Session",
@@ -18,6 +22,8 @@
     "media art",
     "light"
   ],
+  "media_count": 1,
+  "cost_per_attendee": 62.5,
   "languages": [
     "Armenian",
     "English"

@@ -9,7 +9,11 @@
   "city": "Yerevan",
   "country": "Armenia",
   "venue": "AI9 Openhaus (STUDIO)",
+  "venue_type": "cultural_venue",
   "url": "https://hosq.co/michael-leuffen",
+  "start_date": "2026-03-27",
+  "end_date": "2026-03-27",
+  "start_month": "2026-03",
   "duration_days": 1,
   "tags": [
     "Lecture",
@@ -20,6 +24,8 @@
     "sound & music",
     "collaboration"
   ],
+  "media_count": 1,
+  "cost_per_attendee": null,
   "languages": [
     "Armenian",
     "English"

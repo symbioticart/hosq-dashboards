@@ -9,13 +9,19 @@
   "city": "Yerevan",
   "country": "Armenia",
   "venue": "Woods Center",
+  "venue_type": "bar_club",
   "url": "https://hosq.co/robertlippok1",
+  "start_date": "2025-06-12",
+  "end_date": "2025-06-12",
+  "start_month": "2025-06",
   "duration_days": 1,
   "tags": [
     "Lecture",
     "public event",
     "sound & music"
   ],
+  "media_count": 1,
+  "cost_per_attendee": 68.8,
   "languages": [
     "Armenian",
     "English"

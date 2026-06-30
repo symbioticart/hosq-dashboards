@@ -40,6 +40,7 @@ export function header(active){
     <a class="brand" href="/index.html"><img src="/public/logos/hosq-logo-black.svg" alt="hosq"/></a>
     <nav class="nav">
       <a href="/index.html" class="${active==='portfolio'?'active':''}">Портфель</a>
+      <a href="/analytics.html" class="${active==='analytics'?'active':''}">Аналитика</a>
       <a href="/impact.html" class="${active==='impact'?'active':''}">Доказательства A–J</a>
       <a href="/showcase.html" class="${active==='showcase'?'active':''}">Витрина</a>
       <a href="/data.html" class="${active==='data'?'active':''}">Данные</a>

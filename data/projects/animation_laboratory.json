@@ -9,7 +9,11 @@
   "city": "Goris",
   "country": "Armenia",
   "venue": "Hin-Khot abondoned village (near Goris)",
+  "venue_type": "cultural_venue",
   "url": "https://hosq.co/animation",
+  "start_date": "2026-05-03",
+  "end_date": "2026-05-03",
+  "start_month": "2026-05",
   "duration_days": 1,
   "tags": [
     "Lab",
@@ -20,6 +24,8 @@
     "sound & music",
     "set design"
   ],
+  "media_count": 1,
+  "cost_per_attendee": null,
   "languages": [
     "Armenian",
     "English"

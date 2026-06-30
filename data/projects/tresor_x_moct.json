@@ -9,7 +9,11 @@
   "city": "Yerevan",
   "country": "Armenia",
   "venue": "National Library of Armenia",
+  "venue_type": "cultural_venue",
   "url": "https://www.instagram.com/p/DU0n1g6guNO/?img_index=1",
+  "start_date": "2026-02-05",
+  "end_date": "2026-02-05",
+  "start_month": "2026-02",
   "duration_days": 1,
   "tags": [
     "Panel Discussion",
@@ -17,6 +21,8 @@
     "art management",
     "sound & music"
   ],
+  "media_count": 1,
+  "cost_per_attendee": null,
   "languages": [
     "Armenian",
     "English"

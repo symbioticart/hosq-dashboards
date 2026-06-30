@@ -9,13 +9,19 @@
   "city": "Yerevan",
   "country": "Armenia",
   "venue": "Martiros Sarian House-Museum",
+  "venue_type": "cultural_venue",
   "url": "https://hosq.co/robertopacidalo1",
+  "start_date": "2025-11-27",
+  "end_date": "2025-11-27",
+  "start_month": "2025-11",
   "duration_days": 1,
   "tags": [
     "Concert",
     "public event",
     "sound & music"
   ],
+  "media_count": 1,
+  "cost_per_attendee": 103.1,
   "languages": [
     "Armenian",
     "English"

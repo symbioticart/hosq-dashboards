@@ -9,7 +9,11 @@
   "city": "Yerevan",
   "country": "Armenia",
   "venue": "Northern Bus Station / Yerevan Children's Railway / Yerevan Botanical Garden / Library for Architecture",
+  "venue_type": "cultural_venue",
   "url": "https://hosq.co/collaboration-nopa",
+  "start_date": "2025-09-29",
+  "end_date": "2025-10-08",
+  "start_month": "2025-09",
   "duration_days": null,
   "tags": [
     "Workshop",
@@ -20,6 +24,8 @@
     "education",
     "sound & music"
   ],
+  "media_count": 1,
+  "cost_per_attendee": 400.0,
   "languages": [
     "Armenian",
     "English"

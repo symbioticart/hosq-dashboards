@@ -9,11 +9,17 @@
   "city": "Yerevan",
   "country": "Armenia",
   "venue": "Common Ground Yerevan",
+  "venue_type": "cultural_venue",
   "url": "https://hosq.co/davydova2",
+  "start_date": "2025-06-08",
+  "end_date": "2025-06-08",
+  "start_month": "2025-06",
   "duration_days": 1,
   "tags": [
     "Public Talk"
   ],
+  "media_count": 0,
+  "cost_per_attendee": null,
   "languages": [
     "Armenian",
     "English"

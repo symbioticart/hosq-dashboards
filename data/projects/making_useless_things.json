@@ -9,7 +9,11 @@
   "city": "Yerevan",
   "country": "Armenia",
   "venue": "Komitas Yerevan State Conservatory",
+  "venue_type": "university",
   "url": "https://www.instagram.com/p/DTiTiZ4guHy/?img_index=1",
+  "start_date": "2025-12-13",
+  "end_date": "2025-12-15",
+  "start_month": "2025-12",
   "duration_days": 3,
   "tags": [
     "Workshop",
@@ -17,6 +21,8 @@
     "community event",
     "collaboration"
   ],
+  "media_count": 1,
+  "cost_per_attendee": null,
   "languages": [
     "Armenian",
     "English"

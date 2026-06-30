@@ -9,7 +9,11 @@
   "city": "Yerevan",
   "country": "Armenia",
   "venue": "State Philharmonia of Armenia Ground Floor",
+  "venue_type": "concert_hall",
   "url": "https://hosq.co/loismacdonald1",
+  "start_date": "2025-07-19",
+  "end_date": "2025-07-19",
+  "start_month": "2025-07",
   "duration_days": 1,
   "tags": [
     "Lecture",
@@ -17,6 +21,8 @@
     "sound & music",
     "technologies"
   ],
+  "media_count": 1,
+  "cost_per_attendee": 126.0,
   "languages": [
     "Armenian",
     "English"

@@ -9,7 +9,11 @@
   "city": "Yerevan",
   "country": "Armenia",
   "venue": "AGBU Armenia Hall",
+  "venue_type": "cultural_venue",
   "url": "https://hosq.co/patriziafregonesedefilippo1",
+  "start_date": "2025-12-14",
+  "end_date": "2025-12-14",
+  "start_month": "2025-12",
   "duration_days": 1,
   "tags": [
     "Lecture",
@@ -17,6 +21,8 @@
     "collaboration",
     "filming"
   ],
+  "media_count": 1,
+  "cost_per_attendee": null,
   "languages": [
     "Armenian",
     "English"

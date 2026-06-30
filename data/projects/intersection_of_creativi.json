@@ -9,7 +9,11 @@
   "city": "Yerevan",
   "country": "Armenia",
   "venue": "Common Ground Yerevan",
+  "venue_type": "cultural_venue",
   "url": "https://hosq.co/carladiana1",
+  "start_date": "2025-03-12",
+  "end_date": "2025-03-12",
+  "start_month": "2025-03",
   "duration_days": 1,
   "tags": [
     "Lecture",
@@ -17,6 +21,8 @@
     "technologies",
     "art management"
   ],
+  "media_count": 1,
+  "cost_per_attendee": 70.3,
   "languages": [
     "Armenian",
     "English"

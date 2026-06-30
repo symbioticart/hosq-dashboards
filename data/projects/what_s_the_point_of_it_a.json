@@ -9,11 +9,17 @@
   "city": "Yerevan",
   "country": "Armenia",
   "venue": "Rambalkoshe",
+  "venue_type": "cultural_venue",
   "url": "https://hosq.co/whatsthepointofitall",
+  "start_date": "2025-06-05",
+  "end_date": "2025-06-05",
+  "start_month": "2025-06",
   "duration_days": 1,
   "tags": [
     "Public Talk"
   ],
+  "media_count": 0,
+  "cost_per_attendee": null,
   "languages": [
     "Armenian",
     "English"

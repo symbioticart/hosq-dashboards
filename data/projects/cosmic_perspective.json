@@ -9,13 +9,19 @@
   "city": "Yerevan",
   "country": "Armenia",
   "venue": "Common Ground Yerevan",
+  "venue_type": "cultural_venue",
   "url": "https://hosq.co/janswierkowski1",
+  "start_date": "2025-03-13",
+  "end_date": "2025-03-13",
+  "start_month": "2025-03",
   "duration_days": 1,
   "tags": [
     "Lecture",
     "public event",
     "science"
   ],
+  "media_count": 1,
+  "cost_per_attendee": 47.3,
   "languages": [
     "Armenian",
     "English"

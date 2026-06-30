@@ -9,12 +9,18 @@
   "city": "Yerevan",
   "country": "Armenia",
   "venue": "Library for Architecture",
+  "venue_type": "cultural_venue",
   "url": "https://hosq.co/robertopacidalo2",
+  "start_date": "2025-11-30",
+  "end_date": "2025-11-30",
+  "start_month": "2025-11",
   "duration_days": 1,
   "tags": [
     "Lecture",
     "community event"
   ],
+  "media_count": 1,
+  "cost_per_attendee": null,
   "languages": [
     "Armenian",
     "English"

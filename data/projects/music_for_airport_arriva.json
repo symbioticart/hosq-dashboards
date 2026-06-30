@@ -9,7 +9,11 @@
   "city": "Yerevan",
   "country": "Armenia",
   "venue": "Zvartnots International Airport",
+  "venue_type": "cultural_venue",
   "url": "https://hosq.co/musicforairportarrival",
+  "start_date": "2026-02-13",
+  "end_date": "2026-02-13",
+  "start_month": "2026-02",
   "duration_days": 1,
   "tags": [
     "Concert",
@@ -19,6 +23,8 @@
     "installation",
     "media art"
   ],
+  "media_count": 1,
+  "cost_per_attendee": null,
   "languages": [
     "Armenian",
     "English"

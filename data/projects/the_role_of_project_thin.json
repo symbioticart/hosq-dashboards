@@ -9,11 +9,17 @@
   "city": "Yerevan",
   "country": "Armenia",
   "venue": "State Philharmonia of Armenia",
+  "venue_type": "concert_hall",
   "url": "https://hosq.co/aramhovhannisyan1",
+  "start_date": "2025-05-17",
+  "end_date": "2025-05-17",
+  "start_month": "2025-05",
   "duration_days": 1,
   "tags": [
     "Lecture"
   ],
+  "media_count": 0,
+  "cost_per_attendee": 50.0,
   "languages": [
     "Armenian",
     "English"

@@ -9,7 +9,11 @@
   "city": "Yerevan",
   "country": "Armenia",
   "venue": "Yerevan No. 57 School, Charentsavan School #4",
+  "venue_type": "school",
   "url": "https://hosq.co/artscienceschools",
+  "start_date": "2025-05-31",
+  "end_date": "2025-06-02",
+  "start_month": "2025-05",
   "duration_days": 3,
   "tags": [
     "Edu Program",
@@ -22,6 +26,8 @@
     "visual art",
     "sound & music"
   ],
+  "media_count": 1,
+  "cost_per_attendee": null,
   "languages": [
     "Armenian",
     "English"

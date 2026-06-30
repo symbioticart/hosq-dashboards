@@ -9,7 +9,11 @@
   "city": "Yerevan",
   "country": "Armenia",
   "venue": "Gabriel Sundukyan National Academic Theatre",
+  "venue_type": "theater",
   "url": "https://hosq.co/byob1",
+  "start_date": "2025-11-07",
+  "end_date": "2025-11-07",
+  "start_month": "2025-11",
   "duration_days": 1,
   "tags": [
     "Jam Session",
@@ -18,6 +22,8 @@
     "media art",
     "light"
   ],
+  "media_count": 1,
+  "cost_per_attendee": 15.3,
   "languages": [
     "Armenian",
     "English"

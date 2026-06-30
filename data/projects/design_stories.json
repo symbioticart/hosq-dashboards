@@ -9,13 +9,19 @@
   "city": "Yerevan",
   "country": "Armenia",
   "venue": "Common Ground Yerevan",
+  "venue_type": "cultural_venue",
   "url": "https://hosq.co/mcdidero1",
+  "start_date": "2025-05-28",
+  "end_date": "2025-05-28",
+  "start_month": "2025-05",
   "duration_days": 1,
   "tags": [
     "Lecture",
     "public event",
     "art management"
   ],
+  "media_count": 1,
+  "cost_per_attendee": 30.8,
   "languages": [
     "Armenian",
     "English"

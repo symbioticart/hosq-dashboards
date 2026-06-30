@@ -9,13 +9,19 @@
   "city": "Yerevan",
   "country": "Armenia",
   "venue": "State Philharmonia of Armenia Ground Floor",
+  "venue_type": "concert_hall",
   "url": "https://hosq.co/sebastianfrisch1",
+  "start_date": "2025-07-23",
+  "end_date": "2025-07-23",
+  "start_month": "2025-07",
   "duration_days": 1,
   "tags": [
     "Workshop",
     "public event",
     "sound & music"
   ],
+  "media_count": 1,
+  "cost_per_attendee": 250.0,
   "languages": [
     "Armenian",
     "English"

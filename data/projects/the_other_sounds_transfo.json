@@ -9,7 +9,11 @@
   "city": "Yerevan",
   "country": "Armenia",
   "venue": "State Philharmonia of Armenia Ground Floor",
+  "venue_type": "concert_hall",
   "url": "https://hosq.co/davitsukiasyan1",
+  "start_date": "2025-07-26",
+  "end_date": "2025-07-26",
+  "start_month": "2025-07",
   "duration_days": 1,
   "tags": [
     "Workshop",
@@ -17,6 +21,8 @@
     "sound & music",
     "technologies"
   ],
+  "media_count": 1,
+  "cost_per_attendee": 39.5,
   "languages": [
     "Armenian",
     "English"

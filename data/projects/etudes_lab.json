@@ -9,11 +9,17 @@
   "city": "Yerevan",
   "country": "Armenia",
   "venue": "Woods Yerevan Armenia",
+  "venue_type": "bar_club",
   "url": "https://hosq.co/etudeslab1",
+  "start_date": "2025-04-04",
+  "end_date": "2025-04-06",
+  "start_month": "2025-04",
   "duration_days": 3,
   "tags": [
     "Lab"
   ],
+  "media_count": 0,
+  "cost_per_attendee": 366.7,
   "languages": [
     "Armenian",
     "English"

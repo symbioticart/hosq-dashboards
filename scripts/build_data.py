@@ -141,6 +141,16 @@ for r in data_rows:
     online_raw = coerce("audience_reach_online", rec.get("audience_reach_online"))
     online_quarantined = online_raw is not None and online_raw >= ONLINE_QUARANTINE_THRESHOLD
 
+    def isodate(v):
+        v = clean(v)
+        if v is None: return None
+        s = str(v)[:10]
+        return s if len(s) == 10 and s[4] == '-' else None
+    sd = isodate(rec.get("start_date")); ed = isodate(rec.get("end_date"))
+    media_list = coerce("media_coverage_list", rec.get("media_coverage_list")) or []
+    bud = coerce("budget_total_usd", rec.get("budget_total_usd"))
+    aud = coerce("audience_reach_onsite", rec.get("audience_reach_onsite"))
+
     summary = {
         "project_id": pid,
         "slug": clean(rec.get("project_slug")) or pid,
@@ -152,9 +162,13 @@ for r in data_rows:
         "city": clean(rec.get("primary_city")),
         "country": clean(rec.get("primary_country")),
         "venue": clean(rec.get("venue_name_primary")),
+        "venue_type": clean(rec.get("venue_type")),
         "url": clean(rec.get("project_url")),
+        "start_date": sd, "end_date": ed, "start_month": sd[:7] if sd else None,
         "duration_days": coerce("duration_days", rec.get("duration_days")),
         "tags": coerce("project_format_tags", rec.get("project_format_tags")),
+        "media_count": len(media_list),
+        "cost_per_attendee": round(bud / aud, 1) if (bud is not None and aud not in (None, 0)) else None,
         "languages": coerce("languages_offered", rec.get("languages_offered")),
         "short_description": clean(rec.get("short_description")),
         "budget_usd": coerce("budget_total_usd", rec.get("budget_total_usd")),

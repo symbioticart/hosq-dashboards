@@ -9,7 +9,11 @@
   "city": "Yerevan",
   "country": "Armenia",
   "venue": "Gabriel Sundukyan National Academic Theatre",
+  "venue_type": "theater",
   "url": "https://www.instagram.com/p/DPowM9qAiI3/?img_index=1",
+  "start_date": "2025-10-01",
+  "end_date": "2025-10-01",
+  "start_month": "2025-10",
   "duration_days": 1,
   "tags": [
     "Performance",
@@ -19,6 +23,8 @@
     "sound & music",
     "lab"
   ],
+  "media_count": 1,
+  "cost_per_attendee": null,
   "languages": [
     "Armenian",
     "English"

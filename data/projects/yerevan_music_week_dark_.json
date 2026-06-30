@@ -9,7 +9,11 @@
   "city": "Yerevan",
   "country": "Armenia",
   "venue": "State Philharmonia of Armenia Ground Floor",
+  "venue_type": "concert_hall",
   "url": "https://www.instagram.com/p/DO6Ov3mgouv/?img_index=1",
+  "start_date": "2025-09-22",
+  "end_date": "2025-09-22",
+  "start_month": "2025-09",
   "duration_days": 1,
   "tags": [
     "Concert",
@@ -20,6 +24,8 @@
     "sound & music",
     "performance"
   ],
+  "media_count": 1,
+  "cost_per_attendee": null,
   "languages": [
     "Armenian",
     "English"

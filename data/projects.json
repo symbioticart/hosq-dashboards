@@ -10,11 +10,17 @@
     "city": "Yerevan",
     "country": "Armenia",
     "venue": "The State Philharmonia of Armenia",
+    "venue_type": "concert_hall",
     "url": null,
+    "start_date": "2026-03-12",
+    "end_date": "2026-03-13",
+    "start_month": "2026-03",
     "duration_days": 2,
     "tags": [
       "Jam Session"
     ],
+    "media_count": 0,
+    "cost_per_attendee": null,
     "languages": [
       "Armenian",
       "English"
@@ -56,7 +62,11 @@
     "city": "Yerevan",
     "country": "Armenia",
     "venue": "Zvartnots International Airport",
+    "venue_type": "cultural_venue",
     "url": "https://hosq.co/musicforairportarrival",
+    "start_date": "2026-02-13",
+    "end_date": "2026-02-13",
+    "start_month": "2026-02",
     "duration_days": 1,
     "tags": [
       "Concert",
@@ -66,6 +76,8 @@
       "installation",
       "media art"
     ],
+    "media_count": 1,
+    "cost_per_attendee": null,
     "languages": [
       "Armenian",
       "English"
@@ -107,7 +119,11 @@
     "city": "Yerevan",
     "country": "Armenia",
     "venue": "National Library of Armenia",
+    "venue_type": "cultural_venue",
     "url": "https://www.instagram.com/p/DU0n1g6guNO/?img_index=1",
+    "start_date": "2026-02-05",
+    "end_date": "2026-02-05",
+    "start_month": "2026-02",
     "duration_days": 1,
     "tags": [
       "Panel Discussion",
@@ -115,6 +131,8 @@
       "art management",
       "sound & music"
     ],
+    "media_count": 1,
+    "cost_per_attendee": null,
     "languages": [
       "Armenian",
       "English"
@@ -156,7 +174,11 @@
     "city": "Yerevan",
     "country": "Armenia",
     "venue": "State Philharmonia of Armenia",
+    "venue_type": "concert_hall",
     "url": "https://hosq.co/tanitstoon",
+    "start_date": "2025-12-26",
+    "end_date": "2025-12-26",
+    "start_month": "2025-12",
     "duration_days": 1,
     "tags": [
       "Community Event",
@@ -171,6 +193,8 @@
       "media art",
       "set design"
     ],
+    "media_count": 1,
+    "cost_per_attendee": 78.9,
     "languages": [
       "Armenian",
       "English"
@@ -212,7 +236,11 @@
     "city": "Yerevan",
     "country": "Armenia",
     "venue": "AGBU Armenia Hall",
+    "venue_type": "cultural_venue",
     "url": "https://hosq.co/patriziafregonesedefilippo1",
+    "start_date": "2025-12-14",
+    "end_date": "2025-12-14",
+    "start_month": "2025-12",
     "duration_days": 1,
     "tags": [
       "Lecture",
@@ -220,6 +248,8 @@
       "collaboration",
       "filming"
     ],
+    "media_count": 1,
+    "cost_per_attendee": null,
     "languages": [
       "Armenian",
       "English"
@@ -261,7 +291,11 @@
     "city": "Yerevan",
     "country": "Armenia",
     "venue": "Komitas Yerevan State Conservatory",
+    "venue_type": "university",
     "url": "https://www.instagram.com/p/DTiTiZ4guHy/?img_index=1",
+    "start_date": "2025-12-13",
+    "end_date": "2025-12-15",
+    "start_month": "2025-12",
     "duration_days": 3,
     "tags": [
       "Workshop",
@@ -269,6 +303,8 @@
       "community event",
       "collaboration"
     ],
+    "media_count": 1,
+    "cost_per_attendee": null,
     "languages": [
       "Armenian",
       "English"
@@ -310,12 +346,18 @@
     "city": "Yerevan",
     "country": "Armenia",
     "venue": "Library for Architecture",
+    "venue_type": "cultural_venue",
     "url": "https://hosq.co/robertopacidalo2",
+    "start_date": "2025-11-30",
+    "end_date": "2025-11-30",
+    "start_month": "2025-11",
     "duration_days": 1,
     "tags": [
       "Lecture",
       "community event"
     ],
+    "media_count": 1,
+    "cost_per_attendee": null,
     "languages": [
       "Armenian",
       "English"
@@ -357,7 +399,11 @@
     "city": "Yerevan",
     "country": "Armenia",
     "venue": "State Philharmonia of Armenia",
+    "venue_type": "concert_hall",
     "url": "https://hosq.co/jamdiscipline2",
+    "start_date": "2025-11-28",
+    "end_date": "2025-11-28",
+    "start_month": "2025-11",
     "duration_days": 1,
     "tags": [
       "Jam Session",
@@ -366,6 +412,8 @@
       "light",
       "media art"
     ],
+    "media_count": 1,
+    "cost_per_attendee": 66.7,
     "languages": [
       "Armenian",
       "English"
@@ -407,13 +455,19 @@
     "city": "Yerevan",
     "country": "Armenia",
     "venue": "Martiros Sarian House-Museum",
+    "venue_type": "cultural_venue",
     "url": "https://hosq.co/robertopacidalo1",
+    "start_date": "2025-11-27",
+    "end_date": "2025-11-27",
+    "start_month": "2025-11",
     "duration_days": 1,
     "tags": [
       "Concert",
       "public event",
       "sound & music"
     ],
+    "media_count": 1,
+    "cost_per_attendee": 103.1,
     "languages": [
       "Armenian",
       "English"
@@ -455,11 +509,17 @@
     "city": "Yerevan",
     "country": "Armenia",
     "venue": "State Philharmonia of Armenia",
+    "venue_type": "concert_hall",
     "url": "https://hosq.co/artmanagementpaneldiscussion1",
+    "start_date": "2025-11-15",
+    "end_date": "2025-11-15",
+    "start_month": "2025-11",
     "duration_days": 1,
     "tags": [
       "Panel Discussion"
     ],
+    "media_count": 0,
+    "cost_per_attendee": 66.7,
     "languages": [
       "Armenian",
       "English"
@@ -501,11 +561,17 @@
     "city": "Yerevan",
     "country": "Armenia",
     "venue": "State Philharmonia of Armenia",
+    "venue_type": "concert_hall",
     "url": "https://hosq.co/soundcrit1",
+    "start_date": "2025-11-15",
+    "end_date": "2025-11-15",
+    "start_month": "2025-11",
     "duration_days": 1,
     "tags": [
       "Community Event"
     ],
+    "media_count": 0,
+    "cost_per_attendee": 115.0,
     "languages": [
       "Armenian",
       "English"
@@ -547,7 +613,11 @@
     "city": "Yerevan",
     "country": "Armenia",
     "venue": "Gabriel Sundukyan National Academic Theatre",
+    "venue_type": "theater",
     "url": "https://hosq.co/byob1",
+    "start_date": "2025-11-07",
+    "end_date": "2025-11-07",
+    "start_month": "2025-11",
     "duration_days": 1,
     "tags": [
       "Jam Session",
@@ -556,6 +626,8 @@
       "media art",
       "light"
     ],
+    "media_count": 1,
+    "cost_per_attendee": 15.3,
     "languages": [
       "Armenian",
       "English"
@@ -597,7 +669,11 @@
     "city": "Yerevan",
     "country": "Armenia",
     "venue": "Gabriel Sundukyan National Academic Theatre",
+    "venue_type": "theater",
     "url": "https://www.instagram.com/p/DPlNJ2sgmPB/",
+    "start_date": "2025-10-09",
+    "end_date": "2025-10-09",
+    "start_month": "2025-10",
     "duration_days": 1,
     "tags": [
       "Concert",
@@ -605,6 +681,8 @@
       "collaboration",
       "sound & music"
     ],
+    "media_count": 1,
+    "cost_per_attendee": null,
     "languages": [
       "Armenian",
       "English"
@@ -646,11 +724,17 @@
     "city": "Yerevan",
     "country": "Armenia",
     "venue": "Gabriel Sundukyan National Academic Theatre",
+    "venue_type": "theater",
     "url": "https://www.instagram.com/p/DPowM9qAiI3/?img_index=1",
+    "start_date": "2025-10-01",
+    "end_date": "2025-10-01",
+    "start_month": "2025-10",
     "duration_days": 1,
     "tags": [
       "Performance"
     ],
+    "media_count": 0,
+    "cost_per_attendee": null,
     "languages": [
       "Armenian",
       "English"
@@ -692,11 +776,17 @@
     "city": "Yerevan",
     "country": "Armenia",
     "venue": "Library for Architecture",
+    "venue_type": "cultural_venue",
     "url": "https://hosq.co/collaboration-nopa",
+    "start_date": "2025-09-29",
+    "end_date": "2025-10-08",
+    "start_month": "2025-09",
     "duration_days": 10,
     "tags": [
       "Workshop"
     ],
+    "media_count": 0,
+    "cost_per_attendee": 400.0,
     "languages": [
       "Armenian",
       "English"
@@ -738,7 +828,11 @@
     "city": "Yerevan",
     "country": "Armenia",
     "venue": "Library for Architecture",
+    "venue_type": "cultural_venue",
     "url": "https://www.instagram.com/p/DQtlq4NgnrF/",
+    "start_date": "2025-09-26",
+    "end_date": "2025-09-26",
+    "start_month": "2025-09",
     "duration_days": 1,
     "tags": [
       "Lecture",
@@ -747,6 +841,8 @@
       "sound & music",
       "theatre"
     ],
+    "media_count": 1,
+    "cost_per_attendee": 64.5,
     "languages": [
       "Armenian",
       "English"
@@ -788,7 +884,11 @@
     "city": "Yerevan",
     "country": "Armenia",
     "venue": "Cafesjian Center for the Arts",
+    "venue_type": "gallery_museum",
     "url": "https://hosq.co/armenyesayants1",
+    "start_date": "2025-09-23",
+    "end_date": "2025-12-13",
+    "start_month": "2025-09",
     "duration_days": 82,
     "tags": [
       "Lecture",
@@ -797,6 +897,8 @@
       "art management",
       "visual art"
     ],
+    "media_count": 1,
+    "cost_per_attendee": 91.1,
     "languages": [
       "Armenian",
       "English"
@@ -838,7 +940,11 @@
     "city": "Yerevan",
     "country": "Armenia",
     "venue": "State Philharmonia of Armenia Ground Floor",
+    "venue_type": "concert_hall",
     "url": "https://www.instagram.com/p/DO6Ov3mgouv/?img_index=1",
+    "start_date": "2025-09-22",
+    "end_date": "2025-09-22",
+    "start_month": "2025-09",
     "duration_days": 1,
     "tags": [
       "Concert",
@@ -849,6 +955,8 @@
       "sound & music",
       "performance"
     ],
+    "media_count": 1,
+    "cost_per_attendee": null,
     "languages": [
       "Armenian",
       "English"
@@ -890,7 +998,11 @@
     "city": "Yerevan",
     "country": "Armenia",
     "venue": "State Philharmonia of Armenia Ground Floor",
+    "venue_type": "concert_hall",
     "url": "https://hosq.co/davitsukiasyan1",
+    "start_date": "2025-07-26",
+    "end_date": "2025-07-26",
+    "start_month": "2025-07",
     "duration_days": 1,
     "tags": [
       "Workshop",
@@ -898,6 +1010,8 @@
       "sound & music",
       "technologies"
     ],
+    "media_count": 1,
+    "cost_per_attendee": 39.5,
     "languages": [
       "Armenian",
       "English"
@@ -939,13 +1053,19 @@
     "city": "Yerevan",
     "country": "Armenia",
     "venue": "State Philharmonia of Armenia Ground Floor",
+    "venue_type": "concert_hall",
     "url": "https://hosq.co/sebastianfrisch1",
+    "start_date": "2025-07-23",
+    "end_date": "2025-07-23",
+    "start_month": "2025-07",
     "duration_days": 1,
     "tags": [
       "Workshop",
       "public event",
       "sound & music"
     ],
+    "media_count": 1,
+    "cost_per_attendee": 250.0,
     "languages": [
       "Armenian",
       "English"
@@ -987,7 +1107,11 @@
     "city": "Yerevan",
     "country": "Armenia",
     "venue": "State Philharmonia of Armenia, Yerevan",
+    "venue_type": "concert_hall",
     "url": "https://hosq.co/notations",
+    "start_date": "2025-07-22",
+    "end_date": "2025-08-03",
+    "start_month": "2025-07",
     "duration_days": 13,
     "tags": [
       "Lab",
@@ -1005,6 +1129,8 @@
       "set design",
       "technologies"
     ],
+    "media_count": 1,
+    "cost_per_attendee": 120.0,
     "languages": [
       "Armenian",
       "English"
@@ -1046,7 +1172,11 @@
     "city": "Yerevan",
     "country": "Armenia",
     "venue": "State Philharmonia of Armenia Ground Floor",
+    "venue_type": "concert_hall",
     "url": "https://hosq.co/loismacdonald1",
+    "start_date": "2025-07-19",
+    "end_date": "2025-07-19",
+    "start_month": "2025-07",
     "duration_days": 1,
     "tags": [
       "Lecture",
@@ -1054,6 +1184,8 @@
       "sound & music",
       "technologies"
     ],
+    "media_count": 1,
+    "cost_per_attendee": 126.0,
     "languages": [
       "Armenian",
       "English"
@@ -1095,13 +1227,19 @@
     "city": "Yerevan",
     "country": "Armenia",
     "venue": "Woods Center",
+    "venue_type": "bar_club",
     "url": "https://hosq.co/robertlippok1",
+    "start_date": "2025-06-12",
+    "end_date": "2025-06-12",
+    "start_month": "2025-06",
     "duration_days": 1,
     "tags": [
       "Lecture",
       "public event",
       "sound & music"
     ],
+    "media_count": 1,
+    "cost_per_attendee": 68.8,
     "languages": [
       "Armenian",
       "English"
@@ -1143,11 +1281,17 @@
     "city": "Yerevan",
     "country": "Armenia",
     "venue": "Common Ground Yerevan",
+    "venue_type": "cultural_venue",
     "url": "https://hosq.co/davydova2",
+    "start_date": "2025-06-08",
+    "end_date": "2025-06-08",
+    "start_month": "2025-06",
     "duration_days": 1,
     "tags": [
       "Public Talk"
     ],
+    "media_count": 0,
+    "cost_per_attendee": null,
     "languages": [
       "Armenian",
       "English"
@@ -1189,11 +1333,17 @@
     "city": "Yerevan",
     "country": "Armenia",
     "venue": "Rambalkoshe",
+    "venue_type": "cultural_venue",
     "url": "https://hosq.co/whatsthepointofitall",
+    "start_date": "2025-06-05",
+    "end_date": "2025-06-05",
+    "start_month": "2025-06",
     "duration_days": 1,
     "tags": [
       "Public Talk"
     ],
+    "media_count": 0,
+    "cost_per_attendee": null,
     "languages": [
       "Armenian",
       "English"
@@ -1235,11 +1385,17 @@
     "city": "Yerevan",
     "country": "Armenia",
     "venue": "NPAK",
+    "venue_type": "gallery_museum",
     "url": "https://www.instagram.com/p/DLAKu25CYyS/?img_index=1",
+    "start_date": "2025-06-04",
+    "end_date": "2025-06-04",
+    "start_month": "2025-06",
     "duration_days": 1,
     "tags": [
       "Performance"
     ],
+    "media_count": 0,
+    "cost_per_attendee": null,
     "languages": [
       "Armenian",
       "English"
@@ -1281,7 +1437,11 @@
     "city": "Yerevan",
     "country": "Armenia",
     "venue": "Yerevan No. 57 School, Charentsavan School #4",
+    "venue_type": "school",
     "url": "https://hosq.co/artscienceschools",
+    "start_date": "2025-05-31",
+    "end_date": "2025-06-02",
+    "start_month": "2025-05",
     "duration_days": 3,
     "tags": [
       "Edu Program",
@@ -1294,6 +1454,8 @@
       "visual art",
       "sound & music"
     ],
+    "media_count": 1,
+    "cost_per_attendee": null,
     "languages": [
       "Armenian",
       "English"
@@ -1335,13 +1497,19 @@
     "city": "Yerevan",
     "country": "Armenia",
     "venue": "Common Ground Yerevan",
+    "venue_type": "cultural_venue",
     "url": "https://hosq.co/mcdidero1",
+    "start_date": "2025-05-28",
+    "end_date": "2025-05-28",
+    "start_month": "2025-05",
     "duration_days": 1,
     "tags": [
       "Lecture",
       "public event",
       "art management"
     ],
+    "media_count": 1,
+    "cost_per_attendee": 30.8,
     "languages": [
       "Armenian",
       "English"
@@ -1383,11 +1551,17 @@
     "city": "Yerevan",
     "country": "Armenia",
     "venue": "Komitas Yerevan State Conservatory",
+    "venue_type": "university",
     "url": "https://hosq.co/shahenkhandkaryan1",
+    "start_date": "2025-05-21",
+    "end_date": "2025-05-21",
+    "start_month": "2025-05",
     "duration_days": 1,
     "tags": [
       "Lecture"
     ],
+    "media_count": 0,
+    "cost_per_attendee": 37.5,
     "languages": [
       "Armenian",
       "English"
@@ -1429,11 +1603,17 @@
     "city": "Yerevan",
     "country": "Armenia",
     "venue": "State Philharmonia of Armenia",
+    "venue_type": "concert_hall",
     "url": "https://hosq.co/aramhovhannisyan1",
+    "start_date": "2025-05-17",
+    "end_date": "2025-05-17",
+    "start_month": "2025-05",
     "duration_days": 1,
     "tags": [
       "Lecture"
     ],
+    "media_count": 0,
+    "cost_per_attendee": 50.0,
     "languages": [
       "Armenian",
       "English"
@@ -1475,11 +1655,17 @@
     "city": "Yerevan",
     "country": "Armenia",
     "venue": "Woods Yerevan Armenia",
+    "venue_type": "bar_club",
     "url": "https://hosq.co/etudeslab1",
+    "start_date": "2025-04-04",
+    "end_date": "2025-04-06",
+    "start_month": "2025-04",
     "duration_days": 3,
     "tags": [
       "Lab"
     ],
+    "media_count": 0,
+    "cost_per_attendee": 366.7,
     "languages": [
       "Armenian",
       "English"
@@ -1521,7 +1707,11 @@
     "city": "Yerevan",
     "country": "Armenia",
     "venue": "State Philharmonia of Armenia",
+    "venue_type": "concert_hall",
     "url": "https://www.instagram.com/p/DIEQJCZi20l/?img_index=1",
+    "start_date": "2025-03-22",
+    "end_date": "2025-03-22",
+    "start_month": "2025-03",
     "duration_days": 1,
     "tags": [
       "Jam Session",
@@ -1530,6 +1720,8 @@
       "media art",
       "light"
     ],
+    "media_count": 1,
+    "cost_per_attendee": 62.5,
     "languages": [
       "Armenian",
       "English"
@@ -1571,13 +1763,19 @@
     "city": "Yerevan",
     "country": "Armenia",
     "venue": "Common Ground Yerevan",
+    "venue_type": "cultural_venue",
     "url": "https://hosq.co/janswierkowski1",
+    "start_date": "2025-03-13",
+    "end_date": "2025-03-13",
+    "start_month": "2025-03",
     "duration_days": 1,
     "tags": [
       "Lecture",
       "public event",
       "science"
     ],
+    "media_count": 1,
+    "cost_per_attendee": 47.3,
     "languages": [
       "Armenian",
       "English"
@@ -1619,7 +1817,11 @@
     "city": "Yerevan",
     "country": "Armenia",
     "venue": "Common Ground Yerevan",
+    "venue_type": "cultural_venue",
     "url": "https://hosq.co/carladiana1",
+    "start_date": "2025-03-12",
+    "end_date": "2025-03-12",
+    "start_month": "2025-03",
     "duration_days": 1,
     "tags": [
       "Lecture",
@@ -1627,6 +1829,8 @@
       "technologies",
       "art management"
     ],
+    "media_count": 1,
+    "cost_per_attendee": 70.3,
     "languages": [
       "Armenian",
       "English"
@@ -1668,11 +1872,17 @@
     "city": "Yerevan",
     "country": "Armenia",
     "venue": "Esthetic Joys Embassy",
+    "venue_type": "cultural_venue",
     "url": "https://www.instagram.com/p/DEZivxlsmlw/",
+    "start_date": "2025-01-05",
+    "end_date": "2025-01-05",
+    "start_month": "2025-01",
     "duration_days": 1,
     "tags": [
       "Workshop"
     ],
+    "media_count": 0,
+    "cost_per_attendee": null,
     "languages": [
       "Armenian",
       "English"
@@ -1714,11 +1924,17 @@
     "city": "Yerevan",
     "country": "Armenia",
     "venue": "Esthetic Joys Embassy",
+    "venue_type": "cultural_venue",
     "url": "https://www.instagram.com/p/DEZivxlsmlw/",
+    "start_date": "2025-01-05",
+    "end_date": "2025-01-05",
+    "start_month": "2025-01",
     "duration_days": 1,
     "tags": [
       "Workshop"
     ],
+    "media_count": 0,
+    "cost_per_attendee": null,
     "languages": [
       "Armenian",
       "English"
@@ -1760,7 +1976,11 @@
     "city": "Goris",
     "country": "Armenia",
     "venue": "Hin-Khot abondoned village (near Goris)",
+    "venue_type": "cultural_venue",
     "url": "https://hosq.co/animation",
+    "start_date": "2026-05-03",
+    "end_date": "2026-05-03",
+    "start_month": "2026-05",
     "duration_days": 1,
     "tags": [
       "Lab",
@@ -1771,6 +1991,8 @@
       "sound & music",
       "set design"
     ],
+    "media_count": 1,
+    "cost_per_attendee": null,
     "languages": [
       "Armenian",
       "English"
@@ -1812,7 +2034,11 @@
     "city": "Yerevan",
     "country": "Armenia",
     "venue": "AI9 Openhaus (STUDIO)",
+    "venue_type": "cultural_venue",
     "url": "https://hosq.co/michael-leuffen",
+    "start_date": "2026-03-27",
+    "end_date": "2026-03-27",
+    "start_month": "2026-03",
     "duration_days": 1,
     "tags": [
       "Lecture",
@@ -1823,6 +2049,8 @@
       "sound & music",
       "collaboration"
     ],
+    "media_count": 1,
+    "cost_per_attendee": null,
     "languages": [
       "Armenian",
       "English"
@@ -1864,7 +2092,11 @@
     "city": "Yerevan",
     "country": "Armenia",
     "venue": "State Philharmonia of Armenia",
+    "venue_type": "concert_hall",
     "url": null,
+    "start_date": "2026-03-12",
+    "end_date": "2026-03-12",
+    "start_month": "2026-03",
     "duration_days": 1,
     "tags": [
       "Jam Session",
@@ -1873,6 +2105,8 @@
       "performance",
       "special project"
     ],
+    "media_count": 0,
+    "cost_per_attendee": null,
     "languages": [
       "Armenian",
       "English"
@@ -1914,13 +2148,19 @@
     "city": "Yerevan",
     "country": "Armenia",
     "venue": "State Philharmonia of Armenia",
+    "venue_type": "concert_hall",
     "url": "https://hosq.co/artmanagementpaneldiscussion1",
+    "start_date": "2025-11-15",
+    "end_date": "2025-11-15",
+    "start_month": "2025-11",
     "duration_days": 1,
     "tags": [
       "Panel Discussion",
       "public event",
       "art management"
     ],
+    "media_count": 1,
+    "cost_per_attendee": null,
     "languages": [
       "Armenian",
       "English"
@@ -1962,7 +2202,11 @@
     "city": "Yerevan",
     "country": "Armenia",
     "venue": "Gabriel Sundukyan National Academic Theatre",
+    "venue_type": "theater",
     "url": "https://www.instagram.com/p/DPowM9qAiI3/?img_index=1",
+    "start_date": "2025-10-01",
+    "end_date": "2025-10-01",
+    "start_month": "2025-10",
     "duration_days": 1,
     "tags": [
       "Performance",
@@ -1972,6 +2216,8 @@
       "sound & music",
       "lab"
     ],
+    "media_count": 1,
+    "cost_per_attendee": null,
     "languages": [
       "Armenian",
       "English"
@@ -2013,7 +2259,11 @@
     "city": "Yerevan",
     "country": "Armenia",
     "venue": "Northern Bus Station / Yerevan Children's Railway / Yerevan Botanical Garden / Library for Architecture",
+    "venue_type": "cultural_venue",
     "url": "https://hosq.co/collaboration-nopa",
+    "start_date": "2025-09-29",
+    "end_date": "2025-10-08",
+    "start_month": "2025-09",
     "duration_days": null,
     "tags": [
       "Workshop",
@@ -2024,6 +2274,8 @@
       "education",
       "sound & music"
     ],
+    "media_count": 1,
+    "cost_per_attendee": 400.0,
     "languages": [
       "Armenian",
       "English"
@@ -2065,7 +2317,11 @@
     "city": "Yerevan",
     "country": "Armenia",
     "venue": "Common Ground Yerevan",
+    "venue_type": "cultural_venue",
     "url": "https://hosq.co/davydova2",
+    "start_date": "2025-06-08",
+    "end_date": "2025-06-08",
+    "start_month": "2025-06",
     "duration_days": 1,
     "tags": [
       "Public Talk",
@@ -2074,6 +2330,8 @@
       "performance",
       "theatre"
     ],
+    "media_count": 1,
+    "cost_per_attendee": null,
     "languages": [
       "Armenian",
       "English"
@@ -2115,7 +2373,11 @@
     "city": "Yerevan",
     "country": "Armenia",
     "venue": "Komitas Yerevan State Conservatory",
+    "venue_type": "university",
     "url": "https://hosq.co/shahenkhandkaryan1",
+    "start_date": "2025-05-21",
+    "end_date": "2025-05-21",
+    "start_month": "2025-05",
     "duration_days": 1,
     "tags": [
       "Lecture",
@@ -2124,6 +2386,8 @@
       "performance",
       "technologies"
     ],
+    "media_count": 1,
+    "cost_per_attendee": 50.0,
     "languages": [
       "Armenian",
       "English"
@@ -2165,7 +2429,11 @@
     "city": "Yerevan",
     "country": "Armenia",
     "venue": "Woods Yerevan Armenia",
+    "venue_type": "bar_club",
     "url": "https://hosq.co/etudeslab1",
+    "start_date": "2025-04-04",
+    "end_date": "2025-04-04",
+    "start_month": "2025-04",
     "duration_days": 1,
     "tags": [
       "Lab",
@@ -2177,6 +2445,8 @@
       "research",
       "light"
     ],
+    "media_count": 1,
+    "cost_per_attendee": 366.7,
     "languages": [
       "Armenian",
       "English"
@@ -2218,7 +2488,11 @@
     "city": "Yerevan",
     "country": "Armenia",
     "venue": "Esthetic Joys Embassy / ПЭУ",
+    "venue_type": "cultural_venue",
     "url": "https://www.instagram.com/p/DEZivxlsmlw/",
+    "start_date": "2025-01-05",
+    "end_date": "2025-01-05",
+    "start_month": "2025-01",
     "duration_days": 1,
     "tags": [
       "Workshop",
@@ -2227,6 +2501,8 @@
       "art management",
       "sound & music"
     ],
+    "media_count": 0,
+    "cost_per_attendee": null,
     "languages": [
       "Armenian",
       "English"
@@ -2268,13 +2544,19 @@
     "city": "Yerevan",
     "country": "Armenia",
     "venue": "Varpet",
+    "venue_type": "bar_club",
     "url": null,
+    "start_date": "2024-11-14",
+    "end_date": "2024-11-14",
+    "start_month": "2024-11",
     "duration_days": 1,
     "tags": [
       "Public Talk",
       "art management",
       "community event"
     ],
+    "media_count": 1,
+    "cost_per_attendee": null,
     "languages": [
       "Armenian",
       "English"

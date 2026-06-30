@@ -9,11 +9,17 @@
   "city": "Yerevan",
   "country": "Armenia",
   "venue": "Esthetic Joys Embassy",
+  "venue_type": "cultural_venue",
   "url": "https://www.instagram.com/p/DEZivxlsmlw/",
+  "start_date": "2025-01-05",
+  "end_date": "2025-01-05",
+  "start_month": "2025-01",
   "duration_days": 1,
   "tags": [
     "Workshop"
   ],
+  "media_count": 0,
+  "cost_per_attendee": null,
   "languages": [
     "Armenian",
     "English"

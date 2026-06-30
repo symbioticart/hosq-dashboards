@@ -9,7 +9,11 @@
   "city": "Yerevan",
   "country": "Armenia",
   "venue": "Library for Architecture",
+  "venue_type": "cultural_venue",
   "url": "https://www.instagram.com/p/DQtlq4NgnrF/",
+  "start_date": "2025-09-26",
+  "end_date": "2025-09-26",
+  "start_month": "2025-09",
   "duration_days": 1,
   "tags": [
     "Lecture",
@@ -18,6 +22,8 @@
     "sound & music",
     "theatre"
   ],
+  "media_count": 1,
+  "cost_per_attendee": 64.5,
   "languages": [
     "Armenian",
     "English"

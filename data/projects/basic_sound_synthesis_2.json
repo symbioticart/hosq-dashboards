@@ -9,11 +9,17 @@
   "city": "Yerevan",
   "country": "Armenia",
   "venue": "Komitas Yerevan State Conservatory",
+  "venue_type": "university",
   "url": "https://hosq.co/shahenkhandkaryan1",
+  "start_date": "2025-05-21",
+  "end_date": "2025-05-21",
+  "start_month": "2025-05",
   "duration_days": 1,
   "tags": [
     "Lecture"
   ],
+  "media_count": 0,
+  "cost_per_attendee": 37.5,
   "languages": [
     "Armenian",
     "English"

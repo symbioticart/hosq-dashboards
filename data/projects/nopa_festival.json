@@ -9,11 +9,17 @@
   "city": "Yerevan",
   "country": "Armenia",
   "venue": "Library for Architecture",
+  "venue_type": "cultural_venue",
   "url": "https://hosq.co/collaboration-nopa",
+  "start_date": "2025-09-29",
+  "end_date": "2025-10-08",
+  "start_month": "2025-09",
   "duration_days": 10,
   "tags": [
     "Workshop"
   ],
+  "media_count": 0,
+  "cost_per_attendee": 400.0,
   "languages": [
     "Armenian",
     "English"

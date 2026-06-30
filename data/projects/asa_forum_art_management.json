@@ -9,11 +9,17 @@
   "city": "Yerevan",
   "country": "Armenia",
   "venue": "State Philharmonia of Armenia",
+  "venue_type": "concert_hall",
   "url": "https://hosq.co/artmanagementpaneldiscussion1",
+  "start_date": "2025-11-15",
+  "end_date": "2025-11-15",
+  "start_month": "2025-11",
   "duration_days": 1,
   "tags": [
     "Panel Discussion"
   ],
+  "media_count": 0,
+  "cost_per_attendee": 66.7,
   "languages": [
     "Armenian",
     "English"

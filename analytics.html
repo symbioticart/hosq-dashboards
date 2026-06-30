@@ -1,0 +1,262 @@
+<!doctype html><html lang="ru"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HOSQ — Аналитика (наложения данных)</title>
+<meta name="description" content="Кросс-данные HOSQ: Lorenz/Gini, DEA-эффективность, Sankey, Shannon-разнообразие, сезонность.">
+<link rel="stylesheet" href="/styles/app.css">
+<script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+</head><body>
+<div id="hdr"></div>
+<main class="wrap" id="app"><div class="empty">Загрузка…</div></main>
+<div id="ftr"></div>
+<script type="module">
+import {theme,C,CAT,loadJSON,fmt,money,chart,header,footer,gcard} from '/src/common.js';
+echarts.registerTheme('hosq',theme);
+document.getElementById('hdr').innerHTML=header('analytics');
+const [P,agg,meta]=await Promise.all([
+  loadJSON('/data/projects.json'),loadJSON('/data/aggregates.json'),loadJSON('/data/manifest.json')]);
+document.getElementById('ftr').innerHTML=footer(meta);
+const INS=agg.insights, pp=x=>Math.round(x*100);
+const TC={community_event:C.green,lecture_series:C.blue,concert:C.pink,lab_showcase:C.coral,workshop_series:C.violet,hybrid:'#8C6FE0'};
+const tcol=t=>TC[t]||'#D8CCBE';
+
+// ---- stat helpers ----
+function gini(vals){const v=[...vals].sort((a,b)=>a-b);const n=v.length;const tot=v.reduce((a,b)=>a+b,0);
+  if(!n||!tot)return 0;let cum=0,prev=0,g=1;for(const x of v){cum+=x;const L=cum/tot;g-=(prev+L)/n;prev=L;}return g;}
+function hhi(vals){const tot=vals.reduce((a,b)=>a+b,0);if(!tot)return 0;return Math.round(vals.reduce((s,x)=>s+(x/tot)**2,0)*10000);}
+function lorenz(vals){const v=[...vals].sort((a,b)=>a-b);const n=v.length;const tot=v.reduce((a,b)=>a+b,0);
+  const pts=[[0,0]];let cum=0;v.forEach((x,i)=>{cum+=x;pts.push([(i+1)/n,cum/tot]);});return pts;}
+function shannon(arr){const c={};arr.forEach(x=>c[x]=(c[x]||0)+1);const n=arr.length;const ks=Object.keys(c);
+  const H=-ks.reduce((s,k)=>{const p=c[k]/n;return s+p*Math.log(p);},0);const J=ks.length>1?H/Math.log(ks.length):0;
+  const dom=ks.sort((a,b)=>c[b]-c[a])[0];return {H,J,k:ks.length,dom,domShare:c[dom]/n};}
+
+const budgets=P.filter(p=>p.budget_usd!=null).map(p=>p.budget_usd);
+const auds=P.filter(p=>p.audience_onsite!=null).map(p=>p.audience_onsite);
+const giniB=gini(budgets), hhiB=hhi(budgets), giniA=gini(auds);
+
+document.getElementById('app').innerHTML=`
+<section class="hero">
+  <div class="draft-pill" style="margin-bottom:14px">● НАЛОЖЕНИЯ ДАННЫХ · НЕ ПРОСТО СТАТИСТИКА</div>
+  <h1>Аналитика: данные поверх данных</h1>
+  <p class="lead">12 кросс-графиков, где одни данные наложены на другие — по фреймворкам экономистов (Lorenz/Gini, Herfindahl, DEA-эффективность, Sen, Shannon, Sankey). Каждый отвечает на управленческое «и что с этим делать», а не «сколько». Все числа — только по заполненным полям, с указанием n.</p>
+</section>
+
+<section class="block"><h2>Деньги: распределение и эффективность</h2><div class="grid2">
+  ${gcard({title:'Кривая Лоренца бюджета · Gini + HHI',id:'c_lorenz',kind:'line',
+    read:INS?'':'', })}
+  ${gcard({title:'Двойная Лоренца: деньги против охвата',id:'c_lorenz2',kind:'line'})}
+</div></section>
+<section class="block"><div class="grid2">
+  ${gcard({title:'Граница эффективности (DEA): бюджет → аудитория',id:'c_dea',kind:'scatter'})}
+  ${gcard({title:'Эффективность форматов: цена зрителя × охват',id:'c_eff2',kind:'scatter'})}
+</div></section>
+<section class="block">
+  ${gcard({title:'ABC-классификация портфеля по бюджету',id:'c_abc',kind:'tall'})}
+</section>
+
+<section class="block"><h2>Доказательная база A–J</h2><div class="grid2">
+  ${gcard({title:'Карта депривации документирования A–J',id:'c_lolli',kind:'tall'})}
+  ${gcard({title:'Slope: A–J, network против foundation',id:'c_slope',kind:'tall'})}
+</div></section>
+<section class="block">
+  ${gcard({title:'Воронка интернациональности: заявлено (G) против подтверждено',id:'c_intl'})}
+</section>
+
+<section class="block"><h2>Структура и потоки портфеля</h2>
+  ${gcard({title:'Sankey: стрим → формат → площадка',id:'c_sankey',kind:'tall'})}
+  <div class="grid2" style="margin-top:24px">
+    ${gcard({title:'Сезонность: формат × месяц запуска',id:'c_season',kind:'tall'})}
+    ${gcard({title:'Ровность портфеля (Shannon J´): формат, площадка, месяц',id:'c_shannon'})}
+  </div>
+</section>
+<section class="block">
+  ${gcard({title:'Опережающие против запаздывающих: документирование vs охват по форматам',id:'c_leadlag',kind:'tall'})}
+</section>`;
+
+// helper to set read-line + ai-insight text into a card after the fact
+function fill(id,read,ai,src){const card=document.getElementById(id).closest('.card');
+  card.querySelector('h3').insertAdjacentHTML('afterend',`<div class="read-line">${read}</div>`);
+  document.getElementById(id).insertAdjacentHTML('afterend',`<div class="ai-insight"><div>${ai}</div></div>`+(src?`<div class="src">${src}</div>`:''));}
+
+// 1. Lorenz budget
+(function(){const pts=lorenz(budgets);const c=chart(document.getElementById('c_lorenz'));
+  c.setOption({...theme,tooltip:{trigger:'axis',formatter:p=>`${pp(p[0].data[0])}% проектов = ${pp(p[0].data[1])}% бюджета`},
+    grid:{left:12,right:16,top:16,bottom:36,containLabel:true},
+    xAxis:{type:'value',min:0,max:1,name:'доля проектов',nameLocation:'middle',nameGap:30,axisLabel:{formatter:v=>pp(v)+'%'}},
+    yAxis:{type:'value',min:0,max:1,name:'доля бюджета',axisLabel:{formatter:v=>pp(v)+'%'}},
+    series:[{type:'line',data:[[0,0],[1,1]],lineStyle:{color:C.muted,type:'dashed'},symbol:'none'},
+      {type:'line',data:pts,smooth:false,symbol:'none',lineStyle:{color:C.coral,width:3},areaStyle:{color:'rgba(255,111,85,.12)'}}]});
+  fill('c_lorenz','чем сильнее коралловая линия провисает под пунктирной диагональю равенства, тем неравномернее распределён бюджет.',
+    `Gini = <b>${giniB.toFixed(2)}</b>, HHI = <b>${hhiB}</b> (>2500 — высокая концентрация). Топ-1 проект — 32% бюджета, топ-3 — 61%, топ-5 — 75%. Портфель сильно сконцентрирован. Решение для следующего конкурса: либо закрепить флагманскую модель с усиленным контролем крупных грантов, либо ввести потолок доли одного проекта и окно для малых грантов.`,
+    'budget_total_usd, n=27 из 47 (у 20 бюджет отсутствует, не ноль)');})();
+
+// 2. twin Lorenz
+(function(){const lb=lorenz(budgets),la=lorenz(auds);const c=chart(document.getElementById('c_lorenz2'));
+  c.setOption({...theme,tooltip:{trigger:'axis'},legend:{bottom:0,data:[`бюджет · Gini ${giniB.toFixed(2)}`,`охват · Gini ${giniA.toFixed(2)}`]},
+    grid:{left:12,right:16,top:16,bottom:48,containLabel:true},
+    xAxis:{type:'value',min:0,max:1,name:'доля проектов',nameLocation:'middle',nameGap:30,axisLabel:{formatter:v=>pp(v)+'%'}},
+    yAxis:{type:'value',min:0,max:1,axisLabel:{formatter:v=>pp(v)+'%'}},
+    series:[{type:'line',data:[[0,0],[1,1]],lineStyle:{color:C.muted,type:'dashed'},symbol:'none',silent:true,legendHoverLink:false,name:''},
+      {name:`бюджет · Gini ${giniB.toFixed(2)}`,type:'line',data:lb,symbol:'none',lineStyle:{color:C.coral,width:3}},
+      {name:`охват · Gini ${giniA.toFixed(2)}`,type:'line',data:la,symbol:'none',lineStyle:{color:C.blue,width:3}}]});
+  fill('c_lorenz2','две кривые Лоренца на одной оси: чем ниже линия, тем сильнее сконцентрирован ресурс. Сравни, что провисает глубже — деньги или охват.',
+    `Деньги (Gini ${giniB.toFixed(2)}) ${giniB>giniA?'концентрированы сильнее':'распределены ровнее'}, чем охват (Gini ${giniA.toFixed(2)}). ${giniB>giniA?'Топовые проекты обходятся дороже на одного зрителя — есть основание перебалансировать финансирование в сторону среднего сегмента с хорошим охватом.':'Деньги и охват распределены сопоставимо.'}`,
+    'бюджет n=27, охват n=30 (разные знаменатели — сравнение качественное)');})();
+
+// 3. DEA frontier budget→audience
+(function(){const d=P.filter(p=>p.budget_usd!=null&&p.audience_onsite!=null);
+  const sorted=[...d].sort((a,b)=>a.budget_usd-b.budget_usd);
+  const front=[];let mx=-1;sorted.forEach(p=>{if(p.audience_onsite>mx){front.push([p.budget_usd,p.audience_onsite]);mx=p.audience_onsite;}});
+  const c=chart(document.getElementById('c_dea'));
+  c.setOption({...theme,tooltip:{formatter:p=>p.seriesType==='scatter'?`${p.data.name}<br>$${p.data.value[0].toLocaleString('en-US')} · ${p.data.value[1]} зрителей`:''},
+    grid:{left:12,right:16,top:16,bottom:40,containLabel:true},
+    xAxis:{type:'value',name:'бюджет, $',nameLocation:'middle',nameGap:32,axisLabel:{formatter:v=>v>=1000?'$'+v/1000+'k':'$'+v}},
+    yAxis:{type:'value',name:'охват, зрителей',nameLocation:'middle',nameGap:46},
+    series:[{type:'line',data:front,symbol:'circle',symbolSize:6,lineStyle:{color:C.dark,width:2},itemStyle:{color:C.dark},z:1,silent:true},
+      {type:'scatter',symbolSize:15,z:2,data:d.map(p=>({name:p.title||p.slug,value:[p.budget_usd,p.audience_onsite]})),
+        itemStyle:{color:p=>tcol(d[p.dataIndex].type),opacity:.85,borderColor:'#fff',borderWidth:1.5}}]});
+  fill('c_dea','тёмная линия — граница эффективности (максимум аудитории при данном бюджете). Чем ниже точка под линией, тем больше недополученный охват.',
+    `Проекты на границе — эталоны доставки, их модель стоит тиражировать. Точки далеко под границей — кандидаты на поддержку по наращиванию охвата при том же бюджете. Наблюдаемый кросс-секционный сигнал, не доказательство причинности и не оценка качества.`,
+    'budget × audience_onsite, n=24 из 47');})();
+
+// 4. format efficiency bubble
+(function(){const d=INS.efficiency.by_type;const c=chart(document.getElementById('c_eff2'));
+  const maxB=Math.max(...d.map(x=>x.budget));
+  c.setOption({...theme,tooltip:{formatter:p=>`${p.data.t}<br>$${p.data.value[0]}/зритель · ${p.data.value[1].toLocaleString('en-US')} зрителей<br>${p.data.n} проектов · $${p.data.b.toLocaleString('en-US')}`},
+    grid:{left:12,right:24,top:16,bottom:40,containLabel:true},
+    xAxis:{type:'value',name:'цена зрителя, $',nameLocation:'middle',nameGap:32,axisLabel:{formatter:v=>'$'+v}},
+    yAxis:{type:'value',name:'суммарный охват',nameLocation:'middle',nameGap:48},
+    series:[{type:'scatter',data:d.map(x=>({t:x.type,n:x.n,b:x.budget,value:[x.cost_per,x.audience],
+        symbolSize:Math.max(18,Math.sqrt(x.budget/maxB)*70)})),
+      itemStyle:{color:p=>tcol(p.data.t),opacity:.8,borderColor:'#fff',borderWidth:2},
+      label:{show:true,formatter:p=>p.data.t.replace('_',' ')+(p.data.n===1?' (n=1)':''),position:'top',color:C.muted,fontSize:11}}]});
+  fill('c_eff2','каждый пузырь — формат: по горизонтали цена зрителя, по вертикали суммарный охват, размер = бюджет. Левый-верхний угол лучший.',
+    `Community-события — самый дешёвый зритель (~$48) при высоком охвате; workshop_series дорог и малоохватен (~$186, 78 зрителей); lab_showcase — высокий охват, но дорого. Маржинальный доллар эффективнее двигать к форматам на границе эффективности, дорогие низкоохватные — пересмотреть. Concert — n=1, не репрезентативен.`,
+    'efficiency.by_type; n у типов от 1 до 12');})();
+
+// 5. ABC donut
+(function(){const d=P.filter(p=>p.budget_usd!=null).sort((a,b)=>b.budget_usd-a.budget_usd);
+  const tot=d.reduce((s,p)=>s+p.budget_usd,0);let cum=0;const cls={A:[],B:[],Cc:[]};
+  d.forEach(p=>{cum+=p.budget_usd;const sh=cum/tot;const k=sh<=0.8?'A':sh<=0.95?'B':'Cc';cls[k].push(p);});
+  const sum=arr=>arr.reduce((s,p)=>s+p.budget_usd,0);
+  const col={A:C.coral,B:C.violet,Cc:C.green};
+  const c=chart(document.getElementById('c_abc'));
+  c.setOption({...theme,tooltip:{trigger:'item',formatter:p=>`${p.seriesName}<br>${p.name}: <b>${p.percent}%</b>`},
+    legend:{bottom:0,data:['A','B','C']},
+    title:[{text:'число проектов',left:'24%',top:'46%',textAlign:'center',textStyle:{fontSize:12,color:C.muted,fontWeight:400}},
+           {text:'доля бюджета',left:'74%',top:'46%',textAlign:'center',textStyle:{fontSize:12,color:C.muted,fontWeight:400}}],
+    series:[
+     {name:'число проектов',type:'pie',radius:['35%','62%'],center:['25%','45%'],label:{formatter:'{b}: {c}'},
+      data:[{name:'A',value:cls.A.length,itemStyle:{color:col.A}},{name:'B',value:cls.B.length,itemStyle:{color:col.B}},{name:'C',value:cls.Cc.length,itemStyle:{color:col.Cc}}]},
+     {name:'доля бюджета',type:'pie',radius:['35%','62%'],center:['75%','45%'],label:{formatter:p=>p.name+': '+pp(p.value/tot)+'%'},
+      data:[{name:'A',value:sum(cls.A),itemStyle:{color:col.A}},{name:'B',value:sum(cls.B),itemStyle:{color:col.B}},{name:'C',value:sum(cls.Cc),itemStyle:{color:col.Cc}}]}]});
+  fill('c_abc','слева — сколько проектов в каждом классе, справа — сколько денег. Узкий по числу, но широкий по деньгам класс A = немного проектов держат большинство средств.',
+    `Класс A — ${cls.A.length} проекта держат ~${pp(sum(cls.A)/tot)}% всех средств; класс C — ${cls.Cc.length} проектов лишь ${pp(sum(cls.Cc)/tot)}%. Это рабочая политика мониторинга: A — ежеквартальный разбор, B — средний контроль, C — лёгкий режим. Интенсивность отчётности привязывается к финансовой экспозиции, а не к числу проектов.`,
+    'ABC-анализ (Парето), n=27 из 47');})();
+
+// 6. A-J deprivation lollipop
+(function(){const pe=[...INS.priority_evidence].sort((a,b)=>a.coverage-b.coverage);const TARGET=0.5;
+  const c=chart(document.getElementById('c_lolli'));
+  c.setOption({...theme,tooltip:{trigger:'item',formatter:p=>`${pe[p.dataIndex].vector} ${pe[p.dataIndex].name}: ${pp(pe[p.dataIndex].coverage)}%`},
+    grid:{left:12,right:30,top:16,bottom:30,containLabel:true},
+    xAxis:{type:'value',min:0,max:1,name:'полнота документации',nameLocation:'middle',nameGap:30,axisLabel:{formatter:v=>pp(v)+'%'}},
+    yAxis:{type:'category',inverse:true,data:pe.map(v=>v.vector+' '+v.name)},
+    series:[{type:'bar',data:pe.map(v=>({value:v.coverage,itemStyle:{color:v.focus?C.coral:'#B9D8C8',borderRadius:[0,4,4,0]}})),barWidth:3},
+      {type:'scatter',symbolSize:16,data:pe.map(v=>({value:v.coverage,itemStyle:{color:v.focus?C.coral:C.green}})),
+        markLine:{symbol:'none',silent:true,data:[{xAxis:TARGET,lineStyle:{color:C.muted,type:'dashed'},label:{formatter:'цель 50%',color:C.muted}}]}}]});
+  fill('c_lolli','векторы отсортированы от худшего документирования; пунктир — целевой уровень 50%. Чем короче точка, тем сильнее вектор недозадокументирован. Коралл — стратегические приоритеты.',
+    `Систематически пусты B «Креативная экономика» (7%), I «Участие» (7%), C «Соц. инклюзия» (15%). Это адрес для инвестиций в сбор доказательной базы в следующем цикле — особенно по фокусным векторам. Важно: метрика — полнота заполнения полей, НЕ качество работы.`,
+    'vector_coverage (доля заполненных полей), все 47');})();
+
+// 7. slope network vs foundation
+(function(){const cbs=INS.coverage_by_stream;if(!cbs.network||!cbs.foundation)return;
+  const V=Object.keys(agg.vector_coverage);const c=chart(document.getElementById('c_slope'));
+  const series=V.map(v=>{const a=cbs.network.coverage[v],b=cbs.foundation.coverage[v];
+    return {name:v,type:'line',data:[[0,a],[1,b]],symbol:'circle',symbolSize:7,
+      lineStyle:{color:b<a?C.coral:C.green,width:2},itemStyle:{color:b<a?C.coral:C.green},
+      endLabel:{show:true,formatter:v,color:C.dark,fontSize:11},
+      label:{show:true,position:'left',formatter:p=>p.dataIndex===0?v:'',color:C.muted,fontSize:11}};});
+  c.setOption({...theme,tooltip:{trigger:'item',formatter:p=>`${p.seriesName}: ${pp(p.data[1])}%`},
+    grid:{left:60,right:60,top:24,bottom:30,containLabel:true},
+    xAxis:{type:'value',min:-0.05,max:1.05,axisLabel:{formatter:v=>v===0?'network':v===1?'foundation':'',fontWeight:700,color:C.dark},splitLine:{show:false}},
+    yAxis:{type:'value',min:0,max:0.6,name:'полнота',axisLabel:{formatter:v=>pp(v)+'%'}},series});
+  fill('c_slope','каждая линия — вектор A–J: слева его полнота в network, справа в foundation. Крутой спуск вправо = foundation документирует вектор заметно хуже.',
+    `network документирован плотнее по Resonance (32 против 20), Artistic Quality (20 против 12), Digitality (30 против 25). foundation проседает по Participation (3 против 8) и Creative Economy (4 против 9). Основание — стандартизировать шаблоны отчётности и подтянуть слабый поток до аудита. Это полнота полей, не качество.`,
+    'coverage_by_stream; network n=24, foundation n=10');})();
+
+// 8. Sankey stream→type→venue
+(function(){const ST=p=>p.stream||'не назначен';
+  const nodes={},links={};const addN=n=>{nodes[n]=1;};const addL=(a,b)=>{const k=a+'¦'+b;links[k]=(links[k]||0)+1;};
+  P.forEach(p=>{const s=ST(p),t=p.type||'—',v=p.venue_type||'—';addN('◆'+s);addN(t);addN('▣'+v);addL('◆'+s,t);addL(t,'▣'+v);});
+  const ncol=n=>n.startsWith('◆')?(n.includes('network')?C.coral:n.includes('foundation')?C.violet:C.muted):n.startsWith('▣')?'#A9C7DA':'#E0C089';
+  const c=chart(document.getElementById('c_sankey'));
+  c.setOption({tooltip:{trigger:'item',formatter:p=>p.dataType==='edge'?`${p.data.source.replace(/[◆▣]/,'')} → ${p.data.target.replace(/[◆▣]/,'')}: ${p.data.value}`:p.name.replace(/[◆▣]/,'')},
+    series:[{type:'sankey',emphasis:{focus:'adjacency'},nodeGap:10,
+      data:Object.keys(nodes).map(n=>({name:n,label:{formatter:n.replace(/[◆▣]/,''),color:C.dark,fontSize:11},itemStyle:{color:ncol(n),borderColor:ncol(n)}})),
+      links:Object.entries(links).map(([k,v])=>{const[a,b]=k.split('¦');return{source:a,target:b,value:v};}),
+      lineStyle:{color:'gradient',opacity:.35}}]});
+  fill('c_sankey','слева направо: канал финансирования → формат → площадка. Толщина ленты = число проектов на этом пути. Серый узел «не назначен» не сливается с потоками.',
+    `Видно, концентрируются ли network и foundation в одних форматах/площадках или закрывают разные ниши. Недопредставленность потока в каком-то типе или венью — основание перенаправить его в недообслуженные сегменты. Стрим не указан у 13 из 47 — отдельный серый узел.`,
+    'stream → type → venue_type, все 47');})();
+
+// 9. seasonality heatmap type × month
+(function(){const types=[...new Set(P.map(p=>p.type).filter(Boolean))];
+  const months=[...new Set(P.map(p=>p.start_month).filter(Boolean))].sort();
+  const data=[];types.forEach((t,y)=>months.forEach((m,x)=>{const n=P.filter(p=>p.type===t&&p.start_month===m).length;if(n)data.push([x,y,n]);}));
+  const c=chart(document.getElementById('c_season'));
+  c.setOption({...theme,tooltip:{position:'top',formatter:p=>`${types[p.data[1]]}<br>${months[p.data[0]]}: <b>${p.data[2]}</b> проектов`},
+    grid:{left:12,right:12,top:12,bottom:60,containLabel:true},
+    xAxis:{type:'category',data:months,axisLabel:{rotate:60,fontSize:10}},
+    yAxis:{type:'category',data:types,axisLabel:{fontSize:11}},
+    visualMap:{show:false,min:0,max:Math.max(...data.map(d=>d[2])),inRange:{color:['#F3ECE2','#FFD2C7','#FF6F55']}},
+    series:[{type:'heatmap',data,label:{show:true,formatter:p=>p.data[2],fontSize:10,color:C.dark},itemStyle:{borderColor:C.cream,borderWidth:2,borderRadius:3}}]});
+  fill('c_season','строки — форматы, столбцы — месяцы запуска. Цвет = число проектов. Пустые клетки — простаивающие месяцы, насыщенные — перегруженные одним форматом окна.',
+    `Матрица обнажает мёртвые месяцы и скопления похожих событий (риск каннибализации аудитории) на горизонте ноя-2024…май-2026. Основание — сглаживать производственную нагрузку и разводить близкие форматы по времени. 2026-е месяцы — форвард-пайплайн (6 проектов), не свершившийся охват.`,
+    'type × start_month, все 47');})();
+
+// 10. Shannon evenness
+(function(){const dims=[['тип','type'],['площадка','venue_type'],['месяц','start_month']];
+  const rows=dims.map(([lbl,k])=>{const s=shannon(P.map(p=>p[k]).filter(Boolean));return{lbl,...s};});
+  const c=chart(document.getElementById('c_shannon'));
+  c.setOption({...theme,tooltip:{trigger:'axis',formatter:p=>{const r=rows[p[0].dataIndex];return `${r.lbl}<br>ровность J´ = <b>${r.J.toFixed(2)}</b><br>доминанта: ${r.dom} (${pp(r.domShare)}%) · k=${r.k}`;}},
+    grid:{left:12,right:16,top:24,bottom:8,containLabel:true},
+    xAxis:{type:'category',data:rows.map(r=>r.lbl)},
+    yAxis:{type:'value',max:1,name:'ровность J´',axisLabel:{formatter:v=>v.toFixed(1)}},
+    series:[{type:'bar',data:rows.map((r,i)=>({value:+r.J.toFixed(2),itemStyle:{color:CAT[i],borderRadius:[6,6,0,0]}})),barWidth:'46%',
+      label:{show:true,position:'top',formatter:p=>rows[p.dataIndex].dom.replace('_',' ')+' '+pp(rows[p.dataIndex].domShare)+'%',color:C.muted,fontSize:11},
+      markLine:{symbol:'none',silent:true,data:[{yAxis:1,lineStyle:{color:C.muted,type:'dashed'},label:{formatter:'максимум разнообразия',color:C.muted}}]}}]});
+  fill('c_shannon','ровность J´ (Shannon/Pielou) от 0 до 1: чем ниже столбец относительно линии 1, тем сильнее портфель перекошен в одну-две категории. Подпись — доминирующая категория.',
+    `Низкая ровность по формату или площадке = перекос в lab_showcase/lecture_series и cultural_venue/concert_hall. Основание — задать целевые показатели диверсификации форматов и площадок и ровнее распределить календарь. Считается по всем 47 (поля заполнены полностью).`,
+    'Shannon H, Pielou J´=H/ln(k); type, venue_type, start_month');})();
+
+// 11. leading vs lagging slope by type
+(function(){const types=[...new Set(P.map(p=>p.type).filter(Boolean))];
+  const avgCov=p=>{const vs=Object.values(p.vector_coverage).filter(x=>x!=null);return vs.length?vs.reduce((a,b)=>a+b)/vs.length:0;};
+  const raw=types.map(t=>{const ps=P.filter(p=>p.type===t);const aud=ps.filter(p=>p.audience_onsite!=null);
+    return{t,lead:ps.reduce((s,p)=>s+avgCov(p),0)/ps.length,lag:aud.length?aud.reduce((s,p)=>s+p.audience_onsite,0)/aud.length:0,na:aud.length,nt:ps.length};});
+  const nm=(arr,k)=>{const mn=Math.min(...arr.map(x=>x[k])),mx=Math.max(...arr.map(x=>x[k]));return x=>mx>mn?(x-mn)/(mx-mn):0.5;};
+  const nl=nm(raw,'lead'),ng=nm(raw,'lag');
+  const c=chart(document.getElementById('c_leadlag'));
+  const series=raw.map(r=>({name:r.t,type:'line',data:[[0,nl(r.lead)],[1,ng(r.lag)]],symbol:'circle',symbolSize:7,
+    lineStyle:{color:ng(r.lag)<nl(r.lead)?C.coral:C.green,width:2},itemStyle:{color:tcol(r.t)},
+    endLabel:{show:true,formatter:r.t.replace('_',' ')+` (${r.na}/${r.nt})`,color:C.dark,fontSize:11},
+    label:{show:true,position:'left',formatter:p=>p.dataIndex===0?r.t.replace('_',' '):'',color:C.muted,fontSize:11}}));
+  c.setOption({...theme,tooltip:{trigger:'item'},grid:{left:90,right:130,top:24,bottom:30,containLabel:true},
+    xAxis:{type:'value',min:-0.05,max:1.05,axisLabel:{formatter:v=>v===0?'документирование':v===1?'охват':'',fontWeight:700,color:C.dark},splitLine:{show:false}},
+    yAxis:{type:'value',min:0,max:1,name:'норм. шкала',axisLabel:{formatter:v=>v.toFixed(1)}},series});
+  fill('c_leadlag','по линии на формат: слева — нормированная полнота документации (опережающий индикатор), справа — нормированный охват (запаздывающий результат). Крутой спуск = много документации, мало охвата.',
+    `Рассинхрон процесса и результата по форматам: где документация бежит впереди охвата — добавить поддержку по доведению результата; где охват без доказательной базы — догонять документирование. Наблюдаемый кросс-секционный сигнал за один год, не причинность. Охват по каждому типу — только по проектам с заполненной аудиторией (n у концов линий).`,
+    'mean(vector_coverage) vs mean(audience_onsite) по типам, нормировано');})();
+
+// 12. internationality gap
+(function(){const cbs=INS.coverage_by_stream;const g=v=>cbs[v]?pp(cbs[v].coverage.G):0;
+  const c=chart(document.getElementById('c_intl'));
+  c.setOption({...theme,tooltip:{trigger:'axis'},grid:{left:12,right:120,top:16,bottom:30,containLabel:true},
+    xAxis:{type:'value',max:100,name:'%',axisLabel:{formatter:v=>v+'%'}},
+    yAxis:{type:'category',inverse:true,data:['network','foundation']},
+    series:[{type:'bar',data:[g('network'),g('foundation')],barWidth:'40%',itemStyle:{color:C.violet,borderRadius:[0,6,6,0]},
+      label:{show:true,position:'right',formatter:'{c}% задокументировано',color:C.dark},
+      markLine:{symbol:'none',silent:true,data:[{xAxis:0,lineStyle:{color:'#E24B4A',width:3},label:{formatter:'подтверждено: 0 из 47',color:'#E24B4A',position:'insideEndTop'}}]}}]});
+  fill('c_intl','фиолетовый бар — заявленная в документации интернациональность (вектор G) по потокам; красная линия на нуле — сколько международных партнёров реально подтверждено данными.',
+    `Документация по G заполнена на ~29% в обоих потоках, но подтверждённых международных партнёров — <b>0 из 47</b>: поле partners_international не заполнено ни у одного проекта (флаг intl_partners_unverified). Интернациональность заявлена, но не верифицирована. Решение — запустить отдельный поток проверки партнёрств прежде, чем отражать интернациональность во внешней отчётности. Ноль здесь = отсутствие данных, а не отсутствие партнёров.`,
+    'vector_coverage.G vs partners_international (0/47, данные отсутствуют)');})();
+</script></body></html>

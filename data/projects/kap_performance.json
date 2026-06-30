@@ -9,11 +9,17 @@
   "city": "Yerevan",
   "country": "Armenia",
   "venue": "NPAK",
+  "venue_type": "gallery_museum",
   "url": "https://www.instagram.com/p/DLAKu25CYyS/?img_index=1",
+  "start_date": "2025-06-04",
+  "end_date": "2025-06-04",
+  "start_month": "2025-06",
   "duration_days": 1,
   "tags": [
     "Performance"
   ],
+  "media_count": 0,
+  "cost_per_attendee": null,
   "languages": [
     "Armenian",
     "English"
