@@ -1,74 +1,181 @@
 <!doctype html><html lang="ru"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>HOSQ — Главная</title>
-<meta name="description" content="Внутренний хаб команды фонда HOSQ: пульс портфеля, что требует внимания, вход в 5 разделов.">
-<meta property="og:title" content="HOSQ — панель фонда"><meta property="og:type" content="website">
+<title>HOSQ — Портфель фонда</title>
+<meta name="description" content="Портфель культурного фонда HOSQ: проекты, охват, эффективность, бюджет.">
+<meta property="og:title" content="HOSQ — Портфель фонда"><meta property="og:type" content="website">
 <link rel="stylesheet" href="/styles/app.css">
+<script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
 </head><body>
 <div id="hdr"></div>
-<main class="wrap" id="app"><div class="empty">Загрузка…</div></main>
+<main class="wrap" id="app"><div class="empty">Загрузка данных…</div></main>
 <div id="ftr"></div>
 <script type="module">
-import {C,loadJSON,fmt,money,header,footer} from '/src/common.js';
-document.getElementById('hdr').innerHTML=header('home');
-const [agg,P,meta]=await Promise.all([
+import {theme,C,CAT,loadJSON,fmt,money,chart,header,footer,gcard} from '/src/common.js';
+echarts.registerTheme('hosq',theme);
+document.getElementById('hdr').innerHTML=header('portfolio');
+const [agg,projects,meta]=await Promise.all([
   loadJSON('/data/aggregates.json'),loadJSON('/data/projects.json'),loadJSON('/data/manifest.json')]);
 document.getElementById('ftr').innerHTML=footer(meta);
+const INS=agg.insights, pp=x=>Math.round(x*100);
 const asof=meta.export_date.split('-').reverse().join('.');
+const TC={community_event:C.green,lecture_series:C.blue,concert:C.pink,lab_showcase:C.coral,workshop_series:C.violet,hybrid:'#8C6FE0'};
+const tcol=t=>TC[t]||C.line;
+const kpi=(num,lbl,den,acc)=>`<div class="kpi accent-${acc}"><div class="num">${num}</div><div class="lbl">${lbl}</div>${den?`<div class="den">${den}</div>`:''}</div>`;
 
-// ---- live honest computations ----
-const N=agg.project_count;
-const cnt=k=>P.filter(p=>p[k]!=null&&p[k]!==''&&!(Array.isArray(p[k])&&!p[k].length)).length;
-const fillBudget=agg.budget_total_usd.n_covered, fillAud=agg.audience_onsite_total.n_covered, fillPart=agg.partners_local_total.n_covered;
-const fillTeam=cnt('team_size'), fillParticip=cnt('participants_onsite');
-const readiness=Math.round((fillBudget/N*0.30 + fillAud/N*0.25 + fillPart/N*0.20 + fillTeam/N*0.15 + fillParticip/N*0.10)*100);
-const vc=agg.vector_coverage;
-const avgAJ=Math.round(Object.values(vc).reduce((s,v)=>s+v.coverage,0)/Object.keys(vc).length*100);
-function gini(vals){const v=[...vals].sort((a,b)=>a-b);const n=v.length;const tot=v.reduce((a,b)=>a+b,0);if(!n||!tot)return 0;let c=0,prev=0,g=1;for(const x of v){c+=x;const L=c/tot;g-=(prev+L)/n;prev=L;}return g;}
-const giniB=gini(P.filter(p=>p.budget_usd!=null).map(p=>p.budget_usd)).toFixed(2).replace('.',',');
-const top3=Math.round(agg.insights.budget_concentration.top['3']*100);
-
-const kpi=(href,num,lbl,den,acc)=>`<a class="kpi accent-${acc}" href="${href}"><div class="num">${num}</div><div class="lbl">${lbl}</div>${den?`<div class="den">${den}</div>`:''}</a>`;
-const attn=(label,ttl,act,linkText,href)=>`<a class="attn" href="${href}"><div class="alabel">${label}</div><div class="attl">${ttl}</div><div class="aact">${act}</div><div class="alink">${linkText} →</div></a>`;
-const route=(cls,href,ico,ttl,desc,metric)=>`<a class="route ${cls}" href="${href}"><div class="rico">${ico}</div><div class="rttl">${ttl}</div><div class="rdesc">${desc}</div><div class="rmetric">${metric}</div><div class="rcta">Открыть →</div></a>`;
-
+const b=agg.budget_total_usd, ao=agg.audience_onsite_total;
 document.getElementById('app').innerHTML=`
-<section class="hubhero">
-  <p class="lbl" style="color:var(--ink-2)">HOSQ · культурный фонд, Армения · панель данных</p>
-  <h1 style="margin-top:10px">С возвращением — вот где фонд сегодня</h1>
-  <p class="lead">Состояние портфеля и точки входа в пять разделов. Заходите свериться с пульсом и решить, куда смотреть дальше.</p>
-  <p class="bluf">${N} проектов за 2024–2026. Результаты реальны, но фонд знает их наполовину: бюджет и охват собраны на 57–64%, а <b>${top3}% денег держат три проекта</b>.</p>
+<section class="hero">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px">
+    <div class="draft-pill">● ЧЕРНОВЫЕ ДАННЫЕ</div><div class="as-of">Данные на ${asof}</div></div>
+  <h1>Портфель HOSQ, 2024–2026</h1>
+  <p class="lead">Что фонд сделал, для кого и с кем. Каждая цифра — только по проектам, где есть данные. Пустые поля не считаем нулём.</p>
+</section>
+<section class="kpis">
+  ${kpi(agg.project_count,'проектов','','coral')}
+  ${kpi(money(b.value),'суммарный бюджет',`по ${b.n_covered} из ${b.n_total}`,'green')}
+  ${kpi(fmt(ao.value),'офлайн-охват, зрители',`по ${ao.n_covered} из ${ao.n_total}`,'blue')}
+  ${kpi(agg.partners_local_total.value,'локальных партнёров',`по ${agg.partners_local_total.n_covered} из ${agg.partners_local_total.n_total}`,'violet')}
+  ${kpi(agg.distinct_language_count,'языка работы',agg.distinct_languages.join(', '),'pink')}
+</section>
+<div class="note">Рабочие места, международные партнёры и онлайн-охват в источнике не заполнены — здесь их не показываем, чтобы не выдавать пустое за «ноль». Команда, партнёры и события подробно есть только по флагманской программе Notations Lab — см. «Витрину».</div>
+
+<section class="block"><h2>Сколько стоят результаты</h2><div class="grid2">
+  ${gcard({title:'Сколько стоит один зритель — по форматам',id:'c_eff',
+    read:'бюджет формата делим на его офлайн-охват; чем выше столбец, тем дороже привести одного зрителя вживую.',
+    ai:'Разброс восьмикратный: <b>community-события $48</b> против <b>мастер-классов $186</b> и лабораторий $180 при среднем $114. Массовый охват дают встречи и лекции ($48–64), а мастер-классы и шоукейсы — вложение в глубину, а не в цифры охвата.',
+    src:`budget ÷ офлайн-охват, по проектам где есть оба поля (n=${INS.efficiency.n})`})}
+  ${gcard({title:'Концентрация бюджета',id:'c_conc',kind:'line',
+    read:'проекты выстроены от крупного к мелкому; кривая показывает, какая доля денег приходится на верхушку.',
+    ai:'Один проект держит <b>32%</b> бюджета, топ-3 — <b>61%</b>, топ-5 — 75%. Уход одного из топ-3 убирает две трети денег — ключевой риск устойчивости и аргумент за диверсификацию.',
+    src:`budget_total_usd, накопленная доля (n=${INS.budget_concentration.n})`})}
+</div></section>
+
+<section class="block"><h2>Экономика форматов</h2>
+  ${gcard({title:'Средний бюджет и средний охват по типам',id:'c_econ',
+    read:'для каждого типа проекта — две величины рядом: сколько он в среднем стоит и скольких зрителей в среднем собирает.',
+    ai:'Цена зрителя по типам различается вчетверо: community $48, лекции $64, концерт $103, лаборатория $180, мастер-класс $186. Баланс портфеля — это выбор: больше встреч и лекций даёт охват, больше лабораторий и мастерских — вложение в участников.',
+    src:'среднее budget_total_usd и audience_reach_onsite по типу проекта'})}
 </section>
 
-<section class="kpis" style="margin-top:8px">
-  ${kpi('/portfolio.html',N,'проектов','2024–2026','coral')}
-  ${kpi('/portfolio.html',money(agg.budget_total_usd.value),'бюджет',`по ${fillBudget} из ${N}`,'green')}
-  ${kpi('/portfolio.html',fmt(agg.audience_onsite_total.value),'офлайн-охват',`по ${fillAud} из ${N}`,'blue')}
-  ${kpi('/portfolio.html',agg.partners_local_total.value,'локальных партнёров',`по ${fillPart} из ${N}`,'violet')}
-  ${kpi('/data.html',readiness+'%','готовность данных','по 5 ключевым полям','pink')}
-</section>
-<p class="muted" style="font-size:13px;margin-top:8px">Данные на ${asof} · черновые. A–J измеряет полноту документации, а не качество; суммы и проценты будут меняться по мере заполнения таблицы.</p>
+<section class="block"><h2>Кто сколько собрал</h2><div class="grid2">
+  ${gcard({title:'Бюджет × охват: кто эффективнее на доллар',id:'c_scatter',kind:'scatter',
+    read:'каждый пузырь — проект: по горизонтали бюджет, по вертикали офлайн-охват; чем выше точка, тем больше зрителей на вложенный доллар.',
+    ai:'Связь видна только по <b>27</b> проектам с бюджетом и охватом сразу; средняя цена зрителя $114, но встречи дают зрителя за $48 — втрое дешевле шоукейсов ($180). Левый-верхний угол = эффективные форматы.',
+    src:'budget_total_usd × audience_reach_onsite, цвет = тип'})}
+  ${gcard({title:'Топ-10 проектов по офлайн-охвату',id:'c_top',
+    read:'проекты отсортированы по числу живых зрителей сверху вниз.',
+    ai:'Весь офлайн-охват — <b>3 189</b> зрителей по 30 проектам из 47; верхушка тянет основную долю, как и по бюджету. Для роста охвата усиливайте многодневные форматы (323 зрителя против 75 у однодневных).',
+    src:'audience_reach_onsite, топ-10'})}
+</div></section>
 
-<section class="block"><h2>Требует внимания</h2>
-  <p class="muted" style="margin-top:-12px">Честный список пробелов и рисков с готовым действием — отранжирован по влиянию на развитие фонда.</p>
-  <div class="attngrid" style="margin-top:16px">
-    ${attn('Риск концентрации','61% бюджета — в трёх проектах','Зафиксируйте порог концентрации и в следующем цикле наращивайте средний сегмент, а не флагман.','Аналитика','/analytics.html')}
-    ${attn('Не подтверждено','Международные партнёры: 0 из 47','Поле не заполнено ни у одного проекта. Проставьте есть/нет/неизвестно; до этого не показывайте «0» как факт.','Данные','/data.html')}
-    ${attn('Слабая база','Приоритеты G (28%) и D (16%) задокументированы хуже всего','Догрузите доказательства по G и D до уровня A (52%), прежде чем заявлять эти приоритеты вовне.','Доказательства A–J','/impact.html')}
-    ${attn('Дыра в данных','Бюджет по 27/47, охват по 30/47','Закройте 20 проектов без бюджета — это быстрее всего поднимает доверие к итогу $375k.','Данные','/data.html')}
-    ${attn('Люди невидимы','Участники указаны у 5 из 47, рабочие места — пусто','Введите обязательный минимум полей про людей для новых проектов.','Данные','/data.html')}
-    ${attn('Пробел покрытия','B и I задокументированы по 7% — слабее всех','Решите по каждому направлению: это пробел работы или документации, и закройте.','Доказательства A–J','/impact.html')}
-  </div>
-</section>
+<section class="block"><div class="grid2">
+  ${gcard({title:'Длительность × охват',id:'c_dur',kind:'scatter',
+    read:'каждый проект — точка: по горизонтали число дней, по вертикали офлайн-охват.',
+    ai:'Многодневные проекты собирают в среднем <b>323</b> зрителя против <b>75</b> у однодневных — в 4,3 раза больше, но таких всего 4 против 25. Вывод черновой из-за малой выборки, но указывает на резерв роста.',
+    src:'duration_days × audience_reach_onsite'})}
+  ${gcard({title:'network против foundation — покрытие по 10 векторам',id:'c_streamr',kind:'radar',
+    read:'для каждого вектора сравниваем долю заполненных доказательств в двух стримах; длиннее — больше свидетельств, а не выше качество.',
+    ai:'network документирован плотнее по Resonance (32 против 20), Artistic Quality (20 против 12) и Digitality (30 против 25). У foundation проседают <b>Participation (3 против 8)</b> и Creative Economy (4 против 9) — туда направить сбор данных первым.',
+    src:'доля заполненных доказательств A–J, среднее по стриму'})}
+</div></section>
 
-<section class="block"><h2>Разделы</h2>
-  <p class="muted" style="margin-top:-12px">Пять входов. Под каждым — одна живая цифра, чтобы выбрать осознанно.</p>
-  <div class="routegrid" style="margin-top:16px">
-    ${route('r-coral','/portfolio.html','◧','Портфель','Масштаб, деньги, охват и все проекты фонда',`${N} проектов · 2 языка`)}
-    ${route('r-blue','/analytics.html','◷','Аналитика','12 кросс-графиков по фреймворкам экономистов (Lorenz, DEA, Sankey)',`Gini ≈ ${giniB} · топ-3 = ${top3}%`)}
-    ${route('r-green','/impact.html','✓','Доказательства A–J','Полнота доказательной базы по 10 направлениям',`средн. покрытие ~${avgAJ}% · лучшее A 52%`)}
-    ${route('r-violet','/showcase.html','◆','Витрина','Живые проекты и флагман Notations Lab','Notations Lab: 87 чел, 13 событий')}
-    ${route('r-ink','/data.html','▦','Данные','Исходная таблица и полнота полей',`готовность данных ~${readiness}%`)}
-  </div>
+<section class="block">
+  <h2>Все проекты</h2>
+  <p class="muted">Фильтруйте по стриму, типу и году. Клик по карточке — детальный профиль проекта.</p>
+  <div class="filters" id="filters"></div>
+  <div class="pgrid" id="pgrid"></div>
 </section>`;
+
+// 1. cost per attendee by type
+(function(){const d=INS.efficiency.by_type;const c=chart(document.getElementById('c_eff'));
+  const col=(i,n)=>i===0?C.green:(i===n-1?C.coral:C.violet);
+  c.setOption({...theme,tooltip:{trigger:'axis',formatter:p=>{const r=d[p[0].dataIndex];
+      return `${r.type}<br><b>$${r.cost_per}</b> / зритель<br>${r.n} проектов · ${r.audience.toLocaleString('en-US')} зрителей`}},
+    grid:{left:12,right:64,top:16,bottom:8,containLabel:true},
+    xAxis:{type:'value',axisLabel:{formatter:v=>'$'+v}},
+    yAxis:{type:'category',inverse:true,data:d.map(x=>x.type)},
+    series:[{type:'bar',data:d.map((x,i)=>({value:x.cost_per,itemStyle:{color:col(i,d.length),borderRadius:[0,6,6,0]}})),
+      label:{show:true,position:'right',color:C.dark,formatter:p=>'$'+p.value}}]});})();
+
+// 2. budget concentration
+(function(){const cum=INS.budget_concentration.cumulative_share.map((v,i)=>[i+1,pp(v)]);
+  const c=chart(document.getElementById('c_conc'));
+  c.setOption({...theme,tooltip:{trigger:'axis',formatter:p=>`Топ-${p[0].data[0]} проектов = <b>${p[0].data[1]}%</b> бюджета`},
+    grid:{left:12,right:20,top:16,bottom:36,containLabel:true},
+    xAxis:{type:'value',name:'число проектов',nameLocation:'middle',nameGap:30,min:1,max:cum.length},
+    yAxis:{type:'value',max:100,axisLabel:{formatter:v=>v+'%'}},
+    series:[{type:'line',data:cum,smooth:true,symbol:'none',lineStyle:{color:C.coral,width:3},areaStyle:{color:'rgba(255,111,85,.15)'},
+      markLine:{symbol:'none',label:{color:C.muted},data:[{xAxis:3,lineStyle:{color:C.muted,type:'dashed'},label:{formatter:'топ-3'}}]}}]});})();
+
+// 3. format economics — avg budget (bars) + avg audience (line)
+(function(){const by={};projects.forEach(p=>{const t=p.type;if(!t)return;(by[t]=by[t]||{b:[],a:[]});
+    if(p.budget_usd!=null)by[t].b.push(p.budget_usd); if(p.audience_onsite!=null)by[t].a.push(p.audience_onsite);});
+  const rows=Object.entries(by).map(([t,d])=>({t,ab:d.b.length?Math.round(d.b.reduce((x,y)=>x+y)/d.b.length):0,
+    aa:d.a.length?Math.round(d.a.reduce((x,y)=>x+y)/d.a.length):0})).sort((x,y)=>y.ab-x.ab);
+  const c=chart(document.getElementById('c_econ'));
+  c.setOption({...theme,legend:{top:0,data:['средний бюджет, $','средний охват, зрителей']},
+    tooltip:{trigger:'axis',axisPointer:{type:'shadow'}},grid:{left:12,right:16,top:36,bottom:8,containLabel:true},
+    xAxis:{type:'category',data:rows.map(r=>r.t),axisLabel:{interval:0,width:90,overflow:'truncate'}},
+    yAxis:[{type:'value',name:'$',axisLabel:{formatter:v=>v>=1000?(v/1000)+'k':v}},{type:'value',name:'зрит.'}],
+    series:[{name:'средний бюджет, $',type:'bar',data:rows.map(r=>r.ab),itemStyle:{color:C.coral,borderRadius:[6,6,0,0]}},
+      {name:'средний охват, зрителей',type:'line',yAxisIndex:1,data:rows.map(r=>r.aa),lineStyle:{color:C.blue,width:3},itemStyle:{color:C.blue},symbolSize:8}]});})();
+
+// 4. budget × audience scatter
+(function(){const pts=projects.filter(p=>p.budget_usd!=null&&p.audience_onsite!=null&&p.audience_onsite>0)
+    .map(p=>({name:p.title||p.slug,type:p.type,value:[p.budget_usd,p.audience_onsite]}));
+  const c=chart(document.getElementById('c_scatter'));
+  c.setOption({...theme,tooltip:{formatter:p=>`${p.data.name}<br>${p.data.type||''}<br>$${p.data.value[0].toLocaleString('en-US')} · ${p.data.value[1].toLocaleString('en-US')} зрителей`},
+    grid:{left:12,right:20,top:16,bottom:36,containLabel:true},
+    xAxis:{type:'value',name:'бюджет, $',nameLocation:'middle',nameGap:32,axisLabel:{formatter:v=>v>=1000?'$'+(v/1000)+'k':'$'+v}},
+    yAxis:{type:'value',name:'охват, зрителей',nameLocation:'middle',nameGap:46},
+    series:[{type:'scatter',symbolSize:16,data:pts,itemStyle:{color:p=>tcol(p.data.type),opacity:.85,borderColor:'#fff',borderWidth:1.5}}]});})();
+
+// 5. top-10 audience
+(function(){const d=projects.filter(p=>p.audience_onsite!=null).sort((a,b)=>b.audience_onsite-a.audience_onsite).slice(0,10);
+  const c=chart(document.getElementById('c_top'));
+  c.setOption({...theme,tooltip:{trigger:'axis',formatter:p=>`${d[p[0].dataIndex].title||''}<br><b>${p[0].value.toLocaleString('en-US')}</b> зрителей`},
+    grid:{left:12,right:50,top:16,bottom:8,containLabel:true},
+    xAxis:{type:'value'},
+    yAxis:{type:'category',inverse:true,data:d.map(p=>(p.title||p.slug)),axisLabel:{width:150,overflow:'truncate',fontSize:11}},
+    series:[{type:'bar',data:d.map(p=>p.audience_onsite),itemStyle:{color:C.blue,borderRadius:[0,6,6,0]},label:{show:true,position:'right',color:C.dark}}]});})();
+
+// 6. duration × audience
+(function(){const pts=projects.filter(p=>p.duration_days!=null&&p.audience_onsite!=null)
+    .map(p=>({name:p.title||p.slug,value:[p.duration_days,p.audience_onsite]}));
+  const c=chart(document.getElementById('c_dur'));
+  c.setOption({...theme,tooltip:{formatter:p=>`${p.data.name}<br>${p.data.value[0]} дн. · ${p.data.value[1]} зрителей`},
+    grid:{left:12,right:20,top:16,bottom:36,containLabel:true},
+    xAxis:{type:'value',name:'длительность, дней',nameLocation:'middle',nameGap:30},
+    yAxis:{type:'value',name:'охват, зрителей',nameLocation:'middle',nameGap:46},
+    series:[{type:'scatter',symbolSize:14,data:pts,itemStyle:{color:C.violet,opacity:.8,borderColor:'#fff',borderWidth:1.5}}]});})();
+
+// 7. stream radar
+(function(){const cbs=INS.coverage_by_stream;const V=Object.keys(agg.vector_coverage);
+  if(!cbs.network||!cbs.foundation)return;
+  const series=Object.entries(cbs).map(([s,o])=>({value:V.map(v=>pp(o.coverage[v])),name:`${s} (n=${o.n})`}));
+  const c=chart(document.getElementById('c_streamr'));
+  c.setOption({...theme,color:[C.coral,C.blue],legend:{bottom:0},tooltip:{},
+    radar:{indicator:V.map(v=>({name:v,max:60})),radius:'64%',axisName:{color:C.dark,fontWeight:700,fontSize:12},
+      splitLine:{lineStyle:{color:'#E2D7CA'}},splitArea:{areaStyle:{color:['#fff','#faf6f0']}}},
+    series:[{type:'radar',data:series,areaStyle:{opacity:.12}}]});})();
+
+// filters + grid
+const facets={stream:new Set(),type:new Set(),year:new Set()};
+const uniq=(k)=>[...new Set(projects.map(p=>p[k]).filter(Boolean))];
+document.getElementById('filters').innerHTML=[['stream','Стрим'],['type','Тип'],['year','Год']].map(([k,lbl])=>
+  `<div class="group"><span class="muted" style="font-size:13px;align-self:center">${lbl}:</span>`+
+  uniq(k).map(v=>`<button class="fbtn" data-k="${k}" data-v="${v}" aria-pressed="false">${v}</button>`).join('')+`</div>`).join('');
+function render(){
+  const list=projects.filter(p=>['stream','type','year'].every(k=>facets[k].size===0||facets[k].has(p[k])));
+  document.getElementById('pgrid').innerHTML=list.length?list.map(p=>`<a class="pcard" href="/project.html?slug=${encodeURIComponent(p.slug)}">
+    <div>${p.stream?`<span class="pill coral">${p.stream}</span>`:''}${p.type?`<span class="pill">${p.type}</span>`:''}</div>
+    <div class="ttl">${p.title||p.slug}</div>
+    <div class="meta">${[p.city,p.year].filter(Boolean).join(' · ')}</div>
+    <div class="row"><span>👥 <b>${fmt(p.audience_onsite)}</b></span><span>🤝 <b>${fmt(p.partners_local)}</b></span><span>🌐 <b>${(p.languages||[]).length||'—'}</b></span></div>
+  </a>`).join(''):`<div class="empty-state"><b>Нет проектов под эти фильтры</b>Сбросьте часть фильтров, чтобы увидеть проекты.</div>`;
+}
+document.getElementById('filters').addEventListener('click',e=>{const btn=e.target.closest('.fbtn');if(!btn)return;
+  const{k,v}=btn.dataset;const on=btn.getAttribute('aria-pressed')==='true';
+  btn.setAttribute('aria-pressed',String(!on));on?facets[k].delete(v):facets[k].add(v);render();});
+render();
 </script></body></html>
